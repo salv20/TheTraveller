@@ -6,3 +6,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+header {
+  background: linear-gradient(90deg, #fdf0df, #fdf0df, white, #fdf0df);
+}
+
+.hero-one {
+  background: linear-gradient(80deg, #fdf0df, white, #fdf0df);
+
+}
