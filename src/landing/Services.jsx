@@ -9,11 +9,10 @@ const Services = () => {
     const path = service.path
     return (
         <section className="p-5  services gap-y-3 grid text-lightgray text-center">
-            <h2 className="font-bold text-bold uppercase text-lg md:text-xl">category</h2>
-            <h2 className="text-xl md:text-2xl  font-semibold capitalize text-black ">we offer the best services</h2>
+            <h2 className="font-bold text-semibold uppercase text-lg md:text-xl">category</h2>
+            <h1 className="text-xl md:text-2xl  font-semibold capitalize text-black ">we offer the best services</h1>
 
-            <NavLink></NavLink>
-            <div className="grid gap-y-5  sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-10">
+            <div className="grid gap-y-5  sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-10 pt-5">
                 {name.map((per, index) => (
                     <NavLink to={path[index]} key={index} className="space-y-1.5">
                         <img src={symbol[index]} alt="" className="w-14 mx-auto" />

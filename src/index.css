@@ -23,3 +23,7 @@ footer {
 .services {
   background: linear-gradient(100deg, #fff6ee, #fcfcfc, #fff6ee);
 }
+
+.topplaces {
+  background: linear-gradient(100deg, #fff8f0, #f7f7f7, #fdfcfa, #fef4ea);
+}

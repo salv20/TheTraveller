@@ -7,7 +7,7 @@ const Footer = () => {
             <div>
                 <h1 className="text-black  font-bold pb-2">Travel</h1>
                 <p className="normal-case ">Spread love everywhere you go.</p>
-                <p className="normal-case"> We show that we care</p>
+                <p className="normal-case"> We show that we care.</p>
             </div>
             <div className="grid w-fit">
                 <h1 className="font-semibold pb-2 ">company</h1>
