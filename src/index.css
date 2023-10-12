@@ -19,3 +19,7 @@ header {
 footer {
   background: linear-gradient(90deg, #fdf0df, #f7f7f7, #f7f7f7, #fff3e7);
 }
+
+.services {
+  background: linear-gradient(100deg, #fff6ee, #fcfcfc, #fff6ee);
+}

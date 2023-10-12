@@ -1,9 +1,9 @@
-import { FaLinkedin, FaTwitter, FaFacebookF } from "react-icons/fa"
+import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
 
 const Footer = () => {
     return (
-        <footer className="grid grid-cols-2 gap-y-5 gap-x-10 text-lightgray capitalize px-5 md:flex md:justify-evenly py-5">
+        <footer className="grid grid-cols-2 p-5 gap-y-5 gap-x-10 text-lightgray capitalize md:flex md:justify-evenly ">
             <div>
                 <h1 className="text-black  font-bold pb-2">Travel</h1>
                 <p className="normal-case ">Spread love everywhere you go.</p>
@@ -31,9 +31,9 @@ const Footer = () => {
 
             <div className="pt-4 md:pt-0">
                 <div className="gap-x-5 text-center flex w-fit text-orange pb-2 text-xl">
-                    <NavLink className='p-2 rounded-full bg-gray-700'><FaFacebookF /></NavLink>
-                    <NavLink className='p-2 rounded-full bg-gray-700'><FaTwitter /></NavLink>
-                    <NavLink className='p-2 rounded-full bg-gray-700'><FaLinkedin /></NavLink>
+                    <NavLink to='https://github.com/salv20' className='p-2 rounded-full bg-gray-700'><FaGithub /></NavLink>
+                    <NavLink to='https://twitter.com/Salvati75317889' className='p-2 rounded-full bg-gray-700'><FaTwitter /></NavLink>
+                    <NavLink to='https://www.linkedin.com/in/amoke-salvation-6b89a7248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BIXeMSD9iRoqOs%2BYeoySMiw%3D%3D' className='p-2 rounded-full bg-gray-700'><FaLinkedin /></NavLink>
                 </div>
                 <h1 className="font-semibold">discover our app</h1>
                 <div className="grid grid-cols-2 w-fit">

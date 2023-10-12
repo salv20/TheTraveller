@@ -8,7 +8,7 @@ const Hero = () => {
                 <p className='font-semibold  text-xl md:w-3/4 leading-relaxed'>Travel, enjoy and live a new and full life.</p>
                 <p className='md:w-3/4 md:leading-relaxed '>We make travel planning easy, our services includes;
                     flight bookings,
-                    helping you picking out the best destinations,
+                    helping you pick out the best destinations,
                     checking the average weather conditions of your preferred travel options.
                 </p>
                 <p className='uppercase font-bold text-darkpink md:pt-4'>“Travel far enough, you meet yourself.”</p>

@@ -1,9 +1,12 @@
+import Hero from "./landing/Hero"
+import Services from "./landing/Services"
 
 function App() {
 
   return (
     <>
-      <h1>hello all </h1>
+      <Hero />
+      <Services />
     </>
   )
 }
