@@ -7,8 +7,8 @@ const Header = () => {
     return (
         <header className="flex justify-around py-6 font-bold">
             <h1 className="uppercase text-lg">travel</h1>
-            <nav className={` ${open ? '-left-80' : 'left-0'} transition-all duration-500 bg-dawhite top-0 w-1/2 h-full md:px-0 md:w-auto md:bg-transparent  fixed md:static md:flex gap-x-8 capitalize text-lightgray`}>
-                <button type="button" className="md:hidden text-3xl  relative left-3/4 py-10" onClick={() => setOpen(!open)}> <FaTimes /></button>
+            <nav className={` ${open ? '-left-80' : 'left-0'} transition-all duration-500 bg-dawhite top-0 w-3/5 h-full md:px-0 md:w-auto md:bg-transparent  fixed md:static md:flex gap-x-8 capitalize text-lightgray`}>
+                <button type="button" className="md:hidden text-3xl  relative left-3/4 py-5" onClick={() => setOpen(!open)}> <FaTimes /></button>
                 <ul className="grid gap-y-1 md:flex gap-x-8">
                     <NavLink to='/' className='bg-light p-4 md:bg-transparent md:p-0'>home</NavLink>
                     <NavLink to='destination' className='bg-light p-4 md:bg-transparent md:p-0'>destination</NavLink>
