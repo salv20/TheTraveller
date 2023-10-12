@@ -15,3 +15,7 @@ header {
   background: linear-gradient(80deg, #fdf0df, white, #fdf0df);
 
 }
+
+footer {
+  background: linear-gradient(90deg, #fdf0df, #f7f7f7, #f7f7f7, #fff3e7);
+}
