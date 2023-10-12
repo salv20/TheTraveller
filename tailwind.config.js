@@ -8,6 +8,8 @@ export default {
         darkpink: "#e69c8a",
         orange: "#f18700",
         lightorange: "#d9644d",
+        dawhite: "#fafafa",
+        light: "#fff8f2",
       },
     },
   },

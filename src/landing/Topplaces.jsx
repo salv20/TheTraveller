@@ -1,51 +1,27 @@
 import { FaLocationArrow } from 'react-icons/fa'
+import { top } from '../../utilities/accesory'
+import { NavLink } from 'react-router-dom'
 const Topplaces = () => {
+    const image = top.img
+    const name = top.name
+    const location = top.location
     return (
         <section className='py-10 text-center text-lightgray px-5 space-y-1 topplaces'>
             <h2 className="font-bold text-semibold uppercase md:text-lg">top selling</h2>
             <h1 className="text-lg md:text-xl  font-semibold capitalize text-black ">destinations</h1>
 
-            <div className='grid sm:grid-cols-3 gap-x-4 md:gap-x-10 pt-5'>
-
-                <div>
-                    <img src="/rome.png" alt="" className='w-full  h-72 sm:h-52' />
-                    <div className='flex justify-evenly capitalize'>
-                        <p>rome italy</p>
-                        <p>450k</p>
+            <div className='grid gap-y-6 md:grid-cols-3 gap-x-4 md:gap-x-5 pt-5 capitalize font-semibold'>
+                {image.map((img, index) => (
+                    <div key={index}>
+                        <img src={img} alt="" className='w-full  h-64 md:h-52 py-2' />
+                        <h1 className='text-orange'>{name[index]}</h1>
+                        <div className='flex space-x-1.5 justify-center'>
+                            <FaLocationArrow className='mt-1' />
+                            <h2 className='pb-5'>{location[index]}</h2>
+                        </div>
+                        <NavLink className=' text-white  px-14 rounded-lg py-2.5 visit'>pay a visit</NavLink>
                     </div>
-                    <div className='flex justify-center pt-2'>
-                        <FaLocationArrow className='mt-1' />
-                        <p> 30 days trip</p>
-                    </div>
-
-                </div>
-                {/*  */}
-                <div>
-                    <img src="/washigton.png" alt="" className='w-full h-72 md:h-52' />
-                    <div className='flex justify-evenly capitalize'>
-                        <p>rome italy</p>
-                        <p>450k</p>
-                    </div>
-                    <div className='flex justify-center pt-2'>
-                        <FaLocationArrow className='mt-1' />
-                        <p> 30 days trip</p>
-                    </div>
-
-                </div>
-                {/*  */}
-                <div>
-                    <img src="/manchester.png" alt="" className='w-full h-72 md:h-52' />
-                    <div className='flex justify-evenly capitalize'>
-                        <p>rome italy</p>
-                        <p>450k</p>
-                    </div>
-                    <div className='flex justify-center pt-2'>
-                        <FaLocationArrow className='mt-1' />
-                        <p> 30 days trip</p>
-                    </div>
-
-                </div>
-
+                ))}
             </div>
         </section>
     )

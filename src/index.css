@@ -25,5 +25,9 @@ footer {
 }
 
 .topplaces {
-  background: linear-gradient(100deg, #fff8f0, #f7f7f7, #fdfcfa, #fef4ea);
+  background: linear-gradient(100deg, #fff8f0, #fff6ee, #f7f7f7, #fef4ea);
+}
+
+.visit {
+  background: linear-gradient(90deg, #f18670, #efa039);
 }
