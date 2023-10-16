@@ -4,8 +4,8 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
 import mainlayout from './Layouts/mainlayout.jsx'
-import noPage from './components/noPage.jsx'
-import Social from './components/Social.jsx'
+import noPage from './Pages/noPage.jsx'
+import Social from './Pages/Social.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' Component={mainlayout}>
