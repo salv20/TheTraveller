@@ -11,6 +11,9 @@ export default {
         dawhite: "#fafafa",
         light: "#fff8f2",
       },
+      spacing: {
+        eighty: "90rem",
+      },
     },
   },
   plugins: [],
