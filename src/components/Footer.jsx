@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
 
             <div className="pt-4 md:pt-0">
-                <div className="gap-x-5 text-center flex w-fit text-orange pb-2 text-xl">
+                <div className="gap-x-2.5 text-center flex w-fit text-orange pb-2 text-xl">
                     <NavLink to='https://github.com/salv20' className='p-2 rounded-full bg-gray-700'><FaGithub /></NavLink>
                     <NavLink to='https://twitter.com/Salvati75317889' className='p-2 rounded-full bg-gray-700'><FaTwitter /></NavLink>
                     <NavLink to='https://www.linkedin.com/in/amoke-salvation-6b89a7248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BIXeMSD9iRoqOs%2BYeoySMiw%3D%3D' className='p-2 rounded-full bg-gray-700'><FaLinkedin /></NavLink>
