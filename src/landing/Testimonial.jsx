@@ -1,9 +1,11 @@
 import { testimony } from '../../utilities/accesory';
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+
 const Testimonial = () => {
     const name = testimony.name
     const statement = testimony.statement
@@ -20,9 +22,8 @@ const Testimonial = () => {
             </div>
 
             <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
+                modules={[Navigation, Pagination, EffectFade]}
                 spaceBetween={55}
-                effect='fade'
                 slidesPerView={1}
                 navigation={true}
                 pagination={
@@ -31,17 +32,17 @@ const Testimonial = () => {
                         dynamicBullets: true,
                     }
                 }
-                className=' flex justify-center px-8 md:px-14 md:my-5 py-8'
+                className=' flex justify-center px-3 py-8 md:my-5 '
             >
 
                 {name.map((per, index) =>
-                    <SwiperSlide key={index} className=' text-lightgray'>
-                        <div className="lg:mx-14 xl:mx-32">
+                    <SwiperSlide key={index} className=' text-lightgray md:px-14 xl:px-32'>
+                        <div className="">
                             <img src={profile[index]} alt="" className='w-12 absolute' />
-                            <p className='mx-14'>{statement[index]}</p>
+                            <p className='pl-14'>{statement[index]}</p>
 
                         </div>
-                        <div className="capitalize font-bold py-2 mx-14 lg:mx-28 xl:mx-48">
+                        <div className="capitalize font-bold py-2 pl-14 ">
                             <p className=' text-black'>{per}</p>
                             <p>{work[index]}</p>
                         </div>
