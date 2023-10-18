@@ -20,7 +20,7 @@ export default {
         services: "linear-gradient(100deg, #fff6ee, #fcfcfc, #fff6ee)",
         footer: "linear-gradient(90deg, #fdf0df, #f7f7f7, #f7f7f7, #fff3e7)",
         places: "linear-gradient(100deg, #fdf0df, #f7f7f7, #fff8f0, #fef4ea)",
-        visited: "linear-gradient(90deg, #f18670, #efa039)",
+        visit: "linear-gradient(90deg, #f18670, #efa039)",
       },
     },
   },

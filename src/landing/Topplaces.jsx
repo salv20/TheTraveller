@@ -19,7 +19,7 @@ const Topplaces = () => {
                             <FaLocationArrow className='mt-1' />
                             <h2 className='pb-5'>{location[index]}</h2>
                         </div>
-                        <NavLink className=' text-white  px-14 rounded-lg py-2.5 visit'>pay a visit</NavLink>
+                        <NavLink className=' text-white px-14 rounded-lg py-2.5 bg-visit'>pay a visit</NavLink>
                     </div>
                 ))}
             </div>
