@@ -12,7 +12,7 @@ const Testimonial = () => {
     const profile = testimony.profile
     const work = testimony.work
     return (
-        <section className='md:flex bg-places'>
+        <section className='md:flex bg-places py-5 px-2'>
             <div className='md:w-5/6 mx-5 leading-loose font-bold md:py-14 text-center md:text-left'>
                 <h1 className='uppercase text-lightgray'>Testimonial</h1>
                 <div className=" text-xl md:text-2xl">
