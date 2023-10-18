@@ -7,27 +7,14 @@
 @tailwind components;
 @tailwind utilities;
 
-header {
-  background: linear-gradient(90deg, #fdf0df, #fdf0df, white, #fdf0df);
-}
+/* .swiper {
+  width: 100%;
+  height: 100%;
+} */
 
-.hero-one {
-  background: linear-gradient(80deg, #fdf0df, white, #fdf0df);
+/* .swiper-slide {
 
-}
-
-footer {
-  background: linear-gradient(90deg, #fdf0df, #f7f7f7, #f7f7f7, #fff3e7);
-}
-
-.services {
-  background: linear-gradient(100deg, #fff6ee, #fcfcfc, #fff6ee);
-}
-
-.topplaces {
-  background: linear-gradient(100deg, #fdf0df, #f7f7f7, #fff8f0, #fef4ea);
-}
-
-.visit {
-  background: linear-gradient(90deg, #f18670, #efa039);
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */

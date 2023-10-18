@@ -2,7 +2,7 @@ import { FaPlay } from 'react-icons/fa'
 
 const Hero = () => {
     return (
-        <section className='md:flex py-5 md:py-14 px-6 gap-y-10 hero-one text-center md:text-left'>
+        <section className='md:flex py-5 md:py-14 px-6 gap-y-10 bg-heroone text-center md:text-left'>
             <div className='space-y-5 md:w-1/2'>
                 <h1 className='uppercase font-bold text-darkpink '>best destination around the world</h1>
                 <p className='font-semibold  text-xl md:w-3/4 leading-relaxed'>Travel, enjoy and live a new and full life.</p>

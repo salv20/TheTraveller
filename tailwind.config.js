@@ -14,6 +14,14 @@ export default {
       spacing: {
         eighty: "90rem",
       },
+      backgroundImage: {
+        heading: "linear-gradient(90deg, #fdf0df, #fdf0df, white, #fdf0df)",
+        heroone: "linear-gradient(80deg, #fdf0df, white, #fdf0df)",
+        services: "linear-gradient(100deg, #fff6ee, #fcfcfc, #fff6ee)",
+        footer: "linear-gradient(90deg, #fdf0df, #f7f7f7, #f7f7f7, #fff3e7)",
+        places: "linear-gradient(100deg, #fdf0df, #f7f7f7, #fff8f0, #fef4ea)",
+        visited: "linear-gradient(90deg, #f18670, #efa039)",
+      },
     },
   },
   plugins: [],

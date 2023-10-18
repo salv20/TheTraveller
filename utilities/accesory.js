@@ -1,4 +1,3 @@
-// const accesory = {
 export const service = {
   name: [
     "trip itinerary",
@@ -23,4 +22,15 @@ export const top = {
     "Cross River, Nigeria.",
     "paris, france.",
   ],
+};
+
+export const testimony = {
+  name: ["salvation sean", "chidera afro", "chimdi d'uzi"],
+  profile: ["/user.png", "/user.png", "/user.png"],
+  statement: [
+    "Great Experience with easytravel. one of customer service agent who’s name is stephanie. She was of help to get best deal. I found very easy the way she gave me all information for book my flight.",
+    "This is our favorite travel agency. Except the long wait they have Outstanding customer services at reasonable prices. Thank you for easy booking with flights and hotels. Great deals, and honest services.",
+    "Easytravel is the most responsive, knowledgeable and personable travel advisor we have ever dealt with. We have traveled the world and plan so many more trips with easy travel. Highly recommended to everyone.",
+  ],
+  work: ["frontend developer", "forex trader", "fullstack developer"],
 };

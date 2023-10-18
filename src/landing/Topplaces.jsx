@@ -6,7 +6,7 @@ const Topplaces = () => {
     const name = top.name
     const location = top.location
     return (
-        <section className='py-10 text-center text-lightgray px-5 space-y-1 topplaces'>
+        <section className='py-10 text-center text-lightgray px-5 space-y-1 bg-places'>
             <h2 className="font-bold text-semibold uppercase md:text-lg">top selling</h2>
             <h1 className="text-lg md:text-xl  font-semibold capitalize text-black ">destinations</h1>
 

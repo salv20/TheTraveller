@@ -8,7 +8,7 @@ const Services = () => {
     const text = service.text
     const path = service.path
     return (
-        <section className="p-5  services gap-y-2 grid text-lightgray text-center">
+        <section className="p-5  bg-services gap-y-2 grid text-lightgray text-center">
             <h2 className="font-bold text-semibold uppercase text-lg md:text-xl">category</h2>
             <h1 className="text-xl md:text-2xl  font-semibold capitalize text-black ">we offer the best services</h1>
 

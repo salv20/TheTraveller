@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 const Footer = () => {
     return (
-        <footer className="grid grid-cols-2 p-5 gap-y-5 gap-x-10 text-lightgray capitalize md:flex md:justify-evenly ">
+        <footer className="grid grid-cols-2 p-5 gap-y-5 gap-x-10 text-lightgray capitalize md:flex md:justify-evenly bg-footer ">
             <div>
                 <h1 className="text-black  font-bold pb-2">Travel</h1>
                 <p className="normal-case ">Spread love everywhere you go.</p>
