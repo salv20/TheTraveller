@@ -21,7 +21,7 @@ export default {
         footer: "linear-gradient(90deg, #fdf0df, #f7f7f7, #f7f7f7, #fff3e7)",
         places: "linear-gradient(100deg, #fdf0df, #f7f7f7, #fff8f0, #fef4ea)",
         visit: "linear-gradient(90deg, #f18670, #efa039)",
-        subscribe: "linear-gradient(90deg,#e69c8a, #fbf0e4,#e69c8a)",
+        subscribe: "linear-gradient(150deg,#e5d3bd, #fbf0e4, #fbf0e4,#e69c8a)",
       },
     },
   },
