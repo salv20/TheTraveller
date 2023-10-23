@@ -14,10 +14,3 @@ const Subscription = () => {
 }
 
 export default Subscription
-
-
-//    <div className="space-y-2 sm:space-y-0 sm:flex space-x-5 justify-center pt-4 px-3">
-{/* <input type="email" placeholder="your email" className="capitalize bg-gray-200 py-2 px-14  outline-none" />
-            <div className="bg- subscribe py-10 rounded-lg border-2 mx-4 md:mx-20 lg:mx-40 xl:mx-56">
-<button type="submit" aria-label="subscription" className="bg-darkpink py-2 px-10">Subscribe</button>
-</div> */}

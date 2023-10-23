@@ -1,18 +1,15 @@
-import Hero from "./landing/Hero"
-import Services from "./landing/Services"
-import Subscription from "./landing/Subscription"
-import Testimonial from "./landing/Testimonial"
-import Topplaces from "./landing/Topplaces"
+import { Outlet } from "react-router-dom"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
 
 function App() {
 
   return (
     <>
-      <Hero />
-      <Services />
-      <Topplaces />
-      <Testimonial />
-      <Subscription />
+      <Header />
+      <Outlet />
+      <Footer />
+
     </>
   )
 }

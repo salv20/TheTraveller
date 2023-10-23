@@ -2,7 +2,7 @@ export const service = {
   name: [
     "trip itinerary",
     "explore destination",
-    "book fligt",
+    "book flight",
     "calculate weather",
   ],
   symbol: ["/itinerary.png", "/destination.png", "/boeing.png", "/cloud.png"],

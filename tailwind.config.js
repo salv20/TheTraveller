@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      ml: "850px",
+    },
     extend: {
       colors: {
         lightgray: "#5f5e5c",
@@ -13,6 +16,7 @@ export default {
       },
       spacing: {
         eighty: "90rem",
+        nineper: "90%",
       },
       backgroundImage: {
         heading: "linear-gradient(90deg, #fdf0df, #fdf0df, white, #fdf0df)",
