@@ -16,7 +16,7 @@ export default {
       },
       spacing: {
         eighty: "90rem",
-        nineper: "90%",
+        nineper: "80%",
       },
       backgroundImage: {
         heading: "linear-gradient(90deg, #fdf0df, #fdf0df, white, #fdf0df)",
