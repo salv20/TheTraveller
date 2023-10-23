@@ -32,7 +32,7 @@ const Testimonial = () => {
                         dynamicBullets: true,
                     }
                 }
-                className=' flex justify-center px-3 py-8 md:my-5 '
+                className=' flex justify-center px-4 py-8 md:my-5 '
             >
 
                 {name.map((per, index) =>

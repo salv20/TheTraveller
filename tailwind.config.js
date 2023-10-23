@@ -2,10 +2,10 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    screens: {
-      ml: "850px",
-    },
     extend: {
+      screens: {
+        ml: "850px",
+      },
       colors: {
         lightgray: "#5f5e5c",
         darkpink: "#e69c8a",
