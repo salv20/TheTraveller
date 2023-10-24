@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { FaPlay } from 'react-icons/fa'
 import { appcontext } from '../routes/landing.route'
-
+import { Link } from 'react-router-dom'
 const Hero = () => {
     const { clickFunc } = useContext(appcontext)
     return (
@@ -17,10 +17,14 @@ const Hero = () => {
                 <p className='uppercase font-bold text-darkpink md:pt-4'>“Travel far enough, you meet yourself.”</p>
 
                 <div className='space-y-4 md:flex md:space-x-5 md:space-y-0 md:pt-6'>
-                    <button type="button" className='bg-orange px-4 py-2.5 capitalize rounded-lg text-white font-semibold '>find out more</button>
+                    <button type="button" className='bg-orange px-4 py-2.5 capitalize rounded-lg text-white font-semibold '>
+                        <Link to='destination'>find out more</Link>
+                    </button>
                     <div className="flex space-x-4 justify-center md:justify-normal">
-                        <button type="button" className='bg-lightorange text-white rounded-full p-3.5' ><FaPlay /> </button>
-                        <p className='py-1 text-lg'>watch video</p>
+                        <button type="button" className='bg-lightorange text-white rounded-full p-3.5' >
+                            <Link to='video'><FaPlay /> </Link>
+                        </button>
+                        <Link to='video' className='py-1 text-lg block'>watch video</Link>
                     </div>
                 </div>
             </div>

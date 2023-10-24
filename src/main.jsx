@@ -7,11 +7,12 @@ import noPage from './Pages/noPage.jsx'
 import Social from './Pages/Social.jsx'
 import Landingroute from './routes/landing.route.jsx'
 import Dashboard from './routes/dashboard.route.jsx'
+import VideoPage from './components/video.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index Component={Landingroute} />
-
+      <Route Component={VideoPage} path='video' />
       <Route Component={App}>
         <Route path='social' Component={Social} />
         <Route path='destination' Component={Dashboard} />
