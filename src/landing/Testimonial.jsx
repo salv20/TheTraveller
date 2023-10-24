@@ -15,7 +15,7 @@ const Testimonial = () => {
         <section className='md:flex bg-places py-5 px-4'>
             <div className='md:w-5/6 mx-5 leading-loose font-bold md:py-14 text-center md:text-left'>
                 <h1 className='uppercase text-lightgray'>Testimonial</h1>
-                <div className=" text-xl md:text-2xl">
+                <div className=" text-xl md:text-2xl pb-5">
                     <p >What people say </p>
                     <p>about us</p>
                 </div>
