@@ -37,7 +37,7 @@ const Hero = () => {
 
                     <div className={!play ? 'hidden' : 'mx-auto lg:pt-10 w-3/4 block  md:hidden '}>
                         {play &&
-                            <Video autoPlay loop
+                            <Video loop
                                 controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
                                 poster="http://sourceposter.jpg"
                             >
@@ -54,7 +54,7 @@ const Hero = () => {
 
             <div className={!play ? 'hidden' : 'mx-auto lg:pt-10 w-2/5 hidden md:block'}>
                 {play &&
-                    <Video autoPlay loop
+                    <Video loop
                         controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
                         poster="http://sourceposter.jpg"
                     >
