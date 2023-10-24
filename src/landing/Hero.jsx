@@ -34,13 +34,25 @@ const Hero = () => {
                             <button type="button" > watch video </button>
                         </div>
                     </div>
+
+                    <div className={!play ? 'hidden' : 'mx-auto lg:pt-10 w-3/4 block  md:hidden '}>
+                        {play &&
+                            <Video autoPlay loop
+                                controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
+                                poster="http://sourceposter.jpg"
+                            >
+                                <source src="/VID.mp4" type="video/mp4" />
+                            </Video>
+                        }
+                    </div>
+
                 </div>
                 <div>
-                    <img src={'/cartoon.png'} alt="" className='md:w-3/4 w-1/2 mx-auto' />
+                    <img src={'/cartoon.png'} alt="" className='md:w-4/5 w-1/2 mx-auto' />
                 </div>
             </article>
 
-            <div className={!play ? 'hidden' : 'mx-auto lg:pt-10 w-2/5 block'}>
+            <div className={!play ? 'hidden' : 'mx-auto lg:pt-10 w-2/5 hidden md:block'}>
                 {play &&
                     <Video autoPlay loop
                         controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
