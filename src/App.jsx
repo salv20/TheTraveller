@@ -9,7 +9,7 @@ function App() {
     <main className="md:flex justify-between">
       <Leftbar />
 
-      <section>
+      <section className="w-3/5 rounded-lg bg-heading m-2.5 border-2">
         <Header />
         <Outlet />
       </section>

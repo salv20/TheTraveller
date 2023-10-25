@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom"
 
 const Leftbar = () => {
     return (
-        <nav className=" px-5 capitalize font-bold h-screen pt-8">
+        <nav className=" px-10 capitalize font-bold h-screen pt-8  md:block md:w-fit">
             <h1 className="pb-8 text-lg md:text-xl ">Easytravel</h1>
             <ul className="grid gap-y-4 ul font-bold text-lightgray">
                 <li>
