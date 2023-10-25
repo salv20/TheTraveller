@@ -2,10 +2,15 @@ import { FaTimes, FaStream } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
 
 import { appcontext } from "../routes/landing.route"
-import { useContext } from "react"
+import { useContext, useLayoutEffect } from "react"
+import gsap from "gsap"
+
+
+
 const Landingheader = () => {
     const { open } = useContext(appcontext)
     const { setOpen } = useContext(appcontext)
+
 
     return (
 
@@ -15,9 +20,9 @@ const Landingheader = () => {
                 <button type="button" className="ml:hidden text-3xl  relative left-nineper py-5" onClick={() => setOpen(!open)}> <FaTimes /></button>
                 <ul className="grid gap-y-1 ml:flex gap-x-8" onClick={() => setOpen(false)}>
                     <NavLink to='/' className='bg-light p-4 ml:bg-transparent ml:p-0'>home</NavLink>
-                    <NavLink to='destination' className='bg-light p-4 ml:bg-transparent ml:p-0'>destination</NavLink>
-                    <NavLink to='flight' className='bg-light p-4 ml:bg-transparent ml:p-0'>flight</NavLink>
+                    <NavLink to='discover' className='bg-light p-4 ml:bg-transparent ml:p-0'>discover</NavLink>
                     <NavLink to='bookings' className='bg-light p-4 ml:bg-transparent ml:p-0'>bookings</NavLink>
+                    <NavLink to='weather' className='bg-light p-4 ml:bg-transparent ml:p-0'>weather</NavLink>
                     <NavLink to='contact' className='bg-light p-4 ml:bg-transparent ml:p-0'>contact us</NavLink>
                     <NavLink to='login' className='bg-light p-4 ml:bg-transparent ml:p-0'>login</NavLink>
                 </ul>

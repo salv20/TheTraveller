@@ -1,16 +1,21 @@
 import { Outlet } from "react-router-dom"
-import Footer from "./components/Footer"
 import Header from "./components/Header"
+import Leftbar from "./components/Leftbar"
+import Rightbar from "./components/Rightbar"
 
 function App() {
 
   return (
-    <>
-      <Header />
-      <Outlet />
-      <Footer />
+    <main className="md:flex justify-between">
+      <Leftbar />
 
-    </>
+      <section>
+        <Header />
+        <Outlet />
+      </section>
+
+      <Rightbar />
+    </main>
   )
 }
 

@@ -6,14 +6,16 @@ import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } 
 import noPage from './Pages/noPage.jsx'
 import Social from './Pages/Social.jsx'
 import Landingroute from './routes/landing.route.jsx'
-import Dashboard from './routes/dashboard.route.jsx'
+import Explore from './routes/explore.route.jsx'
+import Booking from './routes/booking.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index Component={Landingroute} />
       <Route Component={App}>
         <Route path='social' Component={Social} />
-        <Route path='destination' Component={Dashboard} />
+        <Route path='discover' index Component={Explore} />
+        <Route path='bookings' Component={Booking} />
       </Route>
 
       <Route path='*' Component={noPage} />
