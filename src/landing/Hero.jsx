@@ -25,7 +25,7 @@ const Hero = () => {
 
                     <div className='space-y-4 md:flex md:space-x-5 md:space-y-0 md:pt-6'>
                         <button type="button" className='bg-orange px-4 py-2.5 capitalize rounded-lg text-white font-semibold '>
-                            <Link to='destination'>find out more</Link>
+                            <Link to='discover'>find out more</Link>
                         </button>
                         <div className="flex space-x-4 justify-center md:justify-normal" onClick={() => setPlay(!play)}>
                             <button type="button" className='bg-lightorange text-white rounded-full p-3.5'  >

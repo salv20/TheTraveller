@@ -12,7 +12,7 @@ export const service = {
     "Search and book flights directly within the app, making it convinent to plan your trip.",
     "Get access to real-time weather updates for your destinations, making trip planning easy and smooth.",
   ],
-  path: ["itinerary", "destination", "flight", "weather"],
+  path: ["itinerary", "discover", "bookings", "weather"],
 };
 export const top = {
   img: ["/rolex.webp", "/obudu.jpg", "/paris.jpg"],

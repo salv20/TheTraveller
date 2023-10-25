@@ -13,7 +13,7 @@ nav {
 
 .ul a:hover {
   background-color: #f18700;
-  padding: 8px 20px;
+  padding: 8px 15px;
   color: white;
   border-radius: 10px;
   transition: all 1s ease-in-out;

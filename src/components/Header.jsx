@@ -16,7 +16,7 @@ const Header = () => {
 
             <article className="flex justify-evenly py-5">
                 <input type="search" name="" id="" placeholder="Search destinations" className="outline-none py-2 rounded-lg text-center w-1/2 border-2" />
-                <button type="button" aria-label="bars" className="text-lg md:text-xl bg-orange text-white px-2 h-fit my-auto py-1"> <FaBars /> </button>
+                <button type="button" aria-label="bars" className="text-lg bg-orange text-white px-2 h-fit my-auto py-1 lg:hidden"> <FaBars /> </button>
                 <button type="button" aria-label="search" className=" capitalize bg-orange text-white font-bold text-center px-6 rounded-lg">search</button>
 
             </article>
