@@ -4,11 +4,11 @@ const Header = ({ nav, navFunc }) => {
 
     return (
         <section className='pt-8'>
-            <article className="flex justify-evenly px-3 md:mx-0 space-x-3">
+            <article className="flex justify-evenly px-4 md:mx-0 space-x-3">
 
                 <div className="space-y-0.5">
-                    <h1 className=" capitalize font-bold text-xl">hello, sean</h1>
-                    <h2 className=" text-orange font-bold text-lg w-3/4 md:w-full ">Welcome back and explore the world.</h2>
+                    <h1 className=" capitalize font-bold text-lg md:text-xl">hello, sean</h1>
+                    <h2 className=" text-orange font-bold sm:text-lg w-4/5 md:w-full ">Welcome back and explore the world.</h2>
                 </div>
 
                 <button type="button" aria-label="bars" className="text-xl h-fit lg:hidden" onClick={navFunc}> <FaBars /> </button>
