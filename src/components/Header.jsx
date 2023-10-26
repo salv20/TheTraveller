@@ -4,14 +4,14 @@ const Header = ({ nav, navFunc }) => {
 
     return (
         <section className='pt-8'>
-            <article className="flex justify-evenly mx-5 md:mx-0">
+            <article className="flex justify-evenly mx-5 md:mx-0 space-x-3">
 
-                <div className="space-y-2">
+                <div className="space-y-0.5">
                     <h1 className=" capitalize font-bold text-lg md:text-xl">hello, sean</h1>
-                    <h2 className=" text-orange font-bold text-lg">Welcome back and explore the world.</h2>
+                    <h2 className=" text-orange font-bold sm:text-lg">Welcome back and explore the world.</h2>
                 </div>
 
-                <button type="button" aria-label="bars" className="text-lg bg-orange py-0.5 px-1.5 h-fit text-white lg:hidden" onClick={navFunc}> <FaBars /> </button>
+                <button type="button" aria-label="bars" className="text-xl h-fit lg:hidden" onClick={navFunc}> <FaBars /> </button>
 
                 <div className="flex h-fit">
                     <button type="button" aria-label="notificationbtn" className="h-fit text-xl md:text-2xl ml-2"><FaRegBell /></button>

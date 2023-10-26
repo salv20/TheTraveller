@@ -34,3 +34,26 @@ export const testimony = {
   ],
   work: ["frontend developer", "forex trader", "fullstack developer"],
 };
+
+export const navlist = {
+  list: [
+    "home",
+    "discover",
+    "bookings",
+    "weather",
+    "favorite",
+    "notification",
+    "trash",
+    "contact us",
+  ],
+  path: [
+    "/",
+    "discover",
+    "bookings",
+    "weather",
+    "favorite",
+    "notification",
+    "trash",
+    "contact",
+  ],
+};
