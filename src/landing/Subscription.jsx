@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Subscription = () => {
+    const focus = useRef()
     const [email, setmail] = useState('')
 
     const notify = (e) => {
@@ -10,10 +11,7 @@ const Subscription = () => {
         if (email && email.toLowerCase().includes('@' && '.com')) {
             return toast.success('subscription successful. Thanks for subscribing.', setmail(''))
         } else return (
-            toast.error('Please enter a valid email.', setmail('')))
-
-
-
+            toast.error('Please enter a valid email.'), focus.current.focus())
     }
 
     return (
@@ -25,10 +23,13 @@ const Subscription = () => {
                         placeholder="your email"
                         className=" bg-dawhite outline-none py-1.5 w-11/12 text-center rounded-sm" required value={email}
                         onChange={e => (setmail(e.target.value))}
+                        ref={focus}
                     />
                     <button type="submit" aria-label="subscription"
                         className="bg-darkpink w-1/2 py-1.5 rounded-sm"
-                        onClick={notify}
+                        onClick={
+                            notify
+                        }
                     > Subscribe </button>
                     <ToastContainer
                         position="top-center"

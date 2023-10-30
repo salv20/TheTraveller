@@ -57,3 +57,8 @@ export const navlist = {
     "contact",
   ],
 };
+
+export const landingNav = {
+  list: ["home", "discover", "bookings", "weather", "contact us", "login"],
+  path: ["/", "discover", "bookings", "weather", "contact", "login"],
+};

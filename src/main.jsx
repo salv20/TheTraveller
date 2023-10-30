@@ -16,13 +16,18 @@ import Weather from './routes/weather.jsx'
 import Itinenary from './routes/itinenary.jsx'
 import Login from './Pages/Auth/login.jsx'
 import Signup from './Pages/Auth/signup.jsx'
+import Calenderpg from './explore/calender.jsx'
+import Locations from './explore/veiw.locations.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index Component={Landingroute} />
       <Route Component={App}>
         <Route path='social' Component={Social} />
-        <Route path='discover' index Component={Explore} />
+        <Route path='discover' Component={Explore} >
+          <Route index Component={Calenderpg} />
+          <Route path='all' Component={Locations} />
+        </Route>
         <Route path='bookings' Component={Booking} />
         <Route path='favorite' Component={Favorite} />
         <Route path='notification' Component={Notification} />
