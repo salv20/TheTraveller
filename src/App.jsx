@@ -13,7 +13,7 @@ function App() {
     <main className="md:flex justify-between">
       <Leftbar nav={nav} navFunc={navFunc} />
 
-      <section className="md:w-3/5 lg:w-1/2">
+      <section className="md:w-3/5 lg:w-1/2 px-5">
         <Header nav={nav} navFunc={navFunc} />
         <Outlet />
       </section>

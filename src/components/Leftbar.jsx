@@ -9,7 +9,7 @@ const Leftbar = ({ nav, navFunc }) => {
             <h1 className="pb-8 text-lg md:text-xl ">Easytravel</h1>
             <ul className="ul grid gap-y-4 font-bold text-lightgray">
                 {navlist.list.map((list, index) => (
-                    <li>
+                    <li key={index}>
                         <NavLink to={(navlist.path)[index]} onClick={navFunc}>{list}</NavLink>
                     </li>
                 ))}

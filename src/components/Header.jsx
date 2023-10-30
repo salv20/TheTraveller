@@ -4,7 +4,7 @@ const Header = ({ nav, navFunc }) => {
 
     return (
         <section className='pt-8'>
-            <article className="flex justify-evenly px-4 md:mx-0 space-x-3">
+            <article className="flex justify-between  md:mx-0 space-x-3">
 
                 <div className="space-y-0.5">
                     <h1 className=" capitalize font-bold text-lg md:text-xl">hello, sean</h1>
@@ -20,7 +20,7 @@ const Header = ({ nav, navFunc }) => {
 
             </article>
 
-            <article className="flex justify-evenly py-5">
+            <article className="flex justify-between py-5">
                 <input type="search" name="" id="" placeholder="Search destinations" className="outline-none py-2 rounded-lg text-center w-1/2 border-2" />
                 <button type="button" aria-label="search" className=" capitalize bg-orange text-white font-bold text-center px-6 rounded-lg">search</button>
             </article>

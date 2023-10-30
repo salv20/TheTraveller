@@ -2,10 +2,7 @@ import { FaTimes, FaStream } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
 
 import { appcontext } from "../routes/landing.route"
-import { useContext, useLayoutEffect } from "react"
-import gsap from "gsap"
-
-
+import { useContext } from "react"
 
 const Landingheader = () => {
     const { open } = useContext(appcontext)
