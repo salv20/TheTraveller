@@ -5,21 +5,41 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-
+import { motion } from 'framer-motion';
 const Testimonial = () => {
+    const container = {
+        initial: { opacity: 0, x: '-50%' },
+        animate: {
+            opacity: 1,
+            x: '0%',
+            transition: {
+                delay: 0.2,
+                duration: 1,
+                type: 'fade'
+            }
+        }
+    }
+
+
     const name = testimony.name
     const statement = testimony.statement
     const profile = testimony.profile
     const work = testimony.work
     return (
         <section className='md:flex bg-places py-5 px-4'>
-            <div className='md:w-5/6 mx-5 leading-loose font-bold md:py-14 text-center md:text-left'>
+            <motion.div
+                className='md:w-5/6 mx-5 leading-loose font-bold md:py-14 text-center md:text-left'
+                variants={container}
+                viewport={{ once: true, amount: 0.3 }}
+                initial="initial"
+                whileInView="animate"
+            >
                 <h1 className='uppercase text-lightgray'>Testimonial</h1>
                 <div className=" text-xl md:text-2xl pb-5">
                     <p >What people say </p>
                     <p>about us</p>
                 </div>
-            </div>
+            </motion.div>
 
             <Swiper
                 modules={[Navigation, Pagination, EffectFade]}

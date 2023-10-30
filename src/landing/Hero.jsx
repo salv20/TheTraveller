@@ -20,8 +20,8 @@ const Hero = () => {
             scrollBehavior: 'smooth',
             transition: {
                 type: "fade",
-                delay: 1.5,
-                duration: 1.5,
+                delay: .6,
+                duration: 1,
             }
         }
     }
@@ -37,9 +37,6 @@ const Hero = () => {
                     <h1 className='uppercase font-bold text-darkpink '>best destination around the world</h1>
                     <p className='font-semibold  text-xl md:w-3/4 leading-relaxed'>Travel, enjoy and live a new and full life.</p>
                     <motion.p className='md:w-3/4 md:leading-relaxed'
-                        // initial={{ opacity: 0, y: '50%' }}
-                        // animate={{ opacity: 1, y: '0%', scrollBehavior: 'smooth' }}
-                        // transition={{ type: "fade", delay: 1, duration: 1.5, }}
                         variants={container}
                         initial='initial'
                         animate='animate'

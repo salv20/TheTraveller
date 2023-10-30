@@ -7,19 +7,20 @@ import { motion } from "framer-motion"
 
 const Landingheader = () => {
     const container = {
-        hidden: { opacity: 0 },
-        show: {
+        initial: { opacity: 0 },
+        animate: {
             opacity: 1,
             transition: {
                 staggerChildren: 0.3,
                 duration: 1.5,
+                type: 'Tween'
             }
         }
     }
 
     const item = {
-        hidden: { opacity: 0 },
-        show: {
+        initial: { opacity: 0 },
+        animate: {
             opacity: 1,
         }
     }
@@ -35,8 +36,9 @@ const Landingheader = () => {
                     className="grid gap-y-1 ml:flex gap-x-8"
                     onClick={() => setOpen(false)}
                     variants={container}
-                    initial="hidden"
-                    animate="show"
+                    viewport={{ once: true, amount: 0.3 }}
+                    initial="initial"
+                    whileInView="animate"
                 >
                     {landingNav.list.map((list, index) => (
                         <motion.li key={index}
