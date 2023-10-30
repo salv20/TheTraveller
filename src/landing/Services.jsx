@@ -6,7 +6,7 @@ import { useContext } from "react"
 const Services = () => {
 
     const container = {
-        initial: { opacity: 0, y: '50%' },
+        initial: { opacity: 0, y: '30%' },
         animate: {
             opacity: 1,
             y: '0%',

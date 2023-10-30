@@ -20,8 +20,8 @@ const Subscription = () => {
         <section className='py-8 bg-places text-center space-y-5 px-2'>
             <motion.div
                 className="bg-subscribe py-10 rounded-lg border-2 mx-3 sm:w-3/4 sm:mx-auto lg:w-1/2 text-center"
-                viewport={{ once: true, amount: 0.2 }}
-                initial={{ opacity: 0, y: '50%' }}
+                viewport={{ once: true, amount: 0.1 }}
+                initial={{ opacity: 0, y: '30%' }}
                 whileInView={{ opacity: 1, y: '0%' }}
                 transition={{ type: 'fade', delay: .2, duration: .8 }}
             >
