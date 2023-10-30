@@ -40,10 +40,10 @@ const Landingheader = () => {
                 >
                     {landingNav.list.map((list, index) => (
                         <motion.li key={index}
+                            className='bg-light p-4 ml:bg-transparent ml:p-0'
                             variants={item}
                         >
                             <NavLink
-                                className='bg-light p-4 ml:bg-transparent ml:p-0'
                                 to={(landingNav.path)[index]}>{list}</NavLink>
                         </motion.li>
                     ))}
