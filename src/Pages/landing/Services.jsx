@@ -1,8 +1,8 @@
-import { service } from "../../utilities/accesory"
 import { NavLink } from "react-router-dom"
-import { motion, stagger } from "framer-motion"
-import { appcontext } from "../routes/landing.route"
+import { motion } from "framer-motion"
+import { appcontext } from "../../routes/landing.route"
 import { useContext } from "react"
+import { service } from "../../../utilities/accesory"
 const Services = () => {
 
     const container = {
@@ -13,7 +13,7 @@ const Services = () => {
             transition: {
                 staggerChildren: 0.6,
                 duration: 2,
-                type: 'fade'
+                type: 'fade',
             }
         }
     }
@@ -38,7 +38,7 @@ const Services = () => {
 
             <motion.ul
                 className="grid gap-y-5  sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-10 pt-5"
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.4 }}
                 variants={container}
                 initial="initial"
                 whileInView="animate"

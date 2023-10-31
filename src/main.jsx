@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
-import noPage from './Pages/noPage.jsx'
-import Social from './Pages/Social.jsx'
+import emptypg from './components/404.jsx'
+import Social from './components/Social.jsx'
 import Landingroute from './routes/landing.route.jsx'
 import Explore from './routes/explore.route.jsx'
 import Booking from './routes/booking.jsx'
@@ -37,7 +37,7 @@ const router = createBrowserRouter(
         <Route path='signup' Component={Signup} />
       </Route>
 
-      <Route path='*' Component={noPage} />
+      <Route path='*' Component={emptypg} />
     </Route>
   )
 )

@@ -1,8 +1,8 @@
 import { FaTimes, FaStream } from "react-icons/fa"
 import { NavLink } from "react-router-dom"
-import { appcontext } from "../routes/landing.route"
+import { appcontext } from "../../routes/landing.route"
 import { useContext } from "react"
-import { landingNav } from "../../utilities/accesory"
+import { landingNav } from "../../../utilities/accesory"
 import { motion } from "framer-motion"
 
 const Landingheader = () => {

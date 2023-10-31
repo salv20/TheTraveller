@@ -1,4 +1,4 @@
-import Mainarea from "./Pages/mainarea"
+import Mainarea from "./components/mainarea"
 import Leftbar from "./components/Leftbar"
 import Rightbar from "./components/Rightbar"
 import { useState } from "react"

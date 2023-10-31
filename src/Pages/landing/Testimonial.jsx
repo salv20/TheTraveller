@@ -1,4 +1,4 @@
-import { testimony } from '../../utilities/accesory';
+import { testimony } from '../../../utilities/accesory';
 import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { FaPlay } from 'react-icons/fa'
-import { appcontext } from '../routes/landing.route'
+import { appcontext } from '../../routes/landing.route'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
