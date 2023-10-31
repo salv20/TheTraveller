@@ -30,7 +30,7 @@ const Landingheader = () => {
     return (
         <header className="flex justify-around py-6 font-bold bg-heading">
             <h1 className="uppercase text-lg">Easytravel</h1>
-            <nav className={` ${!open ? '-left-eighty' : 'left-0'} transition-all duration-500 bg-dawhite top-0 w-3/5 h-full ml:px-0 ml:w-auto ml:bg-transparent  fixed ml:static ml:flex gap-x-8 capitalize text-lightgray`}>
+            <nav className={` ${!open ? '-left-eighty' : 'left-0'} transition-all duration-500 bg-dawhite top-0 w-3/4 h-full ml:px-0 ml:w-auto ml:bg-transparent  fixed ml:static ml:flex gap-x-8 capitalize text-lightgray`}>
                 <button type="button" className="ml:hidden text-3xl  relative left-nineper py-5" onClick={() => setOpen(!open)}> <FaTimes /></button>
                 <motion.ul
                     className="grid gap-y-1 ml:flex gap-x-8"
@@ -42,11 +42,14 @@ const Landingheader = () => {
                 >
                     {landingNav.list.map((list, index) => (
                         <motion.li key={index}
-                            className='bg-light p-4 ml:bg-transparent ml:p-0'
                             variants={item}
                         >
                             <NavLink
-                                to={(landingNav.path)[index]}>{list}</NavLink>
+                                to={(landingNav.path)[index]}
+                                className='bg-light p-4 ml:bg-transparent ml:p-0 block'
+
+                            >{list}
+                            </NavLink>
                         </motion.li>
                     ))}
 
