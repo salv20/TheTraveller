@@ -1,5 +1,4 @@
-import { Outlet } from "react-router-dom"
-import Header from "./components/Header"
+import Mainarea from "./Pages/mainarea"
 import Leftbar from "./components/Leftbar"
 import Rightbar from "./components/Rightbar"
 import { useState } from "react"
@@ -12,19 +11,10 @@ function App() {
   return (
     <main className="md:flex justify-between">
       <Leftbar nav={nav} navFunc={navFunc} />
-
-      <section className="md:w-3/5 lg:w-1/2 px-5">
-        <Header nav={nav} navFunc={navFunc} />
-        <Outlet />
-      </section>
-
+      <Mainarea nav={nav} navFunc={navFunc} />
       <Rightbar />
     </main>
   )
 }
 
 export default App
-
-
-//  className="w-3/5 rounded-lg bg-heading m-2.5 border-2"
-// className="md:flex justify-between"

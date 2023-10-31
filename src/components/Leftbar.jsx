@@ -4,7 +4,7 @@ import { navlist } from "../../utilities/accesory"
 
 const Leftbar = ({ nav, navFunc }) => {
     return (
-        <nav className={` ${!nav ? '-left-eighty' : 'left-0'} fixed w-full h-full bg-dawhite px-16 capitalize font-bold pt-8 md:w-3/4 lg:static lg:w-fit lg:h-screen transition-all duration-700 space-y-6`}>
+        <nav className={` ${!nav ? '-left-eighty' : 'left-0'} fixed w-full h-full bg-dawhite px-16 space-y-5 capitalize font-bold py-5 md:w-3/4 lg:sticky overflow-y-scroll lg:w-fit lg:h-screen transition-all duration-700`}>
             <button type="button" className="relative left-ninty text-2xl rounded-full p-1.5 lg:hidden bg-orange" onClick={navFunc}><FaTimes /></button>
             <h1 className=" text-lg md:text-xl ">Easytravel</h1>
             <ul className="grid gap-y-2 font-bold text-lightgray">

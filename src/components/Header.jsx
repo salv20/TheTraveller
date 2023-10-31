@@ -4,7 +4,7 @@ const Header = ({ nav, navFunc }) => {
 
     return (
         <section className='pt-8'>
-            <article className="flex justify-between  md:mx-0 space-x-3">
+            <article className="flex justify-between md:mx-0 space-x-3">
 
                 <div className="space-y-0.5">
                     <h1 className=" capitalize font-bold text-lg md:text-xl">hello, sean</h1>

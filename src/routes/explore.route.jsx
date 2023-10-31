@@ -1,7 +1,7 @@
-import { FaArrowRight, FaHeart, FaLocationArrow } from 'react-icons/fa'
+import { FaHeart, FaArrowRight } from 'react-icons/fa'
 import { top } from '../../utilities/accesory'
 import { NavLink } from 'react-router-dom'
-
+import { Outlet } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -18,10 +18,10 @@ const Explore = () => {
     const name = top.name
     const location = top.location
     return (
-        <section>
+        <section className=''>
             <div className="flex justify-between">
                 <h1 className='font-bold uppercase'>dicover the world</h1>
-                <button type="button" aria-label='view all' className=' text-orange font-bold'><NavLink to='all'>view all <FaArrowRight className=' inline-block' /></NavLink> </button>
+                <button type="button" aria-label='view more' className=' text-orange font-bold'><NavLink to='all'>view more <FaArrowRight className=' inline-block' /></NavLink> </button>
             </div>
 
             <Swiper
@@ -45,6 +45,7 @@ const Explore = () => {
                 ))}
             </Swiper>
 
+            <Outlet />
         </section>
     )
 }
