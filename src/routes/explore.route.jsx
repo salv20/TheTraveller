@@ -1,28 +1,22 @@
 import { FaHeart, FaArrowRight } from 'react-icons/fa'
 import { top } from '../../utilities/accesory'
 import { NavLink } from 'react-router-dom'
-import { Outlet } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Locations from '../explore/locations';
 
 
 
 const Explore = () => {
 
-    const background = ['bgRolex', 'bgObudu', 'bgParis']
-
     const image = top.img
     const name = top.name
-    const location = top.location
     return (
-        <section className=''>
-            <div className="flex justify-between">
-                <h1 className='font-bold uppercase'>dicover the world</h1>
-                <button type="button" aria-label='view more' className=' text-orange font-bold'><NavLink to='all'>view more <FaArrowRight className=' inline-block' /></NavLink> </button>
-            </div>
+        <section>
+            <h1 className='font-bold uppercase text-center'>dicover the world</h1>
 
             <Swiper
                 slidesPerView={2}
@@ -45,7 +39,7 @@ const Explore = () => {
                 ))}
             </Swiper>
 
-            <Outlet />
+            <Locations />
         </section>
     )
 }
