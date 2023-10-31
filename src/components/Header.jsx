@@ -20,8 +20,8 @@ const Header = ({ nav, navFunc }) => {
 
             </article>
 
-            <article className="flex justify-between py-5">
-                <input type="search" name="" id="" placeholder="Search destinations" className="outline-none py-2 rounded-lg text-center w-1/2 border-2" />
+            <article className="flex justify-between py-5 space-x-3">
+                <input type="search" name="" id="" placeholder="Search destinations" className="outline-none py-2 rounded-lg text-center w-3/4 border-2" />
                 <button type="button" aria-label="search" className=" capitalize bg-orange text-white font-bold text-center px-6 rounded-lg">search</button>
             </article>
         </section >

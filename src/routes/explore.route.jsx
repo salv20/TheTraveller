@@ -31,17 +31,14 @@ const Explore = () => {
                     clickable: true,
                 }}
                 modules={[Pagination]}
-                className="pb-10 my-2 capitalize"
+                className="pb-10 my-2"
             >
                 {image.map((img, index) => (
-                    <SwiperSlide key={index} className='mb-12 shadow-lg bg-services p-1'>
+                    <SwiperSlide key={index} className='mb-12 shadow-lg bg-services p-1 bg-white'>
                         <img src={img} alt="" className='w-full h-36 sm:h-52' />
-                        <h1 className='text-orange'>{name[index]}</h1>
-                        <div className='sm:flex justify-between py-2 pr-2'>
-                            <div className='flex space-x-1.5 '>
-                                <FaLocationArrow className='mt-1 ' />
-                                <h2 className='pb-5'>{(location[index])}</h2>
-                            </div>
+                        <h1 className='text-orange capitalize text-sm'>{name[index]}</h1>
+                        <div className='flex justify-between py-2 pr-2'>
+                            <button className='hover:bg-orange hover:text-white bg-transparent transition-all duration-1000 py-1 hover:px-5 rounded-lg font-bold'>Visit</button>
                             <button type="button" aria-label='likebtn' className='hover:text-orange text-black transition-all duration-500 text-xl h-fit mt-1'><FaHeart /></button>
                         </div>
                     </SwiperSlide>
