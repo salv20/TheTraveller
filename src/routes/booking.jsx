@@ -79,7 +79,7 @@ const Booking = () => {
 
             <article className=" capitalize font-semibold space-y-3 py-5 bg-heading rounded-r-full px-4">
                 <h1 className="font-bold text-lg pb-3">all bookings</h1>
-                <div className="grid grid-cols-3">
+                <div className="grid grid-cols-3 gap-x-2">
                     <p>
                         04:55
                         <span className="block"> nigeria </span>
@@ -98,7 +98,7 @@ const Booking = () => {
                 <div className="grid grid-cols-3">
                     <p>america airlines</p>
                     <p>$20.50</p>
-                    <button type="button" className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold">edit</button>
+                    <button type="button" className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold relative right-5 sm:right-0">edit</button>
                 </div>
             </article>
         </section>
