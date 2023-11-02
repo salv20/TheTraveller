@@ -5,6 +5,7 @@ import { FaMapMarkerAlt, FaCalendarAlt, FaPlane, FaCircle, FaLandmark, FaLine, F
 import "react-datepicker/dist/react-datepicker.css";
 const Booking = () => {
     const [startDate, setStartDate] = useState(new Date());
+    const [book, setBook] = useState(false)
     return (
         <section className="space-y-6">
             <article className="pr-1 font-semibold text-lg">
@@ -13,8 +14,10 @@ const Booking = () => {
                 </p>
             </article>
 
-            <button type="button" aria-label='book btn' className="w-fit px-8 py-2.5 capitalize rounded-3xl bg-orange font-bold text-white">Book here</button>
-            <article>
+            <button type="button" aria-label='book btn' className="w-fit px-8 py-2.5 capitalize rounded-3xl bg-orange font-bold text-white"
+                onClick={() => setBook(!book)}
+            >Book here</button>
+            <article className={`${!book ? 'hidden' : 'block'}`}>
                 <form className='grid sm:grid-cols-2 gap-x-5 gap-y-5 capitalize font-semibold'>
                     <div className="">
                         <FaMapMarkerAlt className=" inline-block" />
@@ -53,34 +56,49 @@ const Booking = () => {
                         <label className="block">
                             class
                         </label>
-                        <input type="text" className="block outline-none border-b-2 border-lightgray w-full" />
+                        <select name="" id="" className="outline-none border-b-2 border-lightgray w-full capitalize">
+                            <option value="First Class">First Class</option>
+                            <option value="Business Class">Business Class</option>
+                            <option value=" Economy Class"> Economy Class</option>
+                        </select>
                     </div>
 
+                    <div>
+                        <label className="block">
+                            airline
+                        </label>
+                        <select name="" id="" className="outline-none border-b-2 border-lightgray w-full capitalize">
+                            <option value="Ethiopian airline">Ethiopian airline</option>
+                            <option value="american airline">american airline</option>
+                            <option value="british airline">british airline</option>
+                        </select>
+                    </div>
                     <button type="submit" className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">Book flight</button>
                 </form>
             </article>
 
-            <article className=" capitalize font-semibold">
-                <h1 className="font-bold text-lg">all bookings</h1>
-                <div >
-                    <div className="grid grid-cols-3">
-                        <p>
-                            04:55
-                            <span className="block"> nigeria </span>
-                        </p>
-                        <p className="flex pt-6"> <FaCircle className=" text-orange relative text-sm bottom-1.5 " /><hr className="w-14 h-0.5 bg-orange" />  <FaCircle className="relative bottom-1.5 text-sm text-orange" /></p>
-                        <p>
-                            09:55
-                            <span className="block"> canada </span>
-                        </p>
-                    </div>
-                    <hr className=" border-dotted bg-lightgray " />
-                    <div className="grid grid-cols-3">
-                        <p>america airlines</p>
-                        <p>$20.50</p>
-                        <button type="button" className="w-fit">edit</button>
-                    </div>
+            <article className=" capitalize font-semibold space-y-3 py-5 bg-heading rounded-r-full px-4">
+                <h1 className="font-bold text-lg pb-3">all bookings</h1>
+                <div className="grid grid-cols-3">
+                    <p>
+                        04:55
+                        <span className="block"> nigeria </span>
+                    </p>
+                    <div className="">
+                        <p>5hrs 15min</p>
+                        <p className="flex pt-1 relative right-3.5"> <FaCircle className=" text-orange relative text-sm bottom-1.5 " /><hr className="w-20 h-0.5 bg-orange" />  <FaCircle className="relative bottom-1.5 text-sm text-orange" /></p>
 
+                    </div>
+                    <p>
+                        09:55
+                        <span className="block"> canada </span>
+                    </p>
+                </div>
+                <hr className=" border-dotted bg-lightgray " />
+                <div className="grid grid-cols-3">
+                    <p>america airlines</p>
+                    <p>$20.50</p>
+                    <button type="button" className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold">edit</button>
                 </div>
             </article>
         </section>
