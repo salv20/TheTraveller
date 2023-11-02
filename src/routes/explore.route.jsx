@@ -7,10 +7,40 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Locations from '../Pages/explore/locations';
+import { useEffect } from 'react';
 
-
-
+const url = 'https://tourist-attraction.p.rapidapi.com/photos';
+const options = {
+    method: 'POST',
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Key': 'd8d4f4037dmsh519e26bdd9691d0p11d827jsn4afed5607b4b',
+        'X-RapidAPI-Host': 'tourist-attraction.p.rapidapi.com'
+    },
+    body: new URLSearchParams({
+        location_id: '8797440',
+        language: 'en_US',
+        currency: 'USD',
+        offset: '0'
+    })
+};
 const Explore = () => {
+
+    useEffect(() => {
+        const fetchFunc = async () => {
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                console.log(result.status);
+                console.log(result.results);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        fetchFunc()
+
+    })
 
     const image = top.img
     const name = top.name
