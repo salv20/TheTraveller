@@ -79,9 +79,9 @@ const Hero = () => {
                 </div>
                 <div>
                     <motion.img src={'/cartoon.png'} alt="" className='md:w-4/5 w-1/2 mx-auto'
-                        initial={{ opacity: 0, x: '80%' }}
-                        animate={{ opacity: 1, x: '0%', scrollBehavior: 'smooth' }}
-                        transition={{ type: "tween", stiffness: 100, delay: .5, duration: 1, }}
+                        initial={{ opacity: 0, x: '30px' }}
+                        animate={{ opacity: 1, x: '0px', scrollBehavior: 'smooth' }}
+                        transition={{ type: "tween", stiffness: 100, delay: 1, duration: 1, }}
                     />
                 </div>
             </article>

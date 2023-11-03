@@ -38,7 +38,7 @@ const Services = () => {
 
             <motion.ul
                 className="grid gap-y-5  sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-10 pt-5"
-                viewport={{ once: true, amount: 0.4 }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={container}
                 initial="initial"
                 whileInView="animate"
