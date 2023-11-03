@@ -1,4 +1,4 @@
-import { FaCircle } from 'react-icons/fa'
+import { FaCircle, FaTrashAlt } from 'react-icons/fa'
 
 const Bookinglist = () => {
 
@@ -10,7 +10,7 @@ const Bookinglist = () => {
                     04:55
                     <span className="block"> nigeria </span>
                 </p>
-                <div className="">
+                <div>
                     <p>5hrs 15min</p>
                     <div className="flex pt-1 relative right-1.5 sm:right-3.5"> <FaCircle className=" text-orange relative text-sm bottom-1.5 " /><hr className="w-20 h-0.5 bg-orange" />  <FaCircle className="relative bottom-1.5 text-sm text-orange" /></div>
                 </div>
@@ -20,6 +20,9 @@ const Bookinglist = () => {
                 </p>
             </div>
             <hr className=" border-dotted bg-lightgray " />
+            <div className="absolute right-10 sm:right-14 text-orange text-2xl">
+                <button type="button"><FaTrashAlt /></button>
+            </div>
             <div className="grid grid-cols-3">
                 <p>america airlines</p>
                 <p>$20.50</p>

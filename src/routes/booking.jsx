@@ -4,7 +4,7 @@ import Bookinglist from "../Pages/booking/bookinglist";
 
 
 const Booking = () => {
-    const [book, setBook] = useState(false)
+    const [book, setBook] = useState(true)
 
     return (
         <section className="space-y-6 pb-8">
