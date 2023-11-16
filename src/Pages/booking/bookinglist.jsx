@@ -9,18 +9,12 @@ const Bookinglist = () => {
             <div className="flex">
                 <div className="w-full space-y-3">
                     <div className="grid grid-cols-3 gap-x-2">
-                        <p>
-                            04:55
-                            <span className="block"> nigeria </span>
-                        </p>
+                        <p> nigeria </p>
                         <div>
                             <p>5hrs 15min</p>
-                            <div className="flex pt-1 relative right-1.5 sm:right-3.5"> <FaCircle className=" text-orange relative text-sm bottom-1.5 " /><hr className="w-20 h-0.5 bg-orange" />  <FaCircle className="relative bottom-1.5 text-sm text-orange" /></div>
+                            <div className="flex  relative right-1.5 sm:right-3.5"> <FaCircle className=" text-orange relative text-sm bottom-1.5 " /><hr className="w-20 h-0.5 bg-orange" />  <FaCircle className="relative bottom-1.5 text-sm text-orange" /></div>
                         </div>
-                        <p>
-                            09:55
-                            <span className="block"> canada </span>
-                        </p>
+                        <p> canada </p>
                     </div>
                     <hr className=" border-dotted bg-lightgray " />
                     <div className="grid grid-cols-3">
@@ -31,7 +25,7 @@ const Bookinglist = () => {
                 </div>
 
                 {/*  */}
-                <div className="text-3xl text-orange flex justify-center">
+                <div className="text-3xl text-orange h-fit mt-8">
                     <button type="button"><FaTrashAlt /></button>
                 </div>
             </div>

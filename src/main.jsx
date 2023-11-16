@@ -16,6 +16,7 @@ import Weather from './routes/weather.jsx'
 import Itinenary from './routes/itinenary.jsx'
 import Login from './Pages/Auth/login.jsx'
 import Signup from './Pages/Auth/signup.jsx'
+import Ticket from './Pages/booking/Ticket.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
         <Route path='contact' Component={contact} />
         <Route path='weather' Component={Weather} />
         <Route path='itinerary' Component={Itinenary} />
+        <Route path='tickets' Component={Ticket} />
       </Route>
 
       <Route>
