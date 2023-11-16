@@ -30,11 +30,9 @@ const Bookinglist = () => {
                     </div>
                 </div>
 
-
                 {/*  */}
                 <div className="text-3xl text-orange flex justify-center">
                     <button type="button"><FaTrashAlt /></button>
-
                 </div>
             </div>
         </article>
@@ -42,5 +40,3 @@ const Bookinglist = () => {
 }
 
 export default Bookinglist
-// <div className="absolute right-10 sm:right-14 text-orange text-2xl">
-// </div> */}

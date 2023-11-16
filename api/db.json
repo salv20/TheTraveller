@@ -1,0 +1,26 @@
+{
+  "user1": {
+    "name": "salvation",
+    "class": "first",
+    "From": "nigeria",
+    "To": "canada",
+    "date": "23 sep 2023",
+    "departure": "17:40"
+  },
+  "user2": {
+    "name": "afro",
+    "class": "business",
+    "From": "canada",
+    "To": "uk",
+    "date": "15 oct 2023",
+    "departure": "20:40"
+  },
+  "user3": {
+    "name": "chimdi",
+    "class": "first",
+    "From": "ghana",
+    "To": "portugal",
+    "date": "30 nov 2023",
+    "departure": "8:20"
+  }
+}

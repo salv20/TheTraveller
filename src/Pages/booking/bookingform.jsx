@@ -1,24 +1,9 @@
 import DatePicker from "react-datepicker";
 import { FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa'
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Bookingform = () => {
-
-    // const success = (e) => {
-    //     console.log(e);
-    // }
-    // const error = () => {
-    //     console.log('loaction error')
-    // }
-    // const location = navigator.geolocation.getCurrentPosition(
-    //     success, error
-    // )
-    // useEffect(() => {
-    //     console.log(location);
-    // })
-
     const [startDate, setStartDate] = useState(new Date());
     const [lastDate, setLastDate] = useState(new Date())
 
@@ -45,9 +30,7 @@ const Bookingform = () => {
                     value={formdata.from}
                     onChange={(e) => (
                         setFormdata({ ...formdata, from: e.target.value })
-                    )}
-
-                />
+                    )} />
             </div>
 
             <div>
@@ -57,8 +40,7 @@ const Bookingform = () => {
                     value={formdata.to}
                     onChange={(e) => (
                         setFormdata({ ...formdata, to: e.target.value })
-                    )}
-                />
+                    )} />
             </div>
 
             <div className="">
@@ -135,8 +117,8 @@ const Bookingform = () => {
                     e.preventDefault(),
                     console.log(formdata)
                 )}
-                className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white"
-            >Book flight</button>
+                className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
+                Book flight</button>
         </form>
     )
 }
