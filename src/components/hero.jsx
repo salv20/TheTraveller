@@ -22,8 +22,8 @@ const Hero = ({ search, setSearch }) => {
                 aria-label="search"
                 className=" capitalize bg-orange text-white font-bold text-center px-6 rounded-lg"
                 onClick={() => {
-                    ref.current.focus()
                     setSearch(search)
+                    !search && ref.current.focus()
                 }}
             >search</button>
         </div>
