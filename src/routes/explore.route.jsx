@@ -27,7 +27,7 @@ const Explore = () => {
         return [restflags, restnames]
     }
     return (
-        <section className='grid grid-cols-2 gap-4'>
+        <section className='grid grid-cols-2 gap-4 pb-10'>
 
             {countryData?.map((country, index) => (
                 <div key={index} className='shadow-lg bg-services p-1 bg-white '>

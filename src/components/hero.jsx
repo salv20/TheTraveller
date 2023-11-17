@@ -23,7 +23,7 @@ const Hero = ({ search, setSearch }) => {
                 className=" capitalize bg-orange text-white font-bold text-center px-6 rounded-lg"
                 onClick={() => {
                     setSearch(search)
-                    !search && ref.current.focus()
+                    !search ? ref.current.focus() : navigate('discover')
                 }}
             >search</button>
         </div>
