@@ -29,7 +29,7 @@ const Explore = () => {
                         <img src={img} alt="" className='w-full h-36 sm:h-52' />
                         <h1 className='text-orange capitalize text-sm'>{name[index]}</h1>
                         <div className='flex justify-between py-2 pr-2'>
-                            <button className='hover:bg-orange hover:text-white bg-transparent transition-all duration-1000 py-1 hover:px-5 rounded-lg font-bold'>Visit</button>
+                            <button className='bg-visit py-1 px-5 rounded-lg font-bold'>Visit</button>
                             <button type="button" aria-label='likebtn' className='hover:text-orange text-black transition-all duration-500 text-xl h-fit mt-1'><FaHeart /></button>
                         </div>
                     </SwiperSlide>
