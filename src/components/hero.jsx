@@ -17,12 +17,15 @@ const Hero = ({ search, setSearch }) => {
                     }
                 }
             />
-            <button type="button" aria-label="search"
+            <button
+                type="button" aria-label="search"
+
                 className=" capitalize bg-orange text-white font-bold text-center px-6 rounded-lg"
                 onClick={(e) => {
                     e.preventDefault()
                     ref.current.focus()
                     search && setSearch(search)
+                    return false
                 }}
             >search</button>
         </form>
