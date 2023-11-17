@@ -15,3 +15,7 @@ nav::-webkit-scrollbar,
 section::-webkit-scrollbar {
   display: none;
 }
+
+.liked {
+  color: #f18700;
+}
