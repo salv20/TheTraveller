@@ -1,37 +1,51 @@
-import { top } from '../../utilities/accesory';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
+
 const Favorite = () => {
 
-    const image = top.img
-    const name = top.name
+    const [details, setDetails] = useState({
+        names: [],
+        flags: []
+    })
+    useEffect(() => {
+        if (localStorage.restnames) {
+            const name = JSON.parse(localStorage.getItem('restnames'))
+            const flag = JSON.parse(localStorage.getItem('restflags'))
 
+            setDetails({ names: name, flags: flag })
+        }
+    }, [])
 
     return (
-        <div>
-            <h2 className=' capitalize text-orange font-bold text-center pt-4'>favorites</h2>
-            <Swiper
-                slidesPerView={2}
-                spaceBetween={10}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Pagination]}
-                className="pb-10 my-2"
-            >
-                {image.map((img, index) => (
-                    <SwiperSlide key={index} className='mb-12 shadow-lg bg-services p-1 bg-white'>
-                        <img src={img} alt="" className='w-full h-36 sm:h-52' />
-                        <h1 className='text-orange capitalize text-sm text-center'>{name[index]}</h1>
-                        <div className=' grid px-5'>
-                            <button className='bg-visit py-1 px-5 rounded-lg font-bold'>Visit</button>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+        <section className='py-4'>
+            <h2 className=' uppercase text-orange font-bold text-center'>favorites</h2>
+
+            {
+                details.flags.length ?
+                    <div className=" grid grid-cols-2 gap-5 pt-4">
+                        {details.flags.map((flag, index) => (
+                            <div key={index} className='shadow-lg bg-services'>
+                                <img src={flag} alt="" className='w-full h-36 sm:h-52' />
+                                <h1 className='text-orange capitalize text-sm text-center'>{details.names[index]}</h1>
+                                <section className=' grid px-5'>
+                                    <button className='bg-visit py-1 px-5 rounded-lg font-bold'>Visit</button>
+                                </section>
+                            </div>
+
+                        ))}
+                    </div>
+                    :
+                    <div className='bg-services text-center capitalize space-y-3 text-lg font-semibold pt-4'>
+                        <p>oops no favorites yet</p>
+                        <button type="button"
+                            className=' bg-orange rounded-lg px-5 py-2 capitalize font-semibold text-white text-base'
+                            aria-label='discoverbtn'
+                        >
+                            <Link to='/discover'>discover place</Link>
+                        </button>
+                    </div>
+            }
+        </section>
     )
 }
 
