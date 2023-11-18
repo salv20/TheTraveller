@@ -2,10 +2,27 @@ import DatePicker from "react-datepicker";
 import { FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa'
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom'
+
+
 
 const Bookingform = () => {
+    const path = useLocation()
     const [startDate, setStartDate] = useState(new Date());
     const [lastDate, setLastDate] = useState(new Date())
+
+    const success = (e) => {
+        console.log('success');
+        console.log(e, e.coords);
+
+    }
+    const failed = () => {
+        console.log('failed');
+    }
+
+    useEffect(() => {
+        const location = navigator.geolocation.getCurrentPosition(success, failed)
+    })
 
     const [formdata, setFormdata] = useState(
         {
@@ -24,6 +41,7 @@ const Bookingform = () => {
         <form
             className='grid sm:grid-cols-2 gap-x-5 gap-y-5 capitalize font-semibold'>
             <div className="">
+                {console.log(path)}
                 <FaMapMarkerAlt className=" inline-block" />
                 <label>from</label>
                 <input type="text" required className="block outline-none border-b-2 border-lightgray w-full"

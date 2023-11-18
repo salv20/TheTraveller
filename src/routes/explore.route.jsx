@@ -42,7 +42,7 @@ const Explore = () => {
                                 const parentElement = (e.currentTarget.closest('div').parentElement.children)
                                 const name = parentElement[1].textContent
                                 console.log(name);
-                                navigate('/bookings', name)
+                                navigate('/bookings', { state: name })
                             }}
                         >Visit</button>
                         <button type="button"

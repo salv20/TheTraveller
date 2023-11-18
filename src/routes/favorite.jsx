@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { FaTrashAlt } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 const Favorite = () => {
-
+    const [dataState, setDataState] = useState(false)
+    const navigate = useNavigate()
     const [details, setDetails] = useState({
         names: [],
         flags: []
@@ -13,10 +15,10 @@ const Favorite = () => {
             const flag = JSON.parse(localStorage.getItem('restflags'))
             setDetails({ names: name, flags: flag })
         }
-    }, [])
+    }, [dataState])
 
     return (
-        <section className='py-4'>
+        <section className='pt-4 pb-8'>
             <h2 className=' uppercase text-orange font-bold text-center'>favorites</h2>
 
             {
@@ -27,25 +29,31 @@ const Favorite = () => {
                                 <img src={flag} alt="" className='w-full h-36 sm:h-52' />
                                 <h1 className='text-orange capitalize font-bold text-center p-2'>{details.names[index]}</h1>
                                 <section className='flex justify-between font-bold pb-4 px-2'>
-                                    <button className='bg-visit py-1 px-8 rounded-lg '>Visit</button>
+                                    <button
+                                        className='bg-visit py-1 px-8 rounded-lg'
+                                        onClick={(e) => {
+                                            const parentElement = (e.currentTarget.closest('div').children)
+                                            const name = parentElement[1].textContent
+                                            navigate('/bookings', { state: name })
+                                        }}
+                                    >Visit</button>
+
                                     <button
                                         type="button"
                                         aria-label='deletebtn'
                                         className='text-2xl text-orange'
                                         onClick={(e) => {
                                             const target = e.currentTarget
-                                            target.classList.toggle('liked')
                                             const parentElement = (target.closest('div').children)
                                             const flag = parentElement[0].src
 
                                             const value = details.flags.findIndex((src) => src === flag)
                                             details.flags.splice(value, 1)
                                             details.names.splice(value, 1)
-
                                             localStorage.setItem('restflags', JSON.stringify(details.flags))
                                             localStorage.setItem('restnames', JSON.stringify(details.names))
 
-                                            location.reload()
+                                            setDataState(!dataState)
                                         }}
                                     ><FaTrashAlt /></button>
                                 </section>
@@ -60,7 +68,7 @@ const Favorite = () => {
                             className=' bg-orange rounded-lg px-5 py-2 capitalize font-semibold text-white text-base'
                             aria-label='discoverbtn'
                         >
-                            <Link to='/discover'>discover place</Link>
+                            <Link to='/discover'>discover places</Link>
                         </button>
                     </div>
             }
