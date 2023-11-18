@@ -2,13 +2,19 @@
 import { useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
 import { CountryApi } from '../components/Api'
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext, useNavigate } from 'react-router-dom'
 const Explore = () => {
+    const navigate = useNavigate()
     const [countryData, setCountry] = useState([])
-    const flags = []
-    const names = []
+    let flags = []
+    let names = []
     const search = useOutletContext()
-
+    const restnames = JSON.parse(localStorage.getItem('restnames'))
+    const restflags = JSON.parse(localStorage.getItem('restflags'))
+    if (localStorage.restflags && localStorage.restnames) {
+        flags = restflags
+        names = restnames
+    }
     useEffect(() => {
         const countries = async () => {
             const data = await CountryApi()
@@ -21,11 +27,16 @@ const Explore = () => {
     const storage = () => {
         localStorage.setItem('restflags', JSON.stringify(flags))
         localStorage.setItem('restnames', JSON.stringify(names))
-        const restnames = JSON.parse(localStorage.getItem('restnames'))
-        const restflags = JSON.parse(localStorage.getItem('restflags'))
-        console.log(restflags, restnames);
-        return [restflags, restnames]
     }
+
+    useEffect(() => {
+        flags.map(flag => {
+            if (flag == "https://flagcdn.com/hk.svg") {
+                console.log('hello');
+            }
+        })
+
+    }, [])
     return (
         <section className='grid grid-cols-2 gap-4 pb-10'>
 
@@ -35,7 +46,12 @@ const Explore = () => {
                     <p>{country.name.common}</p>
                     <div className='flex justify-between py-2 pr-2'>
                         <button className=' bg-visit py-1 px-5 rounded-lg font-bold'
-                            onClick={(e) => console.log(e.target)}
+                            onClick={(e) => {
+                                const parentElement = (e.currentTarget.closest('div').parentElement.children)
+                                const name = parentElement[1].textContent
+                                console.log(name);
+                                navigate('/bookings', name)
+                            }}
                         >Visit</button>
                         <button type="button"
                             aria-label='likebtn'
@@ -59,6 +75,8 @@ const Explore = () => {
                                         names.splice(index, 1)
                                         storage()
                                     }
+
+
 
                                 }} />
                         </button>

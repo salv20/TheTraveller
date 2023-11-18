@@ -26,7 +26,7 @@ const Favorite = () => {
                         {details.flags.map((flag, index) => (
                             <div key={index} className='shadow-lg bg-services'>
                                 <img src={flag} alt="" className='w-full h-36 sm:h-52' />
-                                <h1 className='text-orange capitalize text-sm text-center'>{details.names[index]}</h1>
+                                <h1 className='text-orange capitalize font-bold text-center pt-2 pb-1'>{details.names[index]}</h1>
                                 <section className=' grid px-5'>
                                     <button className='bg-visit py-1 px-5 rounded-lg font-bold'>Visit</button>
                                 </section>
