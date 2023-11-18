@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-
+import { FaTrashAlt } from 'react-icons/fa'
 const Favorite = () => {
 
     const [details, setDetails] = useState({
@@ -11,7 +11,6 @@ const Favorite = () => {
         if (localStorage.restnames) {
             const name = JSON.parse(localStorage.getItem('restnames'))
             const flag = JSON.parse(localStorage.getItem('restflags'))
-
             setDetails({ names: name, flags: flag })
         }
     }, [])
@@ -22,13 +21,33 @@ const Favorite = () => {
 
             {
                 details.flags.length ?
-                    <div className=" grid grid-cols-2 gap-5 pt-4">
+                    <div className=" grid grid-cols-2 gap-6 pt-4">
                         {details.flags.map((flag, index) => (
                             <div key={index} className='shadow-lg bg-services'>
                                 <img src={flag} alt="" className='w-full h-36 sm:h-52' />
-                                <h1 className='text-orange capitalize font-bold text-center pt-2 pb-1'>{details.names[index]}</h1>
-                                <section className=' grid px-5'>
-                                    <button className='bg-visit py-1 px-5 rounded-lg font-bold'>Visit</button>
+                                <h1 className='text-orange capitalize font-bold text-center p-2'>{details.names[index]}</h1>
+                                <section className='flex justify-between font-bold pb-4 px-2'>
+                                    <button className='bg-visit py-1 px-8 rounded-lg '>Visit</button>
+                                    <button
+                                        type="button"
+                                        aria-label='deletebtn'
+                                        className='text-2xl text-orange'
+                                        onClick={(e) => {
+                                            const target = e.currentTarget
+                                            target.classList.toggle('liked')
+                                            const parentElement = (target.closest('div').children)
+                                            const flag = parentElement[0].src
+
+                                            const value = details.flags.findIndex((src) => src === flag)
+                                            details.flags.splice(value, 1)
+                                            details.names.splice(value, 1)
+
+                                            localStorage.setItem('restflags', JSON.stringify(details.flags))
+                                            localStorage.setItem('restnames', JSON.stringify(details.names))
+
+                                            location.reload()
+                                        }}
+                                    ><FaTrashAlt /></button>
                                 </section>
                             </div>
 

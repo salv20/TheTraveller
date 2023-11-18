@@ -29,14 +29,6 @@ const Explore = () => {
         localStorage.setItem('restnames', JSON.stringify(names))
     }
 
-    useEffect(() => {
-        flags.map(flag => {
-            if (flag == "https://flagcdn.com/hk.svg") {
-                console.log('hello');
-            }
-        })
-
-    }, [])
     return (
         <section className='grid grid-cols-2 gap-4 pb-10'>
 
@@ -75,9 +67,6 @@ const Explore = () => {
                                         names.splice(index, 1)
                                         storage()
                                     }
-
-
-
                                 }} />
                         </button>
                     </div>
