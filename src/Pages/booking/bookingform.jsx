@@ -11,18 +11,6 @@ const Bookingform = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [lastDate, setLastDate] = useState(new Date())
 
-    const success = (e) => {
-        console.log('success');
-        console.log(e, e.coords);
-
-    }
-    const failed = () => {
-        console.log('failed');
-    }
-
-    useEffect(() => {
-        const location = navigator.geolocation.getCurrentPosition(success, failed)
-    })
 
     const [formdata, setFormdata] = useState(
         {
@@ -36,12 +24,26 @@ const Bookingform = () => {
 
         }
     )
+    useEffect(() => {
+        // GETTING USERS CURRENT LOCATION
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords
+                const locationApi = async () => {
+                    const res = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=&location=${longitude},${latitude}`)
+                    const data = await res.json()
+                    const countryName = data.address.CntryName
+                    setFormdata({ ...formdata, from: countryName })
+                }
+                locationApi()
+            },)
+    }, [])
 
     return (
         <form
             className='grid sm:grid-cols-2 gap-x-5 gap-y-5 capitalize font-semibold'>
             <div className="">
-                {console.log(path)}
+                {/* {console.log(path)} */}
                 <FaMapMarkerAlt className=" inline-block" />
                 <label>from</label>
                 <input type="text" required className="block outline-none border-b-2 border-lightgray w-full"
@@ -50,7 +52,6 @@ const Bookingform = () => {
                         setFormdata({ ...formdata, from: e.target.value })
                     )} />
             </div>
-
             <div>
                 <label>to</label>
                 <input type="text" required
@@ -58,7 +59,8 @@ const Bookingform = () => {
                     value={formdata.to}
                     onChange={(e) => (
                         setFormdata({ ...formdata, to: e.target.value })
-                    )} />
+                    )}
+                />
             </div>
 
             <div className="">
