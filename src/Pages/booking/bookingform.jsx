@@ -15,7 +15,6 @@ const Bookingform = () => {
     const [formdata, setFormdata] = useState(
         {
             from: '',
-            to: '',
             depart: { startDate },
             back: { lastDate },
             passenger: 1,
@@ -24,6 +23,8 @@ const Bookingform = () => {
 
         }
     )
+    const [to, setTo] = useState('')
+
     useEffect(() => {
         // GETTING USERS CURRENT LOCATION
         navigator.geolocation.getCurrentPosition(
@@ -37,13 +38,18 @@ const Bookingform = () => {
                 }
                 locationApi()
             },)
+
+        // RETRIVING LOCATION DESTINATION FROM DISCOVER PAGE
+        if (path.state) setTo(path.state)
+
     }, [])
+
+
 
     return (
         <form
             className='grid sm:grid-cols-2 gap-x-5 gap-y-5 capitalize font-semibold'>
             <div className="">
-                {/* {console.log(path)} */}
                 <FaMapMarkerAlt className=" inline-block" />
                 <label>from</label>
                 <input type="text" required className="block outline-none border-b-2 border-lightgray w-full"
@@ -56,9 +62,9 @@ const Bookingform = () => {
                 <label>to</label>
                 <input type="text" required
                     className="block outline-none border-b-2 border-lightgray w-full"
-                    value={formdata.to}
+                    value={to}
                     onChange={(e) => (
-                        setFormdata({ ...formdata, to: e.target.value })
+                        setTo(e.target.value)
                     )}
                 />
             </div>
@@ -135,7 +141,7 @@ const Bookingform = () => {
             <button type="submit"
                 onClick={(e) => (
                     e.preventDefault(),
-                    console.log(formdata)
+                    console.log(formdata, to)
                 )}
                 className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
                 Book flight</button>
