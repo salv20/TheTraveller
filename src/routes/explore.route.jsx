@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
-import { CountryApi } from '../components/Api'
 import { useOutletContext, useNavigate } from 'react-router-dom'
 const Explore = () => {
     const navigate = useNavigate()
@@ -15,12 +14,26 @@ const Explore = () => {
         flags = restflags
         names = restnames
     }
+
+
+    const [errorMessage, setErrorMessage] = useState(null)
     useEffect(() => {
         const countries = async () => {
-            const data = await CountryApi()
-            const finalData = (data?.filter(country => ((country.name.common).toLowerCase()).includes(search.toLowerCase())))
-            setCountry(finalData)
+            try {
+                const res = await fetch('https://restcountries.com/v3.1/all')
+                if (res.ok) {
+                    const data = await res.json()
+                    const finalData = (data?.filter(country => ((country.name.common).toLowerCase()).includes(search.toLowerCase())))
+                    setCountry(finalData)
+                } else throw ('Incorrect url')
+
+            } catch (error) {
+                setErrorMessage(
+                    error.message ? `${error.message} please check internet connection and reload.` : error
+                )
+            }
         }
+
         countries()
     }, [search])
 
@@ -31,6 +44,14 @@ const Explore = () => {
 
     return (
         <section className='grid grid-cols-2 gap-4 pb-10'>
+
+            {!countryData.length &&
+                <div className=' text-red-800 bg-black font-bold  p-5 text-center mt-10 mx-auto'>
+                    {
+                        errorMessage
+                    }
+                </div>
+            }
 
             {countryData?.map((country, index) => (
                 <div key={index} className='shadow-lg bg-services p-1 bg-white '>
