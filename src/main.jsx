@@ -9,7 +9,6 @@ import Landingroute from './routes/landing.route.jsx'
 import Explore from './routes/explore.route.jsx'
 import Booking from './routes/booking.jsx'
 import Favorite from './routes/favorite.jsx'
-import Notification from './routes/notification.jsx'
 import Trash from './routes/trash.jsx'
 import contact from './routes/contact.jsx'
 import Weather from './routes/weather.jsx'
@@ -26,7 +25,6 @@ const router = createBrowserRouter(
         <Route path='discover' Component={Explore} />
         <Route path='bookings' Component={Booking} />
         <Route path='favorite' Component={Favorite} />
-        <Route path='notification' Component={Notification} />
         <Route path='trash' Component={Trash} />
         <Route path='contact' Component={contact} />
         <Route path='weather' Component={Weather} />
