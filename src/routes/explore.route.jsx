@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
 import { useOutletContext, useNavigate } from 'react-router-dom'
+import { CountryApi } from '../components/Api'
+
 const Explore = () => {
     const navigate = useNavigate()
     const [countryData, setCountry] = useState([])
@@ -19,21 +21,14 @@ const Explore = () => {
     const [errorMessage, setErrorMessage] = useState(null)
     useEffect(() => {
         const countries = async () => {
-            try {
-                const res = await fetch('https://restcountries.com/v3.1/all')
-                if (res.ok) {
-                    const data = await res.json()
-                    const finalData = (data?.filter(country => ((country.name.common).toLowerCase()).includes(search.toLowerCase())))
-                    setCountry(finalData)
-                } else throw ('Incorrect url')
-
-            } catch (error) {
-                setErrorMessage(
-                    error.message ? `${error.message} please check internet connection and reload.` : error
-                )
+            const data = await CountryApi()
+            if (typeof data === 'string') {
+                setErrorMessage(data)
+            } else {
+                const finalData = (data?.filter(country => ((country.name.common).toLowerCase()).includes(search.toLowerCase())))
+                setCountry(finalData)
             }
         }
-
         countries()
     }, [search])
 
@@ -46,7 +41,7 @@ const Explore = () => {
         <section className='grid grid-cols-2 gap-4 pb-10'>
 
             {!countryData.length &&
-                <div className=' text-red-800 bg-black font-bold  p-5 text-center mt-10 mx-auto'>
+                <div className=' text-red-800 bg-black font-bold px-5 text-center mt-10 mx-auto'>
                     {
                         errorMessage
                     }

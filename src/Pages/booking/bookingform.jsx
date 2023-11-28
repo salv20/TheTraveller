@@ -139,10 +139,13 @@ const Bookingform = () => {
                 </select>
             </div>
             <button type="submit"
-                onClick={(e) => (
-                    e.preventDefault(),
-                    console.log(formdata, to)
-                )}
+                onClick={(e) => {
+                    e.preventDefault();
+                    // && formdata.from.match(/[^a-zA-Z]+/g)
+                    if (to.match(/^[a-zA-Z\s]+$/g)) {
+                        console.log(formdata, to)
+                    } else console.log('empty')
+                }}
                 className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
                 Book flight</button>
         </form>
