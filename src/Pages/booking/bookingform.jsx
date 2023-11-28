@@ -87,7 +87,8 @@ const Bookingform = () => {
                         selected={startDate}
                         onChange={(date) => (
                             setStartDate(date),
-                            setFormdata({ ...formdata, depart: date })
+                            setFormdata({ ...formdata, depart: date }),
+                            document.querySelector('.errordepart').classList.add('hidden')
                         )} />}
 
                 </div>
@@ -102,7 +103,8 @@ const Bookingform = () => {
                         selected={lastDate}
                         onChange={(date) => (
                             setLastDate(date),
-                            setFormdata({ ...formdata, back: date })
+                            setFormdata({ ...formdata, back: date }),
+                            document.querySelector('.errorreturn').classList.add('hidden')
                         )}
 
                     />}
