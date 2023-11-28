@@ -3,6 +3,7 @@ import { FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa'
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom'
+import Bookvalidation from "./bookvalidation";
 
 
 
@@ -55,8 +56,10 @@ const Bookingform = () => {
                 <input type="text" required className="block outline-none border-b-2 border-lightgray w-full"
                     value={formdata.from}
                     onChange={(e) => (
-                        setFormdata({ ...formdata, from: e.target.value })
+                        setFormdata({ ...formdata, from: e.target.value }),
+                        document.querySelector('.errorFrom').classList.add('hidden')
                     )} />
+                <p className="errorFrom normal-case text-red-600 hidden">Please enter a valid country name</p>
             </div>
             <div>
                 <label>to</label>
@@ -64,9 +67,13 @@ const Bookingform = () => {
                     className="block outline-none border-b-2 border-lightgray w-full"
                     value={to}
                     onChange={(e) => (
-                        setTo(e.target.value)
+                        setTo(e.target.value),
+                        document.querySelector('.errorTo').classList.add('hidden')
+
                     )}
                 />
+                <p className="errorTo normal-case text-red-600 hidden">Please enter a valid country name</p>
+
             </div>
 
             <div className="">
@@ -138,17 +145,11 @@ const Bookingform = () => {
                     <option value="british airline">british airline</option>
                 </select>
             </div>
-            <button type="submit"
-                onClick={(e) => {
-                    e.preventDefault();
-                    // && formdata.from.match(/[^a-zA-Z]+/g)
-                    if (to.match(/^[a-zA-Z\s]+$/g)) {
-                        console.log(formdata, to)
-                    } else console.log('empty')
-                }}
-                className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
-                Book flight</button>
+
+
+            <Bookvalidation formdata={formdata} to={to} />
         </form>
+
     )
 }
 
