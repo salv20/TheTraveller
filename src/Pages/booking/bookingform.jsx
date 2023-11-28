@@ -81,7 +81,7 @@ const Bookingform = () => {
                     <FaCalendarAlt className="mt-1" />
                     <label>depart</label>
                 </div>
-                <div className="border-lightgray border-b-2">
+                <div className="border-lightgray border-b-2 departDate">
                     {<DatePicker
                         className=" outline-none"
                         selected={startDate}
@@ -89,13 +89,15 @@ const Bookingform = () => {
                             setStartDate(date),
                             setFormdata({ ...formdata, depart: date })
                         )} />}
+
                 </div>
+                <p className="errordepart normal-case text-red-600 hidden">Please enter a valid date</p>
             </div>
 
             <div className="">
                 <label className="pb-2 block"> return</label>
                 <div
-                    className="border-lightgray border-b-2">
+                    className="border-lightgray border-b-2 returnDate">
                     {<DatePicker className=" outline-none"
                         selected={lastDate}
                         onChange={(date) => (
@@ -105,10 +107,13 @@ const Bookingform = () => {
 
                     />}
                 </div>
+                <p className="errorreturn normal-case text-red-600 hidden">Please enter a valid date</p>
             </div>
             <div className="">
                 <label className="block"> passenger </label>
-                <input type="number" required
+                <input type="number"
+                    min="1"
+                    required
                     className="block outline-none border-b-2 border-lightgray w-full"
                     value={formdata.passenger}
                     onChange={(e) => (
