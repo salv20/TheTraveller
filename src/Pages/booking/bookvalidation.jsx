@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react"
 import { CountryApi } from "../../components/Api"
+import axios from "axios"
+const jsonUrl = 'https://jsondata-mk5d.onrender.com/Bookings'
+
 const Bookvalidation = ({ formdata, to }) => {
     const [contryName, setCountryName] = useState()
-    const [mainData, setMainData] = useState([])
+
     useEffect(() => {
         const countries = async () => {
             const data = await CountryApi()
@@ -14,6 +17,12 @@ const Bookvalidation = ({ formdata, to }) => {
             }
         }
         countries()
+    }, [])
+    useEffect(() => {
+        const apiData = async () => {
+            const data = axios.post(jsonUrl,
+            )
+        }
     }, [])
 
     return (
@@ -38,6 +47,7 @@ const Bookvalidation = ({ formdata, to }) => {
                     // 
                     if (takeOff.length && destination.length && formdata.depart && formdata.back) {
                         console.log(formdata, to);
+
                     }
                 }}
                 className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
