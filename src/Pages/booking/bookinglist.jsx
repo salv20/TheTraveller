@@ -25,10 +25,7 @@ const Bookinglist = () => {
                     <div className="w-full space-y-3" >
                         <div className="grid grid-cols-3 gap-x-2">
                             <p> {country}</p>
-                            <div>
-                                <p>{Details.duration[index]}</p>
-                                <div className="flex  relative right-1.5 sm:right-3.5"> <FaCircle className=" text-orange relative text-sm bottom-1.5 " /><hr className="w-20 h-0.5 bg-orange" />  <FaCircle className="relative bottom-1.5 text-sm text-orange" /></div>
-                            </div>
+                            <p>{Details.duration[index]}</p>
                             <p> {Details.to[index]}</p>
                         </div>
                         <hr className=" border-dotted bg-lightgray " />
