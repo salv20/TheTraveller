@@ -7,7 +7,7 @@ const Bookinglist = () => {
     useEffect(() => {
         const countries = async () => {
             try {
-                const data = await axios.get('http://localhost:3010/Bookings')
+                const data = await axios.get('https://jsondata-mk5d.onrender.com/Bookings')
                 setDetails(data.data)
             } catch (error) {
                 console.log(error);
@@ -19,7 +19,7 @@ const Bookinglist = () => {
     return (
         <article className="capitalize font-semibold space-y-5">
 
-            <h1 className="font-bold text-lg pb-3">all bookings</h1>
+            <h1 className="font-bold text-lg">all bookings</h1>
             {(Details.from)?.map((country, index) => (
                 <div className="flex bg-heading rounded-r-full p-3 py-8" key={index}>
                     <div className="w-full space-y-3" >
