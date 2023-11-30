@@ -39,6 +39,46 @@
       "airline": "Ethiopian Airline",
       "fee": "30.00",
       "duration": "5hrs"
+    },
+    {
+      "id": 967,
+      "from": "Nigeria",
+      "to": "China",
+      "airline": "Ethiopian Airline",
+      "fee": "30.00",
+      "duration": "5hrs"
+    },
+    {
+      "id": 464,
+      "from": "Nigeria",
+      "to": "Canada",
+      "airline": "Ethiopian Airline",
+      "fee": "30.00",
+      "duration": "5hrs"
+    },
+    {
+      "id": 1818,
+      "from": "Nigeria",
+      "to": "Canada",
+      "airline": "Ethiopian Airline",
+      "fee": "30.00",
+      "duration": "5hrs"
+    },
+    {
+      "id": 896,
+      "from": "Nigeria",
+      "to": "Canada",
+      "airline": "Ethiopian Airline",
+      "fee": "30.00",
+      "duration": "5hrs"
+    },
+    {
+      "id": 1098,
+      "from": "Nigeria",
+      "to": "China",
+      "airline": "Ethiopian Airline",
+      "fee": "36.00",
+      "duration": "9hrs"
     }
   ],
   "Tickets": [

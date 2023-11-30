@@ -35,7 +35,7 @@ const Bookinglist = () => {
                             </div>
                             <hr className=" border-dotted bg-lightgray " />
                             <div className="grid grid-cols-3">
-                                <p>{country.airline} airlines</p>
+                                <p>{country.airline}</p>
                                 <p>${country.fee}</p>
                                 <button type="button" className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold relative right-5 sm:right-0">edit</button>
                             </div>

@@ -27,6 +27,10 @@ const Bookvalidation = ({ formdata, to, bookings, setBookings }) => {
                 onClick={(e) => {
                     e.preventDefault();
                     const idNum = (Math.floor(Math.random() * 2000));
+                    const priceNum = (Math.round(Math.random() * 50));
+                    const time = (Math.round(Math.random() * 10) + 1);
+
+
                     const destination = contryName?.filter(country => (country.toLowerCase() === to.toLowerCase()))
                     if (!(destination?.length)) {
                         document.querySelector('.errorTo').classList.remove('hidden')
@@ -43,9 +47,9 @@ const Bookvalidation = ({ formdata, to, bookings, setBookings }) => {
                     }
                     // 
                     if (takeOff.length && destination.length && formdata.depart && formdata.back) {
-                        console.log(formdata, to);
+
                         setBookings({
-                            ...bookings, id: idNum, from: takeOff[0], to: destination[0], airline: (formdata.airline), fee: '30.00', duration: '5hrs'
+                            ...bookings, id: idNum, from: takeOff[0], to: destination[0], airline: (formdata.airline), fee: `${priceNum}.00`, duration: `${time}hrs`
                         })
                     }
                 }}
