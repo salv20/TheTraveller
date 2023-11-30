@@ -1,20 +1,24 @@
-import { FaCircle, FaTrashAlt } from 'react-icons/fa'
+import { FaTrashAlt } from 'react-icons/fa'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { bookingContext } from '../../routes/booking'
+
 const Bookinglist = () => {
     const [Details, setDetails] = useState([])
+    const bookArray = useContext(bookingContext)
 
     useEffect(() => {
         const countries = async () => {
             try {
-                const data = await axios.get('https://bookings-pvq7.onrender.com/Bookings')
+                // const data = await axios.get('https://bookings-pvq7.onrender.com/Bookings')
+                const data = await axios.get('http://localhost:3020/Bookings')
                 setDetails(data.data)
             } catch (error) {
                 console.log(error);
             }
         }
         countries()
-    }, [])
+    }, [bookArray[0]])
 
     return (
         <article className="capitalize font-semibold space-y-5">

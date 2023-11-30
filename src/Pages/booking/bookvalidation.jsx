@@ -1,20 +1,10 @@
 import { useState, useEffect } from "react"
 import { CountryApi } from "../../components/Api"
 import axios from "axios"
-const jsonUrl = 'https://bookings-pvq7.onrender.com/Bookings'
-
-const Bookvalidation = ({ formdata, to }) => {
+// const jsonUrl = 'https://bookings-pvq7.onrender.com/Bookings'
+const jsonUrl = 'http://localhost:3020/Bookings'
+const Bookvalidation = ({ formdata, to, bookings, setBookings }) => {
     const [contryName, setCountryName] = useState()
-    const [bookings, setBookings] = useState({
-        id: "",
-        from: "",
-        to: "",
-        airline: "",
-        fee: "",
-        duration: ""
-
-    })
-
     useEffect(() => {
         const countries = async () => {
             const data = await CountryApi()
@@ -29,7 +19,6 @@ const Bookvalidation = ({ formdata, to }) => {
     }, [])
     useEffect(() => {
         bookings.id && axios.post(jsonUrl, bookings)
-        console.log(bookings);
     }, [bookings])
 
     return (

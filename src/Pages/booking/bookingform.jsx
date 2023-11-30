@@ -1,17 +1,20 @@
 import DatePicker from "react-datepicker";
 import { FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa'
 import "react-datepicker/dist/react-datepicker.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useLocation } from 'react-router-dom'
 import Bookvalidation from "./bookvalidation";
-
+import { bookingContext } from "../../routes/booking";
 
 
 const Bookingform = () => {
+    const bookArray = useContext(bookingContext)
+    const bookings = bookArray[0]
+    const setBookings = bookArray[1]
+
     const path = useLocation()
     const [startDate, setStartDate] = useState(new Date());
     const [lastDate, setLastDate] = useState(new Date())
-
 
     const [formdata, setFormdata] = useState(
         {
@@ -154,7 +157,11 @@ const Bookingform = () => {
             </div>
 
 
-            <Bookvalidation formdata={formdata} to={to} />
+            <Bookvalidation
+                formdata={formdata}
+                to={to} bookings={bookings}
+                setBookings={setBookings}
+            />
         </form>
 
     )

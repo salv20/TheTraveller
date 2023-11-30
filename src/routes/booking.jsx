@@ -1,11 +1,20 @@
 import { useState } from "react";
 import Bookingform from "../Pages/booking/bookingform";
 import Bookinglist from "../Pages/booking/bookinglist";
+import { createContext } from "react";
 
-
+export const bookingContext = createContext()
 const Booking = () => {
     const [book, setBook] = useState(true)
+    const [bookings, setBookings] = useState({
+        id: "",
+        from: "",
+        to: "",
+        airline: "",
+        fee: "",
+        duration: ""
 
+    })
     return (
         <section className="space-y-6 pb-8">
             <article className="pr-1 font-semibold text-lg">
@@ -19,11 +28,12 @@ const Booking = () => {
                 onClick={() => setBook(!book)} >
                 Book here
             </button>
-
-            <article className={`${!book ? 'hidden' : 'block'}`}>
-                <Bookingform />
-            </article>
-            <Bookinglist />
+            <bookingContext.Provider value={[bookings, setBookings]}>
+                <article className={`${!book ? 'hidden' : 'block'}`}>
+                    <Bookingform />
+                </article>
+                <Bookinglist />
+            </bookingContext.Provider>
         </section>
     )
 }
