@@ -3,16 +3,15 @@ import { FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa'
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect, useContext } from "react";
 import { useLocation } from 'react-router-dom'
-import Bookvalidation from "./bookvalidation";
 
 
-const Bookingform = () => {
+const BookingEdit = () => {
 
     const path = useLocation()
     const [startDate, setStartDate] = useState(new Date());
     const [lastDate, setLastDate] = useState(new Date())
 
-    const [formdata, setFormdata] = useState(
+    const [updateData, setupdateData] = useState(
         {
             from: '',
             depart: { startDate },
@@ -34,7 +33,7 @@ const Bookingform = () => {
                     const res = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=&location=${longitude},${latitude}`)
                     const data = await res.json()
                     const countryName = data.address.CntryName
-                    setFormdata({ ...formdata, from: countryName })
+                    setupdateData({ ...updateData, from: countryName })
                 }
                 locationApi()
             },)
@@ -48,14 +47,14 @@ const Bookingform = () => {
 
     return (
         <form
-            className='grid sm:grid-cols-2 gap-x-5 gap-y-5 capitalize font-semibold'>
+            className='grid sm:grid-cols-2 gap-x-5 gap-y-5 capitalize font-semibold w-10/12 mt-24 mx-auto'>
             <div className="">
                 <FaMapMarkerAlt className=" inline-block" />
                 <label>from</label>
                 <input type="text" required className="block outline-none border-b-2 border-lightgray w-full"
-                    value={formdata.from}
+                    value={updateData.from}
                     onChange={(e) => (
-                        setFormdata({ ...formdata, from: e.target.value }),
+                        setupdateData({ ...updateData, from: e.target.value }),
                         document.querySelector('.errorFrom').classList.add('hidden')
                     )} />
                 <p className="errorFrom normal-case text-red-600 hidden">Please enter a valid country name</p>
@@ -86,7 +85,7 @@ const Bookingform = () => {
                         selected={startDate}
                         onChange={(date) => (
                             setStartDate(date),
-                            setFormdata({ ...formdata, depart: date }),
+                            setupdateData({ ...updateData, depart: date }),
                             document.querySelector('.errordepart').classList.add('hidden')
                         )} />}
 
@@ -102,7 +101,7 @@ const Bookingform = () => {
                         selected={lastDate}
                         onChange={(date) => (
                             setLastDate(date),
-                            setFormdata({ ...formdata, back: date }),
+                            setupdateData({ ...updateData, back: date }),
                             document.querySelector('.errorreturn').classList.add('hidden')
                         )}
 
@@ -116,9 +115,9 @@ const Bookingform = () => {
                     min="1"
                     required
                     className="block outline-none border-b-2 border-lightgray w-full"
-                    value={formdata.passenger}
+                    value={updateData.passenger}
                     onChange={(e) => (
-                        setFormdata({ ...formdata, passenger: e.target.value })
+                        setupdateData({ ...updateData, passenger: e.target.value })
                     )}
                 />
             </div>
@@ -127,7 +126,7 @@ const Bookingform = () => {
                 <select name="" id=""
                     className="outline-none border-b-2 border-lightgray w-full capitalize"
                     onChange={(e) => (
-                        setFormdata({ ...formdata, class: e.target.value })
+                        setupdateData({ ...updateData, class: e.target.value })
                     )}
                 >
                     <option value="First Class">First Class</option>
@@ -143,7 +142,7 @@ const Bookingform = () => {
                 <select name="" id=""
                     className="outline-none border-b-2 border-lightgray w-full capitalize"
                     onChange={(e) => (
-                        setFormdata({ ...formdata, class: e.target.value })
+                        setupdateData({ ...updateData, class: e.target.value })
                     )}
                 >
                     <option value="Ethiopian airline">Ethiopian airline</option>
@@ -152,15 +151,12 @@ const Bookingform = () => {
                 </select>
             </div>
 
-
-            <Bookvalidation
-                formdata={formdata}
-                to={to}
-                setTo={setTo}
-            />
+            <button
+                className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
+                update</button>
         </form>
 
     )
 }
 
-export default Bookingform
+export default BookingEdit

@@ -16,6 +16,7 @@ import Itinenary from './routes/itinenary.jsx'
 import Login from './Pages/Auth/login.jsx'
 import Signup from './Pages/Auth/signup.jsx'
 import Ticket from './Pages/booking/Ticket.jsx'
+import BookingEdit from './Pages/booking/bookingEdit.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -31,7 +32,7 @@ const router = createBrowserRouter(
         <Route path='itinerary' Component={Itinenary} />
         <Route path='tickets' Component={Ticket} />
       </Route>
-
+      <Route path='updatebooking' Component={BookingEdit} />
       <Route>
         <Route path='login' Component={Login} />
         <Route path='signup' Component={Signup} />

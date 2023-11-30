@@ -1,113 +1,20 @@
 {
   "Bookings": [
     {
-      "id": "001",
-      "from": "nigeria",
-      "to": "uk",
-      "airline": "american",
-      "fee": "20.30",
-      "duration": "2hrs"
-    },
-    {
-      "id": "002",
-      "from": "canada",
-      "to": "uk",
-      "airline": "british",
-      "fee": "30.50",
-      "duration": "5hrs 40min"
-    },
-    {
-      "id": "003",
-      "from": "nigeria",
-      "to": "uk",
-      "airline": "ethiopian",
-      "fee": "100.00",
-      "duration": "6hrs"
-    },
-    {
-      "id": 43,
-      "from": "Nigeria",
-      "to": "Canada",
-      "airline": "Ethiopian Airline",
-      "fee": "30.00",
-      "duration": "5hrs"
-    },
-    {
-      "id": 375,
-      "from": "Nigeria",
-      "to": "Ghana",
-      "airline": "Ethiopian Airline",
-      "fee": "30.00",
-      "duration": "5hrs"
-    },
-    {
-      "id": 967,
+      "id": 686,
       "from": "Nigeria",
       "to": "China",
       "airline": "Ethiopian Airline",
-      "fee": "30.00",
-      "duration": "5hrs"
-    },
-    {
-      "id": 464,
-      "from": "Nigeria",
-      "to": "Canada",
-      "airline": "Ethiopian Airline",
-      "fee": "30.00",
-      "duration": "5hrs"
-    },
-    {
-      "id": 1818,
-      "from": "Nigeria",
-      "to": "Canada",
-      "airline": "Ethiopian Airline",
-      "fee": "30.00",
-      "duration": "5hrs"
-    },
-    {
-      "id": 896,
-      "from": "Nigeria",
-      "to": "Canada",
-      "airline": "Ethiopian Airline",
-      "fee": "30.00",
-      "duration": "5hrs"
-    },
-    {
-      "id": 1098,
-      "from": "Nigeria",
-      "to": "China",
-      "airline": "Ethiopian Airline",
-      "fee": "36.00",
-      "duration": "9hrs"
-    }
-  ],
-  "Tickets": [
-    {
-      "id": "001",
-      "name": "salvation",
-      "class": "first",
-      "From": "nigeria",
-      "To": "canada",
-      "date": "23 sep 2023",
-      "departure": "17:40"
-    },
-    {
-      "id": "002",
-      "name": "afro",
-      "class": "business",
-      "From": "canada",
-      "To": "uk",
-      "date": "15 oct 2023",
-      "departure": "20:40"
-    },
-    {
-      "id": "003",
-      "name": "chimdi",
-      "class": "first",
-      "From": "ghana",
-      "To": "portugal",
-      "date": "30 nov 2023",
-      "departure": "8:20"
+      "fee": "18.00",
+      "duration": "4hrs",
+      "class": "First Class",
+      "departureTime": "4:18",
+      "departureDate": {
+        "startDate": "2023-11-30T12:55:31.886Z"
+      },
+      "returnDate": {
+        "lastDate": "2023-11-30T12:55:31.886Z"
+      }
     }
   ]
 }

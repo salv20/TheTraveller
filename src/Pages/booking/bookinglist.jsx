@@ -1,24 +1,28 @@
 import { FaTrashAlt } from 'react-icons/fa'
 import axios from 'axios'
 import { useEffect, useState, useContext } from 'react'
-import { bookingContext } from '../../routes/booking'
+import { fetchValue } from '../../routes/booking'
+import BookingEdit from './bookingEdit'
+import { Link } from 'react-router-dom'
 
+const jsonUrl = 'http://localhost:3020/Bookings'
 const Bookinglist = () => {
     const [Details, setDetails] = useState([])
-    const bookArray = useContext(bookingContext)
+    const valueContext = useContext(fetchValue)
+
 
     useEffect(() => {
         const countries = async () => {
             try {
                 // const data = await axios.get('https://bookings-pvq7.onrender.com/Bookings')
-                const data = await axios.get('http://localhost:3020/Bookings')
+                const data = await axios.get(jsonUrl)
                 setDetails(data.data)
             } catch (error) {
                 console.log(error);
             }
         }
         countries()
-    }, [bookArray[0]])
+    }, [valueContext[0]])
 
     return (
         <article className="capitalize font-semibold space-y-5">
@@ -37,19 +41,27 @@ const Bookinglist = () => {
                             <div className="grid grid-cols-3">
                                 <p>{country.airline}</p>
                                 <p>${country.fee}</p>
-                                <button type="button" className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold relative right-5 sm:right-0">edit</button>
+                                <button type="button" className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold relative right-5 sm:right-0">
+                                    <Link to='/updatebooking'>edit</Link>
+                                </button>
                             </div>
                         </div>
 
                         {/*  */}
                         <div className="text-3xl text-orange h-fit mt-8">
-                            <button type="button"><FaTrashAlt /></button>
+                            <button type="button"
+                                onClick={(e) => (
+                                    valueContext[1](!valueContext[0]),
+                                    axios.delete(`${jsonUrl}/${country.id}`)
+                                )}
+                            >
+                                <FaTrashAlt />
+                            </button>
                         </div>
                     </div>
                 )
                 )
             }
-
         </article>
     )
 }

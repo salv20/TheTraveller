@@ -3,18 +3,12 @@ import Bookingform from "../Pages/booking/bookingform";
 import Bookinglist from "../Pages/booking/bookinglist";
 import { createContext } from "react";
 
-export const bookingContext = createContext()
+export const fetchValue = createContext()
 const Booking = () => {
     const [book, setBook] = useState(true)
-    const [bookings, setBookings] = useState({
-        id: "",
-        from: "",
-        to: "",
-        airline: "",
-        fee: "",
-        duration: ""
+    const [fetchState, setFetchState] = useState(false)
 
-    })
+
     return (
         <section className="space-y-6 pb-8">
             <article className="pr-1 font-semibold text-lg">
@@ -28,12 +22,12 @@ const Booking = () => {
                 onClick={() => setBook(!book)} >
                 Book here
             </button>
-            <bookingContext.Provider value={[bookings, setBookings]}>
+            <fetchValue.Provider value={[fetchState, setFetchState]}>
                 <article className={`${!book ? 'hidden' : 'block'}`}>
                     <Bookingform />
                 </article>
                 <Bookinglist />
-            </bookingContext.Provider>
+            </fetchValue.Provider>
         </section>
     )
 }

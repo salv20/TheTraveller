@@ -1,10 +1,26 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { CountryApi } from "../../components/Api"
 import axios from "axios"
+import { fetchValue } from "../../routes/booking"
+
 // const jsonUrl = 'https://bookings-pvq7.onrender.com/Bookings'
 const jsonUrl = 'http://localhost:3020/Bookings'
-const Bookvalidation = ({ formdata, to, bookings, setBookings }) => {
+const Bookvalidation = ({ formdata, to, setTo }) => {
     const [contryName, setCountryName] = useState()
+    const valueContext = useContext(fetchValue)
+
+    const [bookings, setBookings] = useState({
+        id: "",
+        from: "",
+        to: "",
+        airline: "",
+        fee: "",
+        duration: "",
+        class: "",
+        departureTime: '',
+        departureDate: '',
+        returnDate: ''
+    })
     useEffect(() => {
         const countries = async () => {
             const data = await CountryApi()
@@ -49,8 +65,10 @@ const Bookvalidation = ({ formdata, to, bookings, setBookings }) => {
                     if (takeOff.length && destination.length && formdata.depart && formdata.back) {
 
                         setBookings({
-                            ...bookings, id: idNum, from: takeOff[0], to: destination[0], airline: (formdata.airline), fee: `${priceNum}.00`, duration: `${time}hrs`
+                            ...bookings, id: idNum, from: takeOff[0], to: destination[0], airline: (formdata.airline), fee: `${priceNum}.00`, duration: `${time}hrs`, class: (formdata.class), departureDate: (formdata.depart), returnDate: (formdata.back), departureTime: `${time}:${priceNum}`
                         })
+                        setTo('')
+                        valueContext[1](!valueContext[0])
                     }
                 }}
                 className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
