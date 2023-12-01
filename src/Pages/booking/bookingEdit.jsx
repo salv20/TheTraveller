@@ -9,17 +9,14 @@ import UpdateValidation from "./updateValidation";
 const BookingEdit = () => {
 
     const path = useLocation()
-    // const [startDate, setStartDate] = useState(new Date());
-    // const [lastDate, setLastDate] = useState(new Date())
+    const [startDate, setStartDate] = useState(new Date());
+    const [lastDate, setLastDate] = useState(new Date())
 
     const [updateData, setupdateData] = useState(
         {
             from: "",
-            to: "",
             airline: "",
             class: "",
-            departureDate: new Date(),
-            returnDate: new Date(),
             passenger: ''
         }
     )
@@ -31,25 +28,58 @@ const BookingEdit = () => {
 
                 const getCurrentUrl = await axios.get(`http://localhost:3020/Bookings/${path.state}`)
                 const data = getCurrentUrl.data
-                console.log(data);
+
                 {
                     if (data.departureDate.startDate && data.returnDate.lastDate) {
 
-                        setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class), departureDate: (new Date(data.departureDate.startDate)), returnDate: (new Date(data.returnDate.lastDate)) });
-                        setTo(data.to)
+                        setupdateData({
+                            ...updateData,
+                            from: (data.from),
+                            airline: (data.airline),
+                            passenger: (data.passenger),
+                            class: (data.class)
+                        });
+                        setTo(data.to),
+                            setStartDate(new Date(data.departureDate.startDate))
+                        setLastDate(new Date(data.returnDate.lastDate))
 
                     }
                     else if (!data.departureDate.startDate && !data.returnDate.lastDate) {
-                        setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class), departureDate: (new Date(data.departureDate)), returnDate: (new Date(data.returnDate)) }),
+                        setupdateData({
+                            ...updateData,
+                            from: (data.from),
+                            airline: (data.airline),
+                            passenger: (data.passenger),
+                            class: (data.class),
+
+                        }),
                             setTo(data.to)
+                        setStartDate(new Date(data.departureDate))
+                        setLastDate(new Date(data.returnDate))
+
                     }
                     else if (data.departureDate.startDate && !data.returnDate.lastDate) {
-                        setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class), departureDate: (new Date(data.departureDate.startDate)), returnDate: (new Date(data.returnDate)) }),
+                        setupdateData({
+                            ...updateData,
+                            from: (data.from),
+                            airline: (data.airline),
+                            passenger: (data.passenger),
+                        }),
                             setTo(data.to)
+                        setStartDate(new Date(data.departureDate.startDate))
+                        setLastDate(new Date(data.returnDate))
                     }
                     else if (!data.departureDate.startDate && data.returnDate.lastDate) {
-                        setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class), departureDate: (new Date(data.departureDate)), returnDate: (new Date(data.returnDate.lastDate)) }),
+                        setupdateData({
+                            ...updateData,
+                            from: (data.from),
+                            airline: (data.airline),
+                            passenger: (data.passenger),
+                            class: (data.class),
+                        }),
                             setTo(data.to)
+                        setStartDate(new Date(data.departureDate))
+                        setLastDate(new Date(data.returnDate.lastDate))
                     }
                 }
 
@@ -99,10 +129,9 @@ const BookingEdit = () => {
                 <div className="border-lightgray border-b-2 departDate">
                     {<DatePicker
                         className=" outline-none"
-                        selected={updateData.departureDate}
+                        selected={startDate}
                         onChange={(date) => (
-                            // setStartDate(date),
-                            setupdateData({ ...updateData, returnDate: date }),
+                            setStartDate(date),
                             document.querySelector('.errordepart').classList.add('hidden')
                         )} />}
 
@@ -115,10 +144,9 @@ const BookingEdit = () => {
                 <div
                     className="border-lightgray border-b-2 returnDate">
                     {<DatePicker className=" outline-none"
-                        selected={updateData.returnDate}
+                        selected={lastDate}
                         onChange={(date) => (
-                            // setLastDate(date),
-                            setupdateData({ ...updateData, departureDate: date }),
+                            setLastDate(date),
                             document.querySelector('.errorreturn').classList.add('hidden')
                         )}
 
@@ -156,8 +184,6 @@ const BookingEdit = () => {
                         {updateData.class == 'First Class' && ' Economy Class'}
                         {updateData.class == 'Business Class' && ' Economy Class'}
                         {updateData.class == ' Economy Class' && 'first class'}
-
-
                     </option>
                 </select>
             </div>
@@ -187,7 +213,12 @@ const BookingEdit = () => {
                 </select>
             </div>
 
-            <UpdateValidation id={path.state} />
+            <UpdateValidation id={path.state}
+                updateData={updateData}
+                to={to}
+                startDate={startDate}
+                lastDate={lastDate}
+            />
         </form>
 
     )

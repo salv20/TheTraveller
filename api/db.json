@@ -1,63 +1,16 @@
 {
   "Bookings": [
     {
-      "id": 379,
-      "from": "Nigeria",
-      "to": "Ghana",
-      "airline": "Ethiopian Airline",
-      "fee": "17.00",
-      "duration": "3hrs",
-      "class": "First Class",
-      "departureTime": "3:17",
-      "departureDate": {
-        "startDate": "2023-12-01T11:27:08.601Z"
-      },
-      "returnDate": {
-        "lastDate": "2023-12-01T11:27:08.601Z"
-      },
-      "passenger": 1
-    },
-    {
-      "id": 915,
+      "id": 268,
       "from": "Nigeria",
       "to": "China",
       "airline": "Ethiopian Airline",
-      "fee": "16.00",
-      "duration": "4hrs",
-      "class": "First Class",
-      "departureTime": "4:16",
-      "departureDate": "2023-12-20T11:31:13.000Z",
-      "returnDate": "2023-12-18T11:31:13.000Z",
-      "passenger": 1
-    },
-    {
-      "id": 1394,
-      "from": "Nigeria",
-      "to": "India",
-      "airline": "Ethiopian Airline",
-      "fee": "9.00",
-      "duration": "3hrs",
-      "class": "First Class",
-      "departureTime": "3:9",
-      "departureDate": "2023-12-12T11:31:31.000Z",
-      "returnDate": {
-        "lastDate": "2023-12-01T11:31:31.092Z"
-      },
-      "passenger": 1
-    },
-    {
-      "id": 331,
-      "from": "Nigeria",
-      "to": "Canada",
-      "airline": "Ethiopian Airline",
-      "fee": "8.00",
+      "fee": "1.00",
       "duration": "8hrs",
       "class": "First Class",
-      "departureTime": "8:8",
-      "departureDate": {
-        "startDate": "2023-12-01T11:31:47.084Z"
-      },
-      "returnDate": "2023-12-11T11:31:47.000Z",
+      "departureTime": "8:1",
+      "departureDate": "2023-12-01T13:08:44.773Z",
+      "returnDate": "2023-12-01T13:08:44.773Z",
       "passenger": 1
     }
   ]
