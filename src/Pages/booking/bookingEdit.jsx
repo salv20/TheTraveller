@@ -1,26 +1,26 @@
 import DatePicker from "react-datepicker";
 import { FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa'
 import "react-datepicker/dist/react-datepicker.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom'
 import axios from "axios";
-
+import UpdateValidation from "./updateValidation";
 
 const BookingEdit = () => {
 
     const path = useLocation()
-    const [startDate, setStartDate] = useState(new Date());
-    const [lastDate, setLastDate] = useState(new Date())
+    // const [startDate, setStartDate] = useState(new Date());
+    // const [lastDate, setLastDate] = useState(new Date())
 
     const [updateData, setupdateData] = useState(
         {
-            from: '',
-            depart: { startDate },
-            back: { lastDate },
-            passenger: 1,
-            class: '',
-            airline: ''
-
+            from: "",
+            to: "",
+            airline: "",
+            class: "",
+            departureDate: new Date(),
+            returnDate: new Date(),
+            passenger: ''
         }
     )
     const [to, setTo] = useState('')
@@ -31,20 +31,26 @@ const BookingEdit = () => {
 
                 const getCurrentUrl = await axios.get(`http://localhost:3020/Bookings/${path.state}`)
                 const data = getCurrentUrl.data
-
-                setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class) })
-                setTo(data.to)
-
+                console.log(data);
                 {
-                    data.departureDate.startDate ?
-                        (
-                            setStartDate(new Date(data.departureDate.startDate)),
-                            setLastDate(new Date(data.returnDate.lastDate))
-                        )
-                        :
-                        (setStartDate(new Date(data.departureDate)),
-                            setLastDate(new Date(data.returnDate)))
+                    if (data.departureDate.startDate && data.returnDate.lastDate) {
 
+                        setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class), departureDate: (new Date(data.departureDate.startDate)), returnDate: (new Date(data.returnDate.lastDate)) });
+                        setTo(data.to)
+
+                    }
+                    else if (!data.departureDate.startDate && !data.returnDate.lastDate) {
+                        setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class), departureDate: (new Date(data.departureDate)), returnDate: (new Date(data.returnDate)) }),
+                            setTo(data.to)
+                    }
+                    else if (data.departureDate.startDate && !data.returnDate.lastDate) {
+                        setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class), departureDate: (new Date(data.departureDate.startDate)), returnDate: (new Date(data.returnDate)) }),
+                            setTo(data.to)
+                    }
+                    else if (!data.departureDate.startDate && data.returnDate.lastDate) {
+                        setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class), departureDate: (new Date(data.departureDate)), returnDate: (new Date(data.returnDate.lastDate)) }),
+                            setTo(data.to)
+                    }
                 }
 
             } catch (error) {
@@ -79,7 +85,6 @@ const BookingEdit = () => {
                     onChange={(e) => (
                         setTo(e.target.value),
                         document.querySelector('.errorTo').classList.add('hidden')
-
                     )}
                 />
                 <p className="errorTo normal-case text-red-600 hidden">Please enter a valid country name</p>
@@ -94,10 +99,10 @@ const BookingEdit = () => {
                 <div className="border-lightgray border-b-2 departDate">
                     {<DatePicker
                         className=" outline-none"
-                        selected={startDate}
+                        selected={updateData.departureDate}
                         onChange={(date) => (
-                            setStartDate(date),
-                            setupdateData({ ...updateData, depart: date }),
+                            // setStartDate(date),
+                            setupdateData({ ...updateData, returnDate: date }),
                             document.querySelector('.errordepart').classList.add('hidden')
                         )} />}
 
@@ -110,10 +115,10 @@ const BookingEdit = () => {
                 <div
                     className="border-lightgray border-b-2 returnDate">
                     {<DatePicker className=" outline-none"
-                        selected={lastDate}
+                        selected={updateData.returnDate}
                         onChange={(date) => (
-                            setLastDate(date),
-                            setupdateData({ ...updateData, back: date }),
+                            // setLastDate(date),
+                            setupdateData({ ...updateData, departureDate: date }),
                             document.querySelector('.errorreturn').classList.add('hidden')
                         )}
 
@@ -182,9 +187,7 @@ const BookingEdit = () => {
                 </select>
             </div>
 
-            <button
-                className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
-                update</button>
+            <UpdateValidation id={path.state} />
         </form>
 
     )
