@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react'
 import { CountryApi } from '../../components/Api';
 import { useNavigate } from 'react-router-dom';
-const jsonUrl = 'http://localhost:3020/Bookings'
+const jsonUrl = 'https://bookingsdata.onrender.com/Bookings'
 const UpdateValidation = ({ id, updateData, to, lastDate, startDate }) => {
     const navigate = useNavigate()
     const [jsondata, setJsonData] = useState({})
@@ -49,7 +49,7 @@ const UpdateValidation = ({ id, updateData, to, lastDate, startDate }) => {
                     }
                     // // // 
 
-                    if (takeOff.length && destination.length && startDate && lastDate) {
+                    if (takeOff?.length && destination?.length && startDate && lastDate) {
                         const post = {
                             ...jsondata,
                             from: updateData.from,

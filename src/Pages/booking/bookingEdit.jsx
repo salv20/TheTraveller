@@ -26,7 +26,7 @@ const BookingEdit = () => {
         const fetchData = async () => {
             try {
 
-                const getCurrentUrl = await axios.get(`http://localhost:3020/Bookings/${path.state}`)
+                const getCurrentUrl = await axios.get(`https://bookingsdata.onrender.com/Bookings/${path.state}`)
                 const data = getCurrentUrl.data
 
                 {

@@ -4,7 +4,7 @@ import axios from "axios"
 import { fetchValue } from "../../routes/booking"
 
 // const jsonUrl = 'https://bookings-pvq7.onrender.com/Bookings'
-const jsonUrl = 'http://localhost:3020/Bookings'
+const jsonUrl = 'https://bookingsdata.onrender.com/Bookings'
 const Bookvalidation = ({ formdata, to, setTo }) => {
     const [contryName, setCountryName] = useState()
     const valueContext = useContext(fetchValue)
@@ -35,7 +35,7 @@ const Bookvalidation = ({ formdata, to, setTo }) => {
         countries()
     }, [])
     useEffect(() => {
-        bookings.id && axios.post(jsonUrl, bookings)
+        bookings.id && axios.post(jsonUrl, bookings).then(res => (res.status === 200 || res.status === 201) && location.reload())
     }, [bookings])
 
     return (

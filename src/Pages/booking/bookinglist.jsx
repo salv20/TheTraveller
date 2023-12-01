@@ -4,7 +4,7 @@ import { useEffect, useState, useContext } from 'react'
 import { fetchValue } from '../../routes/booking'
 import { useNavigate } from 'react-router-dom'
 
-const jsonUrl = 'http://localhost:3020/Bookings'
+const jsonUrl = 'https://bookingsdata.onrender.com/Bookings'
 const Bookinglist = () => {
     const navigate = useNavigate()
 
@@ -15,7 +15,6 @@ const Bookinglist = () => {
     useEffect(() => {
         const countries = async () => {
             try {
-                // const data = await axios.get('https://bookings-pvq7.onrender.com/Bookings')
                 const data = await axios.get(jsonUrl)
                 setDetails(data.data)
             } catch (error) {
@@ -59,7 +58,9 @@ const Bookinglist = () => {
                             <button type="button"
                                 onClick={(e) => (
                                     valueContext[1](!valueContext[0]),
-                                    axios.delete(`${jsonUrl}/${country.id}`)
+                                    axios.delete(`${jsonUrl}/${country.id}`).then(res => {
+                                        (res.status === 200 || res.status === 201) && location.reload()
+                                    })
                                 )}
                             >
                                 <FaTrashAlt />
