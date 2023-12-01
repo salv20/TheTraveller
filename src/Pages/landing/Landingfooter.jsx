@@ -4,7 +4,6 @@ import { NavLink, Link } from "react-router-dom"
 const Landingfooter = () => {
     return (
         <footer className="grid grid-cols-2 p-5 gap-y-5 gap-x-10 text-lightgray capitalize md:flex md:justify-evenly bg-footer ">
-            <Link to='social' className="fixed top-3/4 -right-9 bg-darkpink px-8 py-1 rotate-90 text-black md:text-xl font-bold ">social</Link>
             <div>
                 <h1 className="text-black  font-bold pb-2">Travel</h1>
                 <p className="normal-case ">Spread love everywhere you go.</p>

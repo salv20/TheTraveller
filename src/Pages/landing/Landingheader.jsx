@@ -11,8 +11,7 @@ const Landingheader = () => {
         animate: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3,
-                duration: 1.5,
+                duration: 1,
                 type: 'Tween'
             }
         }

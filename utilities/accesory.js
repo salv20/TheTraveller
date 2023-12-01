@@ -34,7 +34,6 @@ export const navlist = {
     "tickets",
     "weather",
     "favorite",
-    "trash",
     "contact us",
   ],
   path: [
@@ -44,7 +43,6 @@ export const navlist = {
     "tickets",
     "weather",
     "favorite",
-    "trash",
     "contact",
   ],
 };
