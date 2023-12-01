@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react'
 import { CountryApi } from '../../components/Api';
 import { useNavigate } from 'react-router-dom';
 const jsonUrl = 'https://bookingsdata.onrender.com/Bookings'
+
 const UpdateValidation = ({ id, updateData, to, lastDate, startDate }) => {
     const navigate = useNavigate()
     const [jsondata, setJsonData] = useState({})
     const [contryName, setCountryName] = useState()
+
     useEffect(() => {
         const countries = async () => {
-
             const getCurrentUrl = await axios.get(`${jsonUrl}/${id}`)
             const completedata = getCurrentUrl.data
             setJsonData(completedata)

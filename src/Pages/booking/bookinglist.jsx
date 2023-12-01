@@ -1,16 +1,12 @@
 import { FaTrashAlt } from 'react-icons/fa'
 import axios from 'axios'
-import { useEffect, useState, useContext } from 'react'
-import { fetchValue } from '../../routes/booking'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const jsonUrl = 'https://bookingsdata.onrender.com/Bookings'
 const Bookinglist = () => {
     const navigate = useNavigate()
-
     const [Details, setDetails] = useState([])
-    const valueContext = useContext(fetchValue)
-
 
     useEffect(() => {
         const countries = async () => {
@@ -22,7 +18,7 @@ const Bookinglist = () => {
             }
         }
         countries()
-    }, [valueContext[0]])
+    }, [])
 
     return (
         <article className="capitalize font-semibold space-y-5">
@@ -57,7 +53,6 @@ const Bookinglist = () => {
                         <div className="text-3xl text-orange h-fit mt-8">
                             <button type="button"
                                 onClick={(e) => (
-                                    valueContext[1](!valueContext[0]),
                                     axios.delete(`${jsonUrl}/${country.id}`).then(res => {
                                         (res.status === 200 || res.status === 201) && location.reload()
                                     })
