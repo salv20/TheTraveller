@@ -19,7 +19,8 @@ const Bookvalidation = ({ formdata, to, setTo }) => {
         class: "",
         departureTime: '',
         departureDate: '',
-        returnDate: ''
+        returnDate: '',
+        passenger: ''
     })
     useEffect(() => {
         const countries = async () => {
@@ -63,9 +64,8 @@ const Bookvalidation = ({ formdata, to, setTo }) => {
                     }
                     // 
                     if (takeOff.length && destination.length && formdata.depart && formdata.back) {
-
                         setBookings({
-                            ...bookings, id: idNum, from: takeOff[0], to: destination[0], airline: (formdata.airline), fee: `${priceNum}.00`, duration: `${time}hrs`, class: (formdata.class), departureDate: (formdata.depart), returnDate: (formdata.back), departureTime: `${time}:${priceNum}`
+                            ...bookings, id: idNum, from: takeOff[0], to: destination[0], airline: (formdata.airline), fee: `${priceNum}.00`, duration: `${time}hrs`, class: (formdata.class), departureDate: (formdata.depart), returnDate: (formdata.back), departureTime: `${time}:${priceNum}`, passenger: (formdata.passenger)
                         })
                         setTo('')
                         valueContext[1](!valueContext[0])

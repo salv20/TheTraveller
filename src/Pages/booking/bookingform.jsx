@@ -143,7 +143,7 @@ const Bookingform = () => {
                 <select name="" id=""
                     className="outline-none border-b-2 border-lightgray w-full capitalize"
                     onChange={(e) => (
-                        setFormdata({ ...formdata, class: e.target.value })
+                        setFormdata({ ...formdata, airline: e.target.value })
                     )}
                 >
                     <option value="Ethiopian airline">Ethiopian airline</option>

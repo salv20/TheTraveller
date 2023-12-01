@@ -1,20 +1,34 @@
 {
   "Bookings": [
     {
-      "id": 686,
+      "id": 1122,
       "from": "Nigeria",
       "to": "China",
       "airline": "Ethiopian Airline",
-      "fee": "18.00",
-      "duration": "4hrs",
-      "class": "First Class",
-      "departureTime": "4:18",
+      "fee": "46.00",
+      "duration": "8hrs",
+      "class": " Economy Class",
+      "departureTime": "8:46",
       "departureDate": {
-        "startDate": "2023-11-30T12:55:31.886Z"
+        "startDate": "2023-12-01T07:24:29.570Z"
       },
       "returnDate": {
-        "lastDate": "2023-11-30T12:55:31.886Z"
-      }
+        "lastDate": "2023-12-01T07:24:29.570Z"
+      },
+      "passenger": 1
+    },
+    {
+      "id": 1537,
+      "from": "Nigeria",
+      "to": "India",
+      "airline": "Ethiopian Airline",
+      "fee": "0.00",
+      "duration": "3hrs",
+      "class": "First Class",
+      "departureTime": "3:0",
+      "departureDate": "2023-12-18T07:56:54.000Z",
+      "returnDate": "2023-12-27T07:56:54.000Z",
+      "passenger": 1
     }
   ]
 }

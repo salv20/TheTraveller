@@ -2,11 +2,12 @@ import { FaTrashAlt } from 'react-icons/fa'
 import axios from 'axios'
 import { useEffect, useState, useContext } from 'react'
 import { fetchValue } from '../../routes/booking'
-import BookingEdit from './bookingEdit'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const jsonUrl = 'http://localhost:3020/Bookings'
 const Bookinglist = () => {
+    const navigate = useNavigate()
+
     const [Details, setDetails] = useState([])
     const valueContext = useContext(fetchValue)
 
@@ -30,7 +31,7 @@ const Bookinglist = () => {
             {
                 Details.map((country) => (
 
-                    <div className="flex bg-heading rounded-r-full p-3 py-8" key={(country.id)}>
+                    <div className="bookContainer flex bg-heading rounded-r-full p-3 py-8" key={(country.id)} id={country.id}>
                         <div className="w-full space-y-3" >
                             <div className="grid grid-cols-3 gap-x-2">
                                 <p> {country.from}</p>
@@ -41,8 +42,14 @@ const Bookinglist = () => {
                             <div className="grid grid-cols-3">
                                 <p>{country.airline}</p>
                                 <p>${country.fee}</p>
-                                <button type="button" className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold relative right-5 sm:right-0">
-                                    <Link to='/updatebooking'>edit</Link>
+                                <button type="button"
+                                    className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold relative right-5 sm:right-0"
+                                    onClick={(e) => {
+                                        const dataId = e.currentTarget.closest('.bookContainer').id;
+                                        navigate('/updatebooking', { state: dataId })
+                                    }}
+                                >
+                                    edit
                                 </button>
                             </div>
                         </div>

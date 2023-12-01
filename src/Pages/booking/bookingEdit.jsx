@@ -3,6 +3,7 @@ import { FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa'
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect, useContext } from "react";
 import { useLocation } from 'react-router-dom'
+import axios from "axios";
 
 
 const BookingEdit = () => {
@@ -17,29 +18,40 @@ const BookingEdit = () => {
             depart: { startDate },
             back: { lastDate },
             passenger: 1,
-            class: 'First Class',
-            airline: 'Ethiopian Airline'
+            class: '',
+            airline: ''
 
         }
     )
     const [to, setTo] = useState('')
 
     useEffect(() => {
-        // GETTING USERS CURRENT LOCATION
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const { latitude, longitude } = position.coords
-                const locationApi = async () => {
-                    const res = await fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=&location=${longitude},${latitude}`)
-                    const data = await res.json()
-                    const countryName = data.address.CntryName
-                    setupdateData({ ...updateData, from: countryName })
-                }
-                locationApi()
-            },)
+        const fetchData = async () => {
+            try {
 
-        // RETRIVING LOCATION DESTINATION FROM DISCOVER PAGE
-        if (path.state) setTo(path.state)
+                const getCurrentUrl = await axios.get(`http://localhost:3020/Bookings/${path.state}`)
+                const data = getCurrentUrl.data
+
+                setupdateData({ ...updateData, from: (data.from), airline: (data.airline), passenger: (data.passenger), class: (data.class) })
+                setTo(data.to)
+
+                {
+                    data.departureDate.startDate ?
+                        (
+                            setStartDate(new Date(data.departureDate.startDate)),
+                            setLastDate(new Date(data.returnDate.lastDate))
+                        )
+                        :
+                        (setStartDate(new Date(data.departureDate)),
+                            setLastDate(new Date(data.returnDate)))
+
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData()
 
     }, [])
 
@@ -129,9 +141,19 @@ const BookingEdit = () => {
                         setupdateData({ ...updateData, class: e.target.value })
                     )}
                 >
-                    <option value="First Class">First Class</option>
-                    <option value="Business Class">Business Class</option>
-                    <option value=" Economy Class"> Economy Class</option>
+                    <option value="First Class">{updateData.class}</option>
+                    <option value="Business Class">
+                        {updateData.class == 'First Class' && 'business class'}
+                        {updateData.class == 'Business Class' && 'First Class'}
+                        {updateData.class == ' Economy Class' && 'Business Class'}
+                    </option>
+                    <option value="  Economy Class">
+                        {updateData.class == 'First Class' && ' Economy Class'}
+                        {updateData.class == 'Business Class' && ' Economy Class'}
+                        {updateData.class == ' Economy Class' && 'first class'}
+
+
+                    </option>
                 </select>
             </div>
 
@@ -145,9 +167,18 @@ const BookingEdit = () => {
                         setupdateData({ ...updateData, class: e.target.value })
                     )}
                 >
-                    <option value="Ethiopian airline">Ethiopian airline</option>
-                    <option value="american airline">american airline</option>
-                    <option value="british airline">british airline</option>
+                    <option value="Ethiopian airline">{updateData.airline}</option>
+                    <option value="american airline">
+
+                        {updateData.airline == 'Ethiopian Airline' && 'american airline'}
+                        {updateData.airline == 'american airline' && 'Ethiopian Airline'}
+                        {updateData.airline == 'british airline' && 'american airline'}
+                    </option>
+                    <option value="british airline">
+                        {updateData.airline == 'Ethiopian Airline' && 'british airline'}
+                        {updateData.airline == 'american airline' && 'british airline'}
+                        {updateData.airline == 'british airline' && 'Ethiopian Airline'}
+                    </option>
                 </select>
             </div>
 
