@@ -5,7 +5,7 @@ import { createContext } from "react";
 
 export const fetchValue = createContext()
 const Booking = () => {
-    const [book, setBook] = useState(true)
+    const [book, setBook] = useState(false)
     const [fetchState, setFetchState] = useState(false)
 
 
