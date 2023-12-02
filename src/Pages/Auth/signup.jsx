@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const Signup = () => {
     return (
         <section className='bg-heading h-screen pt-10'>
-            <article className="w-5/6 md:w-3/5 mx-auto text-center">
+            <article className="w-5/6 md:w-3/5 mx-auto text-center space-y-6">
                 <div>
                     <h1 className="uppercase text-lg font-bold pb-3">Easy<span className='text-orange'>travel</span></h1>
                     <h2 className='font-semibold text-lg tracking-wider'>Create an account with us.</h2>
