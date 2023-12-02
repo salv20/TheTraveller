@@ -23,13 +23,13 @@ const router = createBrowserRouter(
         <Route path='discover' Component={Explore} />
         <Route path='bookings' Component={Booking} />
         <Route path='favorite' Component={Favorite} />
-        <Route path='contact' Component={contact} />
         <Route path='weather' Component={Weather} />
         <Route path='itinerary' Component={Itinenary} />
         <Route path='tickets' Component={Ticket} />
       </Route>
       <Route path='updatebooking' Component={BookingEdit} />
       <Route>
+        <Route path='contact' Component={contact} />
         <Route path='login' Component={Login} />
         <Route path='signup' Component={Signup} />
       </Route>

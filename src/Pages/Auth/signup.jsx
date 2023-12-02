@@ -11,8 +11,8 @@ const Signup = () => {
                 </div>
 
                 <form action="" className='space-y-6'>
-                    <div className=" capitalize font-bold text-left">
-                        <label className=' block'>full name</label>
+                    <div>
+                        <label className='capitalize font-bold text-left block'>full name</label>
                         <input type="text"
                             className='w-full h-10 outline-none rounded-lg border-2 indent-2 '
                             placeholder='Enter full name'
@@ -20,8 +20,8 @@ const Signup = () => {
                         />
                     </div>
 
-                    <div className=" capitalize font-bold text-left">
-                        <label className=' block'>email address</label>
+                    <div >
+                        <label className='capitalize font-bold text-left block'>email address</label>
                         <input type='email'
                             className='w-full h-10 outline-none rounded-lg border-2 indent-2 '
                             placeholder='Enter email address'
@@ -29,8 +29,8 @@ const Signup = () => {
                         />
                     </div>
 
-                    <div className=" capitalize font-bold text-left">
-                        <label className=' block'>user name</label>
+                    <div >
+                        <label className='capitalize font-bold text-left block'>user name</label>
                         <input type="text"
                             className='w-full h-10 outline-none rounded-lg border-2 indent-2 '
                             placeholder='Enter user name'
@@ -38,8 +38,8 @@ const Signup = () => {
                         />
                     </div>
 
-                    <div className=" capitalize font-bold text-left">
-                        <label className=' block'>password</label>
+                    <div>
+                        <label className='capitalize font-bold text-left block'>password</label>
                         <input type='text'
                             className='w-full h-10 outline-none rounded-lg border-2 indent-2 '
                             placeholder='Enter password'

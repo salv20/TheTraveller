@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 const Login = () => {
     return (
 
-
         <section className='bg-heading h-screen pt-28'>
             <div className='w-5/6 md:w-3/5 mx-auto text-center '>
 
@@ -12,8 +11,8 @@ const Login = () => {
                 <h1 className='font-semibold text-lg tracking-wider'>Welcome back please Login</h1>
 
                 <form action="" className='pt-8 space-y-5'>
-                    <div className=" capitalize font-bold text-left">
-                        <label className=' block'>email address</label>
+                    <div>
+                        <label className='capitalize font-bold text-left block'>email address</label>
                         <input type='email'
                             className='w-full h-12 outline-none rounded-lg border-2 indent-2 '
                             placeholder='Enter email address'
@@ -21,8 +20,8 @@ const Login = () => {
                         />
                     </div>
 
-                    <div className=" capitalize font-bold text-left">
-                        <label className=' block'>password</label>
+                    <div>
+                        <label className='capitalize font-bold text-left block'>password</label>
                         <input type='text'
                             className='w-full h-12 outline-none rounded-lg border-2 indent-2 '
                             placeholder='Enter password'
