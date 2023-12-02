@@ -34,7 +34,7 @@ const Login = () => {
                     >sign in</button>
 
                 </form>
-                <p className='font-semibold pt-4'>or <Link className='text-orange'>sign up</Link> if you dont have an account yet.</p>
+                <p className='font-semibold pt-4'>or <Link className='text-orange' to='/signup'>sign up</Link> if you dont have an account yet.</p>
             </div >
         </section>
     )
