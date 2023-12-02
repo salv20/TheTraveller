@@ -28,7 +28,7 @@ const Landingheader = () => {
 
     return (
         <header className="flex justify-around py-6 font-bold bg-heading">
-            <h1 className="uppercase text-lg">Easytravel</h1>
+            <h1 className="uppercase text-lg">Easy<span className="text-orange">travel</span></h1>
             <nav className={` ${!open ? '-left-eighty' : 'left-0'} transition-all duration-500 bg-dawhite top-0 w-3/4 h-full ml:px-0 ml:w-auto ml:bg-transparent  fixed ml:static ml:flex gap-x-8 capitalize text-lightgray`}>
                 <button type="button" className="ml:hidden text-3xl  relative left-nineper py-5" onClick={() => setOpen(!open)}> <FaTimes /></button>
                 <motion.ul
