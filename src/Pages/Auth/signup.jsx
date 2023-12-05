@@ -1,6 +1,51 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Signup = () => {
+
+    const [inputData, setInputData] = useState({
+        fullName: '',
+        email: '',
+        userName: "",
+        password: ''
+    })
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+
+        // REGEX
+        const nameregex = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/
+        const emailregex = /\S+@\S+\.\S+/
+        const userNameregex = /^[a-zA-Z]+\S*$/
+        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*].{6,16}$/
+
+
+        // name validation
+        !(inputData.fullName.match(nameregex)) && document.querySelector('.errorname').classList.remove('hidden')
+        !(inputData.email.match(emailregex)) && document.querySelector('.erroremail').classList.remove('hidden')
+        !(inputData.userName.match(userNameregex)) && document.querySelector('.erroruserName').classList.remove('hidden')
+        !(inputData.password.match(passRegex)) && document.querySelector('.errorpassword').classList.remove('hidden')
+
+
+        inputData.fullName.match(nameregex) &&
+            (inputData.email.match(emailregex)) &&
+            (inputData.userName.match(userNameregex)) &&
+            (inputData.password.match(passRegex)) &&
+            (
+                localStorage.setItem('signupUser', JSON.stringify(inputData)),
+                setInputData({
+                    ...inputData,
+                    fullName: '',
+                    email: '',
+                    userName: '',
+                    password: ''
+                })
+
+            )
+
+    }
+
+
     return (
         <section className='bg-heading h-screen pt-10'>
             <article className="w-5/6 md:w-3/5 mx-auto text-center space-y-6">
@@ -14,10 +59,16 @@ const Signup = () => {
                     <div>
                         <label className='capitalize font-bold text-left block'>full name</label>
                         <input type="text"
-                            className='w-full h-10 outline-none rounded-lg border-2 indent-2 '
+                            className='w-full h-10 outline-none rounded-lg border-2 indent-2 capitalize'
                             placeholder='Enter full name'
                             required
+                            value={inputData.fullName}
+                            onChange={(e) => {
+                                setInputData({ ...inputData, fullName: e.target.value });
+                                document.querySelector('.errorname').classList.add('hidden')
+                            }}
                         />
+                        <p className="errorname normal-case text-red-600 text-left hidden">Please enter a valid name</p>
                     </div>
 
                     <div >
@@ -26,16 +77,28 @@ const Signup = () => {
                             className='w-full h-10 outline-none rounded-lg border-2 indent-2 '
                             placeholder='Enter email address'
                             required
+                            value={inputData.email}
+                            onChange={(e) => {
+                                setInputData({ ...inputData, email: e.target.value });
+                                document.querySelector('.erroremail').classList.add('hidden')
+                            }}
                         />
+                        <p className="erroremail normal-case text-red-600 text-left hidden">Please enter a valid email</p>
                     </div>
 
                     <div >
                         <label className='capitalize font-bold text-left block'>user name</label>
                         <input type="text"
-                            className='w-full h-10 outline-none rounded-lg border-2 indent-2 '
+                            className='w-full h-10 outline-none rounded-lg border-2 indent-2 capitalize '
                             placeholder='Enter user name'
                             required
+                            value={inputData.userName}
+                            onChange={(e) => {
+                                setInputData({ ...inputData, userName: e.target.value });
+                                document.querySelector('.erroruserName').classList.add('hidden')
+                            }}
                         />
+                        <p className="erroruserName normal-case text-red-600 text-left hidden">Please enter a valid user Name</p>
                     </div>
 
                     <div>
@@ -44,10 +107,19 @@ const Signup = () => {
                             className='w-full h-10 outline-none rounded-lg border-2 indent-2 '
                             placeholder='Enter password'
                             required
+                            value={inputData.password}
+                            onChange={(e) => {
+                                setInputData({ ...inputData, password: e.target.value });
+                                document.querySelector('.errorpassword').classList.add('hidden')
+                            }}
                         />
+                        <p className="errorpassword normal-case text-red-600 text-left hidden">Password contain have a special character and a number</p>
                     </div>
 
-                    <button type="submit" className='bg-orange text-white font-bold text-lg w-full py-2 uppercase rounded-xl'>sign up</button>
+                    <button type="submit"
+                        className='bg-orange text-white font-bold text-lg w-full py-2 uppercase rounded-xl'
+                        onClick={(e) => onSubmit(e)}
+                    >sign up</button>
 
                 </form>
             </article>
