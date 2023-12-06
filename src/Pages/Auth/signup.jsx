@@ -1,5 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+let accounts = []
 
 const Signup = () => {
 
@@ -10,15 +13,32 @@ const Signup = () => {
         password: ''
     })
 
+
+
     const onSubmit = (event) => {
         event.preventDefault()
+        const notify = () => toast.error(`Email already exist, please Log in.`);
+
+        // SIGNUP FUNCTION
+        const SignupFunc = () => {
+            accounts.push(inputData),
+                console.log(accounts),
+                localStorage.setItem('userLogin', JSON.stringify(accounts))
+
+            setInputData({
+                ...inputData,
+                fullName: '',
+                email: '',
+                userName: '',
+                password: ''
+            })
+        }
 
         // REGEX
-        const nameregex = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)+$/
+        const nameregex = /^[a-zA-Z]([-']?[a-zA-Z]+)*( [a-zA-Z]([-']?[a-zA-Z]+)*)+$/
         const emailregex = /\S+@\S+\.\S+/
         const userNameregex = /^[a-zA-Z]+\S*$/
-        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*].{6,16}$/
-
+        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*].{5,16}$/
 
         // name validation
         !(inputData.fullName.match(nameregex)) && document.querySelector('.errorname').classList.remove('hidden')
@@ -32,19 +52,25 @@ const Signup = () => {
             (inputData.userName.match(userNameregex)) &&
             (inputData.password.match(passRegex)) &&
             (
-                localStorage.setItem('signupUser', JSON.stringify(inputData)),
-                setInputData({
-                    ...inputData,
-                    fullName: '',
-                    email: '',
-                    userName: '',
-                    password: ''
-                })
-
+                accounts.length ?
+                    accounts.map((user => {
+                        if (inputData.email.toLocaleLowerCase() === user.email.toLocaleLowerCase()) {
+                            console.log(user.email);
+                            notify()
+                        } else {
+                            SignupFunc()
+                        }
+                    })) : SignupFunc()
             )
-
     }
 
+
+    useEffect(() => {
+        localStorage.userLogin ? (
+            accounts = JSON.parse(localStorage.getItem('userLogin'))
+        )
+            : localStorage.setItem('userLogin', JSON.stringify(accounts))
+    })
 
     return (
         <section className='bg-heading h-screen pt-10'>
@@ -113,14 +139,14 @@ const Signup = () => {
                                 document.querySelector('.errorpassword').classList.add('hidden')
                             }}
                         />
-                        <p className="errorpassword normal-case text-red-600 text-left hidden">Password contain have a special character and a number</p>
+                        <p className="errorpassword normal-case text-red-600 text-left hidden">Password contain have a special character and a number and length more than 5</p>
                     </div>
 
                     <button type="submit"
                         className='bg-orange text-white font-bold text-lg w-full py-2 uppercase rounded-xl'
                         onClick={(e) => onSubmit(e)}
                     >sign up</button>
-
+                    <ToastContainer />
                 </form>
             </article>
         </section>
