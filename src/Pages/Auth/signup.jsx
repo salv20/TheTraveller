@@ -70,7 +70,7 @@ const Signup = () => {
             accounts = JSON.parse(localStorage.getItem('userLogin'))
         )
             : localStorage.setItem('userLogin', JSON.stringify(accounts))
-    })
+    }, [])
 
     return (
         <section className='bg-heading h-screen pt-10'>
@@ -146,7 +146,14 @@ const Signup = () => {
                         className='bg-orange text-white font-bold text-lg w-full py-2 uppercase rounded-xl'
                         onClick={(e) => onSubmit(e)}
                     >sign up</button>
-                    <ToastContainer />
+                    <ToastContainer
+                        hideProgressBar={true}
+                        closeOnClick
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
                 </form>
             </article>
         </section>
