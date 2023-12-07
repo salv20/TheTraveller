@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
+import { Provider } from 'react-redux'
+import store from './redux/user/userReducer.jsx'
+
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
 import emptypg from './components/404.jsx'
 import Landingroute from './routes/landing.route.jsx'
@@ -16,8 +19,7 @@ import Login from './Pages/Auth/login.jsx'
 import Signup from './Pages/Auth/signup.jsx'
 import Ticket from './Pages/booking/Ticket.jsx'
 import BookingEdit from './Pages/booking/bookingEdit.jsx'
-import { Provider } from 'react-redux'
-import store from './redux/user/userReducer.jsx'
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>

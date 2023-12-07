@@ -17,7 +17,13 @@ const Leftbar = ({ nav, navFunc }) => {
                 ))}
             </ul>
 
-            <button type="button" className=" bg-orange px-6 py-2 rounded-lg capitalize text-lg "><Link to='/' replace>logout</Link></button>
+            <button type="button"
+                className=" bg-orange px-6 py-2 rounded-lg capitalize text-lg "
+                onClick={() => {
+                    localStorage.setItem('userActiveState', JSON.stringify(false))
+                }}
+
+            ><Link to='/' replace>logout</Link></button>
         </nav>
     )
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux'
+import logingin from '../../redux/user/userAction';
 let accounts = []
 
 const Signup = () => {
@@ -13,10 +14,11 @@ const Signup = () => {
         userName: "",
         password: ''
     })
-
-
+    const userState = useSelector(state => state.active)
+    const dispatch = useDispatch()
 
     const onSubmit = (event) => {
+        console.log(userState);
         event.preventDefault()
         const notify = () => toast.error(`Email already exist, please Log in.`);
 
@@ -24,7 +26,9 @@ const Signup = () => {
         const SignupFunc = () => {
             accounts.push(inputData),
                 console.log(accounts),
-                localStorage.setItem('userDetails', JSON.stringify(accounts))
+                localStorage.setItem('userDetails', JSON.stringify(accounts));
+            dispatch(logingin());
+            // localStorage.setItem('userState', JSON.stringify(userState));
 
             setInputData({
                 ...inputData,
