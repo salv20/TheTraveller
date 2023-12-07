@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import logingin from '../../redux/user/userAction';
+import { connect } from 'react-redux';
 
-
-const Login = () => {
+const Login = (props) => {
+    console.log(props);
     const notify = () => toast.error(`please sign up.`);
     const wrongDetails = () => toast.error('incorrect email or password')
     const [detail, setDetail] = useState([])
@@ -19,35 +21,32 @@ const Login = () => {
             setDetail(JSON.parse(localStorage.getItem('userLogin')))
         )
     }, [])
+
     const LoginFunc = (event) => {
+        // const activeState = useSelector(state => state)
         event.preventDefault()
-
-        //REGEX
-        const emailregex = /\S+@\S+\.\S+/
-        const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*].{5,16}$/
-
         //FETCH LOCAL STORAGE
         if (detail.length) {
             const userACtive = detail.find(user => user.email.toLowerCase() === loginData.email.toLowerCase())
             console.log(userACtive);
-            const activeEmail = userACtive?.email
-            const activePassword = userACtive?.password
-            console.log(activeEmail, activePassword);
+            const activePassword = userACtive?.password;
+            const activeEmail = userACtive?.email;
 
             (activeEmail?.toLowerCase() === loginData.email?.toLowerCase()) &&
                 (activePassword == loginData.password) ?
-                console.log('success') :
+                (
+                    console.log('success'),
+                    props.Loging,
+                    console.log(props.active)
+                    // console.log(activeState)
+
+                )
+                :
                 wrongDetails()
 
         } else {
             notify()
         }
-
-
-        //ERROR CHECK
-        !(loginData.password.match(passRegex)) && document.querySelector('.errorpassword').classList.remove('hidden')
-        !(loginData.email.match(emailregex)) && document.querySelector('.erroremail').classList.remove('hidden')
-
     }
 
 
@@ -55,7 +54,6 @@ const Login = () => {
 
         <section className='bg-heading h-screen pt-28'>
             <div className='w-5/6 md:w-3/5 mx-auto text-center '>
-
                 <h1 className="uppercase text-lg font-bold pb-2">Easy<span className='text-orange'>travel</span></h1>
                 <h1 className='font-semibold text-lg tracking-wider'>Welcome back please Login</h1>
 
@@ -69,7 +67,8 @@ const Login = () => {
                             value={loginData.email}
                             onChange={(e) => (
                                 setloginData({ ...loginData, email: e.target.value }),
-                                document.querySelector('.erroremial').classList.add('hidden')
+                                document.querySelector('.erroremail').classList.add('hidden')
+
                             )}
                         />
                         <p className="erroremail normal-case text-red-600 text-left hidden">Please enter a valid emial</p>
@@ -109,5 +108,17 @@ const Login = () => {
         </section>
     )
 }
+const mapStateToProps = state => {
+    return {
+        active: state.active
+    }
+}
+const dispatchMapToProps = dispatch => {
+    return {
+        Loging: () => dispatch(logingin)
+    }
+}
 
-export default Login
+
+
+export default connect(mapStateToProps, dispatchMapToProps)(Login)

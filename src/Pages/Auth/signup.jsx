@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch, useSelector } from 'react-redux'
 let accounts = []
 
 const Signup = () => {
@@ -21,6 +22,8 @@ const Signup = () => {
 
         // SIGNUP FUNCTION
         const SignupFunc = () => {
+            const activeState = useSelector(state => console.log(state))
+
             accounts.push(inputData),
                 console.log(accounts),
                 localStorage.setItem('userLogin', JSON.stringify(accounts))
@@ -35,9 +38,9 @@ const Signup = () => {
         }
 
         // REGEX
-        const nameregex = /^[a-zA-Z]([-']?[a-zA-Z]+)*( [a-zA-Z]([-']?[a-zA-Z]+)*)+$/
+        const nameregex = /^[a-zA-Z]([-']?[a-zA-Z]+)+\s*( [a-zA-Z]([-']?[a-zA-Z]+)+\s*)+$/
         const emailregex = /\S+@\S+\.\S+/
-        const userNameregex = /^[a-zA-Z]+\S*$/
+        const userNameregex = /^[a-zA-Z]+\s*$/
         const passRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*].{5,16}$/
 
         // name validation

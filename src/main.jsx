@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
 import emptypg from './components/404.jsx'
 import Landingroute from './routes/landing.route.jsx'
@@ -15,6 +16,8 @@ import Login from './Pages/Auth/login.jsx'
 import Signup from './Pages/Auth/signup.jsx'
 import Ticket from './Pages/booking/Ticket.jsx'
 import BookingEdit from './Pages/booking/bookingEdit.jsx'
+import { Provider } from 'react-redux'
+import store from './redux/user/userReducer.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -41,6 +44,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )

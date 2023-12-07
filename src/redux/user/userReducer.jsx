@@ -1,23 +1,20 @@
-import { loggedIn, loggedOut } from "./userType";
+import { LOGIN } from "./userType";
 import { createStore } from "redux";
+
 const initialState = {
-    userState: false
+    active: false
 }
 
-const stateReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case loggedIn:
+        case LOGIN:
             return {
-                state, userState: true
-            };
-        case loggedOut:
-            return {
-                state, userState: state.userState
+                active: true
             }
 
         default:
-            state;
+            return state
     }
 }
-const store = createStore(stateReducer)
+const store = createStore(userReducer)
 export default store

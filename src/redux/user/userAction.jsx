@@ -1,11 +1,8 @@
-import { loggedIn, loggedOut } from "./userType"
-export const loginAction = () => {
+import { LOGIN } from "./userType";
+
+const logingin = () => {
     return {
-        type: loggedIn
+        type: LOGIN
     }
 }
-export const logoutAction = () => {
-    return {
-        type: loggedOut
-    }
-}
+export default logingin
