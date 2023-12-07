@@ -13,7 +13,6 @@ const Login = () => {
 
     useEffect(() => {
         localStorage.userDetails && (
-            // JSON.parse(localStorage.getItem('userDetails')),
             setDetail(JSON.parse(localStorage.getItem('userDetails')))
         )
     }, [])

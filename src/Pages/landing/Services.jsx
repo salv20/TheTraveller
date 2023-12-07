@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom"
 import { motion } from "framer-motion"
 import { appcontext } from "../../routes/landing.route"
 import { useContext } from "react"
@@ -47,11 +46,11 @@ const Services = () => {
                     <motion.li key={index}
                         variants={item}
                     >
-                        <NavLink to={path[index]} >
+                        <div >
                             <img src={symbol[index]} alt="" className="w-14 mx-auto" />
                             <h1 className=" font-semibold uppercase text-black">{per}</h1>
                             <p> {text[index]} </p>
-                        </NavLink>
+                        </div>
                     </motion.li>
 
                 ))}

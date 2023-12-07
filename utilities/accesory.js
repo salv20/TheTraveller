@@ -12,7 +12,6 @@ export const service = {
     "Get access to real-time weather updates for your destinations, making trip planning easy and smooth.",
     "Create and organise your trip itinerary, including details such as flights, accomodations and activities.",
   ],
-  path: ["discover", "bookings", "weather", "itinerary"],
 };
 
 export const testimony = {
