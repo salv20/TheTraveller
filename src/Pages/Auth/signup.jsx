@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,6 +16,7 @@ const Signup = () => {
     })
     const userState = useSelector(state => state.active)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const onSubmit = (event) => {
         console.log(userState);
@@ -25,10 +26,10 @@ const Signup = () => {
         // SIGNUP FUNCTION
         const SignupFunc = () => {
             accounts.push(inputData),
-                console.log(accounts),
                 localStorage.setItem('userDetails', JSON.stringify(accounts));
             dispatch(logingin());
-            // localStorage.setItem('userState', JSON.stringify(userState));
+            localStorage.setItem('userActiveState', JSON.stringify(true)),
+                navigate('/')
 
             setInputData({
                 ...inputData,

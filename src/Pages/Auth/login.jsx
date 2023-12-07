@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,12 +17,10 @@ const Login = () => {
             setDetail(JSON.parse(localStorage.getItem('userDetails')))
         )
     }, [])
-
-    // FETCHING REDUX ACTIVE STATE
+    const navigate = useNavigate()
 
     const LoginFunc = (event) => {
-        event.preventDefault()
-
+        event.preventDefault();
         //FETCH LOCAL STORAGE
         if (detail?.length) {
             const userACtive = detail.find(user => user.email.toLowerCase() === loginData.email.toLowerCase())
@@ -32,7 +30,8 @@ const Login = () => {
             (activeEmail?.toLowerCase() === loginData.email?.toLowerCase()) &&
                 (activePassword == loginData.password) ?
                 (
-                    localStorage.setItem('userActiveState', JSON.stringify(true))
+                    localStorage.setItem('userActiveState', JSON.stringify(true)),
+                    navigate('/')
                 )
                 :
                 wrongDetails()
@@ -41,7 +40,6 @@ const Login = () => {
             notify()
         }
     }
-
 
     return (
 
