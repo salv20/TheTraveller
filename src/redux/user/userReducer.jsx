@@ -2,7 +2,7 @@ import { LOGIN } from "./userType";
 import { createStore } from "redux";
 
 const initialState = {
-    active: false
+    active: true
 }
 
 const userReducer = (state = initialState, action) => {

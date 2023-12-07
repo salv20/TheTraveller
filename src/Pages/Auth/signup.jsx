@@ -22,11 +22,9 @@ const Signup = () => {
 
         // SIGNUP FUNCTION
         const SignupFunc = () => {
-            const activeState = useSelector(state => console.log(state))
-
             accounts.push(inputData),
                 console.log(accounts),
-                localStorage.setItem('userLogin', JSON.stringify(accounts))
+                localStorage.setItem('userDetails', JSON.stringify(accounts))
 
             setInputData({
                 ...inputData,
@@ -69,10 +67,10 @@ const Signup = () => {
 
 
     useEffect(() => {
-        localStorage.userLogin ? (
-            accounts = JSON.parse(localStorage.getItem('userLogin'))
+        localStorage.userDetails ? (
+            accounts = JSON.parse(localStorage.getItem('userDetails'))
         )
-            : localStorage.setItem('userLogin', JSON.stringify(accounts))
+            : localStorage.setItem('userDetails', JSON.stringify(accounts))
     }, [])
 
     return (

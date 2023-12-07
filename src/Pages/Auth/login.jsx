@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import logingin from '../../redux/user/userAction';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Login = (props) => {
-    console.log(props);
+const Login = () => {
     const notify = () => toast.error(`please sign up.`);
     const wrongDetails = () => toast.error('incorrect email or password')
     const [detail, setDetail] = useState([])
@@ -16,17 +15,21 @@ const Login = (props) => {
     })
 
     useEffect(() => {
-        localStorage.userLogin && (
-            JSON.parse(localStorage.getItem('userLogin')),
-            setDetail(JSON.parse(localStorage.getItem('userLogin')))
+        localStorage.userDetails && (
+            JSON.parse(localStorage.getItem('userDetails')),
+            setDetail(JSON.parse(localStorage.getItem('userDetails')))
         )
     }, [])
 
+
+    const userState = useSelector(state => state.active)
+    const dispatch = useDispatch()
     const LoginFunc = (event) => {
-        // const activeState = useSelector(state => state)
+        console.log(userState);
+
         event.preventDefault()
         //FETCH LOCAL STORAGE
-        if (detail.length) {
+        if (detail?.length) {
             const userACtive = detail.find(user => user.email.toLowerCase() === loginData.email.toLowerCase())
             console.log(userACtive);
             const activePassword = userACtive?.password;
@@ -35,11 +38,9 @@ const Login = (props) => {
             (activeEmail?.toLowerCase() === loginData.email?.toLowerCase()) &&
                 (activePassword == loginData.password) ?
                 (
-                    console.log('success'),
-                    props.Loging,
-                    console.log(props.active)
-                    // console.log(activeState)
-
+                    dispatch(logingin()),
+                    console.log(userState),
+                    localStorage.setItem('userState', JSON.stringify(userState))
                 )
                 :
                 wrongDetails()
@@ -108,17 +109,5 @@ const Login = (props) => {
         </section>
     )
 }
-const mapStateToProps = state => {
-    return {
-        active: state.active
-    }
-}
-const dispatchMapToProps = dispatch => {
-    return {
-        Loging: () => dispatch(logingin)
-    }
-}
 
-
-
-export default connect(mapStateToProps, dispatchMapToProps)(Login)
+export default Login
