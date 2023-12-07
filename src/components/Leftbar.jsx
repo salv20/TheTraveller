@@ -23,7 +23,7 @@ const Leftbar = ({ nav, navFunc }) => {
                     localStorage.setItem('userActiveState', JSON.stringify(false))
                 }}
 
-            ><Link to='/' replace>logout</Link></button>
+            ><Link to='/' replace >logout</Link></button>
         </nav>
     )
 }

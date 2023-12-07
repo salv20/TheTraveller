@@ -30,7 +30,7 @@ const Login = () => {
                 (activePassword == loginData.password) ?
                 (
                     localStorage.setItem('userActiveState', JSON.stringify(true)),
-                    navigate('/')
+                    navigate('/discover')
                 )
                 :
                 wrongDetails()
