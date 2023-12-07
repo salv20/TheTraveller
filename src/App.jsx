@@ -10,14 +10,16 @@ function App() {
     setNav(!nav)
   )
   const activeUser = JSON.parse(localStorage.getItem('userActiveState'))
-
+  const userDetails = localStorage.userDetails
   return (
     <main className="">
       <section className={`${!activeUser ? 'block' : 'hidden'} w-3/5 md:w-1/2 mx-auto mt-48`}>
         <button>
           <Link to='/login'
             className=" bg-orange px-10 uppercase text-white font-bold py-4 rounded-xl"
-          >please login</Link>
+          >
+            {userDetails ? 'please login' : 'please sign up'}
+          </Link>
         </button>
       </section>
       <section className={`${activeUser ? 'block' : 'hidden'} md:flex justify-between`}>
