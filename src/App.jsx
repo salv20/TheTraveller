@@ -22,7 +22,7 @@ function App() {
           </Link>
         </button>
       </section>
-      <section className={`${activeUser ? 'block' : 'hidden'} md:flex justify-between`}>
+      <section className={`${activeUser ? 'block md:flex' : 'hidden'}  justify-between`}>
         <Leftbar nav={nav} navFunc={navFunc} />
         <Mainarea search={search} setSearch={setSearch} navFunc={navFunc} />
         <Rightbar />
