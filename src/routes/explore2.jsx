@@ -1,34 +1,16 @@
-
 import { useEffect } from 'react'
-import { FaHeart } from 'react-icons/fa'
-import { useOutletContext, useNavigate } from 'react-router-dom'
-import { connect } from 'react-redux'
-import asyncFunc from '../redux/countryApi/countryAction'
-import ThreeDotsWave from '../components/dotwave'
-
-const Explore = ({ countryData, fetchCountry }) => {
-    const navigate = useNavigate()
-    let flags = []
-    let names = []
-    const search = useOutletContext()
-    const restnames = JSON.parse(localStorage.getItem('restnames'))
-    const restflags = JSON.parse(localStorage.getItem('restflags'))
-    if (localStorage.restflags && localStorage.restnames) {
-        flags = restflags
-        names = restnames
-    }
-
+import { connect } from 'react-redux';
+import asyncFunc from '../redux/countryApi/countryAction';
+import ThreeDotsWave from '../components/dotwave';
+import { FaHeart } from 'react-icons/fa';
+const explore2 = ({ countryData, fetchCountry }) => {
     useEffect(() => {
         fetchCountry()
     }, [])
 
-    const storage = () => {
-        localStorage.setItem('restflags', JSON.stringify(flags))
-        localStorage.setItem('restnames', JSON.stringify(names))
-    }
-
     return (
         <section>
+            <h1>explore2</h1>
             {(!countryData || (countryData.loading)) && <ThreeDotsWave />}
 
             {
@@ -61,25 +43,25 @@ const Explore = ({ countryData, fetchCountry }) => {
                                                 aria-label='likebtn'
                                                 className='transition-all duration-500 text-xl h-fit mt-1  text-black'
                                             ><FaHeart
-                                                    onClick={e => {
-                                                        const target = e.currentTarget
-                                                        target.classList.toggle('liked')
-                                                        const parentElement = (target.closest('div').parentElement.children)
-                                                        const flag = parentElement[0].src
-                                                        const name = parentElement[1].textContent
+                                                // onClick={e => {
+                                                //     const target = e.currentTarget
+                                                //     target.classList.toggle('liked')
+                                                //     const parentElement = (target.closest('div').parentElement.children)
+                                                //     const flag = parentElement[0].src
+                                                //     const name = parentElement[1].textContent
 
-                                                        // ADDING AND REMOVING FLAG SRC AND COUNTRY NAME
-                                                        if (target.classList.contains('liked')) {
-                                                            flags.push(flag)
-                                                            names.push(name)
-                                                            storage()
-                                                        } else {
-                                                            const index = flags.findIndex((src) => src === flag)
-                                                            flags.splice(index, 1)
-                                                            names.splice(index, 1)
-                                                            storage()
-                                                        }
-                                                    }}
+                                                //     // ADDING AND REMOVING FLAG SRC AND COUNTRY NAME
+                                                //     if (target.classList.contains('liked')) {
+                                                //         flags.push(flag)
+                                                //         names.push(name)
+                                                //         storage()
+                                                //     } else {
+                                                //         const index = flags.findIndex((src) => src === flag)
+                                                //         flags.splice(index, 1)
+                                                //         names.splice(index, 1)
+                                                //         storage()
+                                                //     }
+                                                // }} 
                                                 />
                                             </button>
                                         </div>
@@ -109,6 +91,4 @@ const mapDispatchProps = (dispach) => {
     };
 };
 
-
-
-export default connect(mapStateToProps, mapDispatchProps)(Explore)
+export default connect(mapStateToProps, mapDispatchProps)(explore2)

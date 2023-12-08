@@ -26,7 +26,7 @@ const fetchError = (error) => {
 
 const asyncFunc = () => {
     return dispatch => {
-        dispatch(fetchRequest)
+        dispatch(fetchRequest())
         axios.get('https://restcountries.com/v3.1/all')
             .then(res =>
                 dispatch(fetchData(res.data))
