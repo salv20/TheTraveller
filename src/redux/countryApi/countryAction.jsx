@@ -28,14 +28,12 @@ const asyncFunc = () => {
     return dispatch => {
         dispatch(fetchRequest)
         axios.get('https://restcountries.com/v3.1/all')
-            .then(res => (
-                console.log(res.data),
+            .then(res =>
                 dispatch(fetchData(res.data))
-            ))
-            .catch(err => (
-                console.log(err.message),
+            )
+            .catch(err =>
                 dispatch(fetchError(err.message))
-            ))
+            )
     }
 }
 export default asyncFunc

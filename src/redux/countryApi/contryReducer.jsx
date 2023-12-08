@@ -1,4 +1,5 @@
 import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from '@redux-devtools/extension';
 import {
     FETCH_DATA_ERROR,
     FETCH_DATA_REQUEST,
@@ -36,6 +37,7 @@ const countryReducer = (state = initialState, action) => {
     }
 }
 
-const store = createStore(countryReducer, applyMiddleware(thunk))
+const store = createStore(countryReducer,
+    composeWithDevTools(applyMiddleware(thunk)))
 
 export default store
