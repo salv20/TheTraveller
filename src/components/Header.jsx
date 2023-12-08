@@ -4,11 +4,13 @@ import Notification from "./notification"
 
 const Header = ({ navFunc }) => {
     const [notify, setNotify] = useState(false)
+    const userName = JSON.parse(localStorage.getItem('userDetails'))[0].userName
+
     return (
         <section className='pt-8 flex justify-between md:mx-0 space-x-3'>
             <Notification notify={notify} />
             <div className="space-y-0.5">
-                <h1 className=" capitalize font-bold text-lg md:text-xl">hello, sean</h1>
+                <h1 className=" capitalize font-bold text-lg md:text-xl">hello, {userName}</h1>
                 <h2 className=" text-orange font-bold sm:text-lg w-4/5 md:w-full ">Welcome back and explore the world.</h2>
             </div>
 
