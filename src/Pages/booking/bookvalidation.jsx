@@ -61,7 +61,7 @@ const Bookvalidation = ({ formdata, to, setTo }) => {
                         document.querySelector('.errorreturn').classList.remove('hidden')
                     }
                     // 
-                    if (takeOff.length && destination.length && formdata.depart && formdata.back) {
+                    if (takeOff?.length && destination.length && formdata.depart && formdata.back) {
                         setBookings({
                             ...bookings, id: idNum, from: takeOff[0], to: destination[0], airline: (formdata.airline), fee: `${priceNum}.00`, duration: `${time}hrs`, class: (formdata.class), departureDate: (formdata.depart), returnDate: (formdata.back), departureTime: `${time}:${priceNum}`, passenger: (formdata.passenger)
                         })

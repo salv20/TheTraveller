@@ -10,7 +10,7 @@ const Weather = ({ countryData, fetchCountry }) => {
     return (
         <div>
             <h1>weather</h1>
-            <ThreeDotsWave />
+            {/* <ThreeDotsWave /> */}
         </div>
     )
 }

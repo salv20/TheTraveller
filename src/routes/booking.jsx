@@ -1,24 +1,52 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import Bookingform from "../Pages/booking/bookingform";
 import Bookinglist from "../Pages/booking/bookinglist";
+import asyncFunc from "../redux/countryApi/countryAction";
+import { connect } from "react-redux";
+import ThreeDotsWave from "../components/dotwave";
+const Booking = ({ countryData, fetchCountry }) => {
 
-const Booking = () => {
-    const [fetchState, setFetchState] = useState(false)
-
+    useEffect(() => {
+        fetchCountry()
+    }, [])
     return (
-        <section className="space-y-6 pb-8">
-            <article className="pr-1 font-semibold text-lg">
-                <p>Online booking system for all services based industies and individals.
-                    <span>We offer the easiest and the best booking services. Book your flight 24hrs with us.</span>
-                </p>
-            </article>
+        <section>
+            {(!countryData || (countryData.loading)) && <ThreeDotsWave />}
+            {
+                countryData &&
+                !(countryData.loading) &&
+                (
+                    !countryData.country.length ?
+                        <div className=' text-red-800 bg-black font-bold p-5 text-center mt-10 mx-auto w-3/4'>
+                            {countryData.error} please check internet connection and reload.
+                        </div>
+                        :
+                        <div className="space-y-6 pb-8">
+                            <article className="pr-1 font-semibold text-lg">
+                                <p>Online booking system for all services based industies and individals.
+                                    <span>We offer the easiest and the best booking services. Book your flight 24hrs with us.</span>
+                                </p>
+                            </article>
 
-            <article>
-                <Bookingform />
-            </article>
-            <Bookinglist />
+                            <article>
+                                <Bookingform countryData={countryData} />
+                            </article>
+                            <Bookinglist />
+                        </div>
+                )}
+
         </section>
     )
 }
+const mapStateToProps = (state) => {
+    return {
+        countryData: state,
+    };
+};
+const mapDispatchProps = (dispach) => {
+    return {
+        fetchCountry: () => dispach(asyncFunc()),
+    };
+};
 
-export default Booking
+export default connect(mapStateToProps, mapDispatchProps)(Booking)

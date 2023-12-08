@@ -36,7 +36,7 @@ const Explore = ({ countryData, fetchCountry }) => {
                 !(countryData.loading) &&
                 (
                     !countryData.country.length ?
-                        <div className=' text-red-800 bg-black font-bold px-5 text-center mt-10 mx-auto w-3/4'>
+                        <div className=' text-red-800 bg-black font-bold p-5 text-center mt-10 mx-auto w-3/4'>
                             {countryData.error} please check internet connection and reload.
                         </div>
                         :
@@ -83,16 +83,11 @@ const Explore = ({ countryData, fetchCountry }) => {
                                                 />
                                             </button>
                                         </div>
-
-
-                                        {/*  */}
                                     </div>
                                 ))
                             }
-
                         </article>
                 )
-
             }
         </section>
     )

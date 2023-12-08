@@ -7,7 +7,6 @@ import Bookvalidation from "./bookvalidation";
 
 
 const Bookingform = () => {
-
     const path = useLocation()
     const [startDate, setStartDate] = useState(new Date());
     const [lastDate, setLastDate] = useState(new Date())
