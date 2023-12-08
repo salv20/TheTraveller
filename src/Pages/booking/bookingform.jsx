@@ -57,7 +57,7 @@ const Bookingform = ({ countryData, storageFunc }) => {
                         setFormdata({ ...formdata, from: e.target.value }),
                         document.querySelector('.errorFrom').classList.add('hidden')
                     )} />
-                <p className="errorFrom normal-case text-red-600 hidden">Please enter a valid country name</p>
+                <p className="errorFrom normal-case text-red-600 hidden">Please enter a valid country name or remove any ending space</p>
             </div>
             <div>
                 <label>to</label>
@@ -70,7 +70,7 @@ const Bookingform = ({ countryData, storageFunc }) => {
 
                     )}
                 />
-                <p className="errorTo normal-case text-red-600 hidden">Please enter a valid country name</p>
+                <p className="errorTo normal-case text-red-600 hidden">Please enter a valid country name or remove any ending space</p>
 
             </div>
 

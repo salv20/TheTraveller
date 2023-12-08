@@ -16,10 +16,8 @@ import Itinenary from './routes/itinenary.jsx'
 import Login from './Pages/Auth/login.jsx'
 import Signup from './Pages/Auth/signup.jsx'
 import Ticket from './Pages/booking/Ticket.jsx'
-import BookingEdit from './Pages/booking/bookingEdit.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/countryApi/contryReducer.jsx'
-import Explore2 from './routes/explore2.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,9 +30,7 @@ const router = createBrowserRouter(
         <Route path='weather' Component={Weather} />
         <Route path='itinerary' Component={Itinenary} />
         <Route path='tickets' Component={Ticket} />
-        <Route path='ex' Component={Explore2} />
       </Route>
-      <Route path='updatebooking' Component={BookingEdit} />
       <Route>
         <Route path='contact' Component={contact} />
         <Route path='login' Component={Login} />

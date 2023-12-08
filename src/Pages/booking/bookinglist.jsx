@@ -1,9 +1,7 @@
 import { FaTrashAlt } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const Bookinglist = ({ storageFunc, fetchStorage }) => {
-    const navigate = useNavigate()
     const [Details, setDetails] = useState([])
 
     useEffect(() => {
@@ -40,15 +38,7 @@ const Bookinglist = ({ storageFunc, fetchStorage }) => {
                                 <div className="grid grid-cols-3">
                                     <p>{country.airline}</p>
                                     <p>${country.fee}</p>
-                                    <button type="button"
-                                        className="w-fit px-8 py-2 bg-orange rounded-3xl text-white capitalize font-bold relative right-5 sm:right-0"
-                                        onClick={(e) => {
-                                            const dataId = e.currentTarget.closest('.bookContainer').id;
-                                            navigate('/updatebooking', { state: dataId })
-                                        }}
-                                    >
-                                        edit
-                                    </button>
+                                    <p>{country.class}</p>
                                 </div>
                             </div>
 

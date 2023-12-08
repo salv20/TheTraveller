@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react'
 import { FaHeart } from 'react-icons/fa'
-import { useOutletContext, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux'
 import asyncFunc from '../redux/countryApi/countryAction'
 import ThreeDotsWave from '../components/dotwave'
@@ -10,7 +10,6 @@ const Explore = ({ countryData, fetchCountry }) => {
     const navigate = useNavigate()
     let flags = []
     let names = []
-    const search = useOutletContext()
     const restnames = JSON.parse(localStorage.getItem('restnames'))
     const restflags = JSON.parse(localStorage.getItem('restflags'))
     if (localStorage.restflags && localStorage.restnames) {
