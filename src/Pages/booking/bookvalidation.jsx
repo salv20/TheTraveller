@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react"
-import { CountryApi } from "../../components/Api"
-import axios from "axios"
 
-
-const jsonUrl = 'https://bookingsdata.onrender.com/Bookings'
-const Bookvalidation = ({ formdata, to, setTo }) => {
-    const [contryName, setCountryName] = useState()
-
+const Bookvalidation = ({ formdata, to, setTo, countryData }) => {
+    let bookedFlights = []
+    const [countryName, setCountryName] = useState()
     const [bookings, setBookings] = useState({
         id: "",
         from: "",
@@ -20,20 +16,21 @@ const Bookvalidation = ({ formdata, to, setTo }) => {
         returnDate: '',
         passenger: ''
     })
+    const presentData = JSON.parse(localStorage.getItem('bookedFlights'))
+
+    localStorage.bookedFlights && (bookedFlights = presentData)
+
     useEffect(() => {
-        const countries = async () => {
-            const data = await CountryApi()
-            if (typeof data === 'string') {
-                console.log('please reload');
-            } else {
-                const finalData = (data.map(country => country.name.common));
-                setCountryName(finalData)
-            }
-        }
-        countries()
+        const finalData = (countryData.country.map(country => country.name.common));
+        setCountryName(finalData);
+
     }, [])
+
     useEffect(() => {
-        bookings.id && axios.post(jsonUrl, bookings).then(res => (res.status === 200 || res.status === 201) && location.reload())
+        if (bookings.id) {
+            bookedFlights.push(bookings)
+            localStorage.setItem('bookedFlights', JSON.stringify(bookedFlights))
+        }
     }, [bookings])
 
     return (
@@ -46,11 +43,11 @@ const Bookvalidation = ({ formdata, to, setTo }) => {
                     const time = (Math.round(Math.random() * 10) + 1);
 
 
-                    const destination = contryName?.filter(country => (country.toLowerCase() === to.toLowerCase()))
+                    const destination = countryName.filter(country => (country.toLowerCase() === to.toLowerCase()))
                     if (!(destination?.length)) {
                         document.querySelector('.errorTo').classList.remove('hidden')
                     }
-                    const takeOff = contryName?.filter(country => (country.toLowerCase() === formdata.from.toLowerCase()))
+                    const takeOff = countryName.filter(country => (country.toLowerCase() === formdata.from.toLowerCase()))
                     if (!(takeOff?.length)) {
                         document.querySelector('.errorFrom').classList.remove('hidden')
                     }
@@ -63,9 +60,20 @@ const Bookvalidation = ({ formdata, to, setTo }) => {
                     // 
                     if (takeOff?.length && destination.length && formdata.depart && formdata.back) {
                         setBookings({
-                            ...bookings, id: idNum, from: takeOff[0], to: destination[0], airline: (formdata.airline), fee: `${priceNum}.00`, duration: `${time}hrs`, class: (formdata.class), departureDate: (formdata.depart), returnDate: (formdata.back), departureTime: `${time}:${priceNum}`, passenger: (formdata.passenger)
-                        })
-                        setTo('')
+                            ...bookings,
+                            id: idNum, from: takeOff[0],
+                            to: destination[0],
+                            airline: (formdata.airline),
+                            fee: `${priceNum}.00`,
+                            duration: `${time}hrs`,
+                            class: (formdata.class),
+                            departureDate: (formdata.depart),
+                            returnDate: (formdata.back),
+                            departureTime: `${time}:${priceNum}`,
+                            passenger: (formdata.passenger)
+                        });
+
+                        setTo('');
                     }
                 }}
                 className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">

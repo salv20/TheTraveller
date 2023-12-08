@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import Bookvalidation from "./bookvalidation";
 
 
-const Bookingform = () => {
+const Bookingform = ({ countryData }) => {
     const path = useLocation()
     const [startDate, setStartDate] = useState(new Date());
     const [lastDate, setLastDate] = useState(new Date())
@@ -156,6 +156,7 @@ const Bookingform = () => {
                 formdata={formdata}
                 to={to}
                 setTo={setTo}
+                countryData={countryData}
             />
         </form>
 
