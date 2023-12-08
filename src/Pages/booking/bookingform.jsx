@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import Bookvalidation from "./bookvalidation";
 
 
-const Bookingform = ({ countryData }) => {
+const Bookingform = ({ countryData, storageFunc }) => {
     const path = useLocation()
     const [startDate, setStartDate] = useState(new Date());
     const [lastDate, setLastDate] = useState(new Date())
@@ -117,9 +117,13 @@ const Bookingform = ({ countryData }) => {
                     className="block outline-none border-b-2 border-lightgray w-full"
                     value={formdata.passenger}
                     onChange={(e) => (
+                        document.querySelector('.errorpassenger').classList.add('hidden'),
                         setFormdata({ ...formdata, passenger: e.target.value })
                     )}
                 />
+                <p className="errorpassenger normal-case text-red-600 hidden">Passenger(s) must be atleast 1</p>
+
+
             </div>
             <div>
                 <label className="block">class</label>
@@ -157,6 +161,7 @@ const Bookingform = ({ countryData }) => {
                 to={to}
                 setTo={setTo}
                 countryData={countryData}
+                storageFunc={storageFunc}
             />
         </form>
 

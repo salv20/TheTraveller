@@ -1,11 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Bookingform from "../Pages/booking/bookingform";
 import Bookinglist from "../Pages/booking/bookinglist";
 import asyncFunc from "../redux/countryApi/countryAction";
 import { connect } from "react-redux";
 import ThreeDotsWave from "../components/dotwave";
 const Booking = ({ countryData, fetchCountry }) => {
+    const [fetchStorage, setFetchStorage] = useState(false)
 
+    const storageFunc = () => {
+        setFetchStorage(!fetchStorage)
+    }
     useEffect(() => {
         fetchCountry()
     }, [])
@@ -29,9 +33,9 @@ const Booking = ({ countryData, fetchCountry }) => {
                             </article>
 
                             <article>
-                                <Bookingform countryData={countryData} />
+                                <Bookingform countryData={countryData} storageFunc={storageFunc} />
                             </article>
-                            <Bookinglist />
+                            <Bookinglist storageFunc={storageFunc} fetchStorage={fetchStorage} />
                         </div>
                 )}
 

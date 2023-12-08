@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const Bookvalidation = ({ formdata, to, setTo, countryData }) => {
+const Bookvalidation = ({ formdata, to, setTo, countryData, storageFunc }) => {
     let bookedFlights = []
     const [countryName, setCountryName] = useState()
     const [bookings, setBookings] = useState({
@@ -57,8 +57,11 @@ const Bookvalidation = ({ formdata, to, setTo, countryData }) => {
                     if (!formdata.back) {
                         document.querySelector('.errorreturn').classList.remove('hidden')
                     }
+                    if (Number(formdata.passenger) < 1) {
+                        document.querySelector('.errorpassenger').classList.remove('hidden')
+                    }
                     // 
-                    if (takeOff?.length && destination.length && formdata.depart && formdata.back) {
+                    if (takeOff?.length && destination.length && formdata.depart && formdata.back && (Number(formdata.passenger) >= 1)) {
                         setBookings({
                             ...bookings,
                             id: idNum, from: takeOff[0],
@@ -72,7 +75,7 @@ const Bookvalidation = ({ formdata, to, setTo, countryData }) => {
                             departureTime: `${time}:${priceNum}`,
                             passenger: (formdata.passenger)
                         });
-
+                        storageFunc()
                         setTo('');
                     }
                 }}
