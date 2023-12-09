@@ -12,7 +12,8 @@ nav {
 }
 
 nav::-webkit-scrollbar,
-section::-webkit-scrollbar {
+section::-webkit-scrollbar,
+.searchOptions::-webkit-scrollbar {
   display: none;
 }
 
