@@ -8,6 +8,7 @@ const Weather = () => {
     const [errorCountry, setErrorCountry] = useState('')
     const [country, setCountry] = useState([])
     const [search, setSearch] = useState('')
+    const [openState, setOpnState] = useState(false)
 
     useEffect(() => {
         const callWeather = async () => {
@@ -41,6 +42,7 @@ const Weather = () => {
                             value={search}
                             onChange={
                                 (e) => {
+                                    setOpnState(!openState)
                                     setSearch(e.target.value)
                                 }
                             }
@@ -56,7 +58,7 @@ const Weather = () => {
                     </div>
                 </article>
 
-                <article className={`${country.length ? 'block' : 'hidden'} searchOptions absolute overflow-y-scroll h-96 bg-white px-4 space-y-2 font-semibold mt-2`}>
+                <article className={`${country.length && openState ? 'block' : 'hidden'} searchOptions absolute overflow-y-scroll h-96 bg-white px-4 space-y-2 font-semibold mt-2`}>
                     {country?.map((country, index) => (
                         <div key={index} className=' cursor-pointer'>
                             <p
