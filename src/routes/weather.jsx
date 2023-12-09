@@ -1,29 +1,25 @@
-import { useEffect } from 'react'
-import { connect } from 'react-redux';
-import asyncFunc from '../redux/countryApi/countryAction';
-import ThreeDotsWave from '../components/dotwave';
-const Weather = ({ countryData, fetchCountry }) => {
+import { useEffect, useState } from 'react'
+import axios from 'axios';
+
+const APIURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=28e14ee596e0bdd973822600d621e018'
+const Weather = () => {
+    const [list, setList] = useState({})
+    const [erro, setError] = useState('')
     useEffect(() => {
-        fetchCountry()
+        const callWeather = async () => {
+            axios.get(APIURL)
+                .then(res => setList(res.data))
+                .catch(err => setError(err.message))
+        }
+        callWeather()
     }, [])
-    console.log(countryData);
     return (
         <div>
             <h1>weather</h1>
-            {/* <ThreeDotsWave /> */}
+            <p>{list?.cnt}</p>
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        countryData: state,
-    };
-};
-const mapDispatchProps = (dispach) => {
-    return {
-        fetchCountry: () => dispach(asyncFunc()),
-    };
-};
 
-export default connect(mapStateToProps, mapDispatchProps)(Weather)
+export default Weather
