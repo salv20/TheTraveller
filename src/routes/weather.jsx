@@ -7,7 +7,7 @@ const Weather = () => {
     const [errorWeather, setErrorWeather] = useState('')
     const [errorCountry, setErrorCountry] = useState('')
     const [country, setCountry] = useState([])
-    const [search, setSearch] = ('')
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         const callWeather = async () => {
@@ -42,7 +42,6 @@ const Weather = () => {
                             onChange={
                                 (e) => {
                                     setSearch(e.target.value)
-
                                 }
                             }
                         />
