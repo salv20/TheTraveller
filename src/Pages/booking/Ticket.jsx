@@ -72,14 +72,14 @@ const Ticket = () => {
                                                 flight.departureDate.startDate ?
                                                     (`
                                                     ${new Intl.DateTimeFormat('en-us',
-                                                        { hour: 'numeric', minute: 'numeric', second: '2-digit' }
+                                                        { hour: 'numeric', minute: 'numeric' }
                                                     ).format(new Date(flight.departureDate.startDate))} 
                                                      `
                                                     )
                                                     :
                                                     (`
                                                     ${new Intl.DateTimeFormat('en-us',
-                                                        { hour: 'numeric', minute: 'numeric', second: '2-digit' }
+                                                        { hour: 'numeric', minute: 'numeric' }
                                                     ).format(new Date(flight.departureDate))} 
                                                          `
                                                     )
