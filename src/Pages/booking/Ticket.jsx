@@ -1,15 +1,13 @@
 
 const Ticket = () => {
-    console.log(JSON.parse(localStorage.getItem('bookedFlights'))[0]);
     return (
         <section className='grid-cols-3 space-y-10 pt-4 pb-8'>
             {
                 localStorage.bookedFlights && localStorage.bookedFlights.length
                     ? (
-                        console.log(JSON.parse(localStorage.getItem('bookedFlights'))),
                         JSON.parse(localStorage.getItem('bookedFlights')).map((flight, index) => (
 
-                            <article className=' col-span-2 space-y-4 bg-heading' key={index}>
+                            <article className=' col-span-2 space-y-4 bg-heading rounded-3xl' key={index}>
                                 <div className=" grid grid-cols-3 gap-x-5 text-center bg-orange h-10 pt-1 rounded-ss-2xl rounded-se-2xl">
                                     <h1 className="uppercase text-lg font-bold col-span-2">Easy<span className="text-white">travel</span></h1>
                                     <img src="boeing.png" alt="" className=' relative -top-2 w-20 ' />
