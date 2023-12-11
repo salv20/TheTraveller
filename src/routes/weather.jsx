@@ -49,7 +49,7 @@ const Weather = () => {
     }, [fetchTime])
 
     return (
-        <section className='py-8 bg-heading h-screen'>
+        <section className='py-8 bg-services h-screen'>
             {
                 errorCountry ?
                     <div className=' text-red-800 bg-black font-bold p-5 text-center mt-10 mx-auto w-3/4'>
@@ -57,7 +57,7 @@ const Weather = () => {
                     </div>
                     :
                     countryName.length && list ?
-                        <div className="w-5/6 mx-auto">
+                        <div className="w-11/12 mx-auto">
                             <article className="">
                                 <div className="flex justify-between space-x-3">
                                     <input
