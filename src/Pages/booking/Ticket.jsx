@@ -2,7 +2,7 @@
 const Ticket = () => {
     console.log(JSON.parse(localStorage.getItem('bookedFlights'))[0]);
     return (
-        <section className='grid-cols-3 w-11/12 space-y-10 pt-4 pb-8'>
+        <section className='grid-cols-3 space-y-10 pt-4 pb-8'>
             {
                 localStorage.bookedFlights && localStorage.bookedFlights.length
                     ? (
@@ -57,7 +57,7 @@ const Ticket = () => {
 
                                 <div className=' capitalize font-bold grid-cols-4 grid pl-2'>
                                     <div>
-                                        <p>flight num:</p>
+                                        <p>number:</p>
                                         <p>{flight.id}</p>
                                     </div>
                                     <p>seat: {index + 1}</p>
@@ -66,7 +66,7 @@ const Ticket = () => {
                                         <p>{flight.airline.split(" ")[0]}</p>
                                     </div>
                                     <div>
-                                        <p>boarding time:</p>
+                                        <p>time:</p>
                                         <p>
                                             {
                                                 flight.departureDate.startDate ?
