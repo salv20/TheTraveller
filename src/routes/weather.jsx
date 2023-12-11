@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import ThreeDotsWave from '../components/dotwave';
+import Weatherui from '../Pages/weather/weatherui';
 
 const Weather = () => {
     const [list, setList] = useState({})
@@ -43,12 +44,7 @@ const Weather = () => {
                         .then(res => setList(res.data))
                         .catch(err => setErrorWeather(err.message))
                 })
-                .catch(err => {
-                    search && (
-                        console.log(err.message)
-                    )
-                })
-
+                .catch(err => setErrorWeather(err.message))
         }
     }, [fetchTime])
 
@@ -103,11 +99,17 @@ const Weather = () => {
                                         </div>
                                     ))}
                             </article>
-                            {/*  */}
-                            <article>
-                                {console.log(list)}
-                                <h1>nigeria</h1>
-                            </article>
+
+                            {/* WEATHER BODY */}
+
+                            {
+                                errorWeather ?
+                                    <div className=' text-red-800 bg-black font-bold p-5 text-center mt-10 mx-auto w-3/4'>
+                                        {errorCountry} please check internet connection and reload.
+                                    </div>
+                                    :
+                                    <Weatherui list={list} />
+                            }
                         </div>
                         :
                         <ThreeDotsWave />
