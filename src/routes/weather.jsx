@@ -9,7 +9,7 @@ const Weather = () => {
     const [errorCountry, setErrorCountry] = useState('')
     const [countryName, setCountryName] = useState([])
     const [search, setSearch] = useState('')
-    const [openState, setOpenState] = useState(false)
+    const [openState, setOpenState] = useState(true)
     const [fetchTime, setFetchTime] = useState(false)
 
 
@@ -83,7 +83,7 @@ const Weather = () => {
                             </article>
 
                             <article
-                                className={`${countryName.length && openState ? 'block' : 'hidden'} searchOptions absolute overflow-y-scroll h-80 bg-white w-3/4 md:w-1/2 pl-6 pt-2 space-y-2 font-semibold mt-2`}>
+                                className={`${countryName.length && openState ? 'block' : 'hidden'} searchOptions absolute overflow-y-scroll h-screen bg-white w-3/4 md:w-1/2 pl-6 pt-2 space-y-2 font-semibold mt-2`}>
                                 {
 
                                     countryName?.filter(country => country.toLowerCase().includes(search.toLowerCase()))?.map((country, index) => (

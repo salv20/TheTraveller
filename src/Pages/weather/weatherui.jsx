@@ -13,7 +13,7 @@ const Weatherui = ({ list, setOpenState }) => {
 
     return (
         <article
-            className='pb-6'
+            className='pb-6 h-screen'
             onClick={() => setOpenState(false)}
         >
             {
@@ -27,7 +27,7 @@ const Weatherui = ({ list, setOpenState }) => {
                             </div>
 
                             <div
-                                className='grid grid-cols-3 text-center bg-white rounded-2xl py-6 font-bold capitalize space-x-4 sm:text-lg'
+                                className='grid grid-cols-3 text-center bg-white rounded-2xl py-4 font-bold capitalize space-x-4 sm:text-lg'
                             >
 
                                 {
@@ -35,13 +35,16 @@ const Weatherui = ({ list, setOpenState }) => {
                                         <img src="sunny.png" alt="" className='w-24 h-24' />
                                         : (list.list[0].weather[0].main).toLowerCase() == 'clouds' ?
                                             <img src="cloudy.png" alt="" className='w-24 h-24' /> :
-                                            <img src="rain.png" alt="" className='w-24 h-24' />
+                                            (list.list[0].weather[0].main).toLowerCase() == 'snow' ?
+                                                <img src="snow.png" alt="" className='w-24 h-24' />
+                                                :
+                                                <img src="rain.png" alt="" className='w-24 h-24' />
                                 }
-                                <div className="mt-6 ">
+                                <div className="mt-4 ">
                                     <p className='text-lg'>{list.list[0].weather[0].main}</p>
                                     <p>{day} </p>
                                 </div>
-                                <p className='mt-6 text-2xl'>{Math.round((list.list[0]?.main.temp_max) - kelvin)}&deg;</p>
+                                <p className='mt-8 text-2xl'>{Math.round((list.list[0]?.main.temp_max) - kelvin)}&deg;</p>
                             </div>
 
                             {
@@ -55,7 +58,10 @@ const Weatherui = ({ list, setOpenState }) => {
                                                 <img src="sunny.png" alt="" className='w-20 h-20' />
                                                 : (list.list[0].weather[0].main).toLowerCase() == 'clouds' ?
                                                     <img src="cloudy.png" alt="" className='w-20 h-20' /> :
-                                                    <img src="rain.png" alt="" className='w-20 h-20' />
+                                                    (list.list[0].weather[0].main).toLowerCase() == 'snow' ?
+                                                        <img src="snow.png" alt="" className='w-20 h-20' />
+                                                        :
+                                                        <img src="rain.png" alt="" className='w-20 h-20' />
                                         }
 
                                         {
