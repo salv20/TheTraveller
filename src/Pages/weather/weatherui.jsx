@@ -1,54 +1,91 @@
-import React from 'react'
 import ThreeDotsWave from '../../components/dotwave'
 
-const Weatherui = ({ list }) => {
+const Weatherui = ({ list, setOpenState }) => {
+    const arrNum = [5, 10, 18, 28, 38]
     const kelvin = 273
+    const date = new Date()
+    const day = new Intl.DateTimeFormat('en-us', { weekday: 'long' }
+    ).format(date)
+    const month_year = new Intl.DateTimeFormat('en-us',
+        { day: '2-digit', year: 'numeric', month: 'long' }
+    ).format(date)
 
 
-    if (list?.list) {
+    return (
+        <article
+            className=''
+            onClick={() => setOpenState(false)}
+        >
+            {
+                list &&
+                    list.list ?
+                    (
+                        <article className='capitalize font-bold space-y-5 mt-6'>
+                            <div className=" text-center text-lg">
+                                <h1>{`${list.city?.name}, ${list.city?.country}`}</h1>
+                                <p>{month_year}</p>
+                            </div>
 
-        const detail0 = list?.list[0]
-        const detail = (list?.list).slice(0, 6)
-        console.log(detail);
-        const date = new Date(detail0.dt_txt)
-        const hour = date.getHours()
-        const country = list?.city.country
-        const town = list?.city.name
-        const day = new Intl.DateTimeFormat('en-us', { weekday: 'long' }
-        ).format(date)
-        const month_year = new Intl.DateTimeFormat('en-us',
-            { day: '2-digit', year: 'numeric', month: 'long' }
-        ).format(date)
+                            <div
+                                className='grid grid-cols-3 text-center bg-white rounded-2xl py-6 font-bold capitalize space-x-4 sm:text-lg'
+                            >
 
-        console.log(hour, month_year, day, country, town);
+                                {
+                                    (list.list[0].weather[0].main).toLowerCase() == 'clear' ?
+                                        <img src="sunny.png" alt="" className='w-24 h-24' />
+                                        : (list.list[0].weather[0].main).toLowerCase() == 'clouds' ?
+                                            <img src="cloudy.png" alt="" className='w-24 h-24' /> :
+                                            <img src="rain.png" alt="" className='w-24 h-24' />
+                                }
+                                <div className="mt-6 ">
+                                    <p className='text-lg'>{list.list[0].weather[0].main}</p>
+                                    <p>{day} </p>
+                                </div>
+                                <p className='mt-6 text-2xl'>{Math.round((list.list[0]?.main.temp_max) - kelvin)}&deg;</p>
+                            </div>
 
-        return (
-            <article className='capitalize font-bold space-y-5 mt-6'>
+                            {
+                                arrNum.map((num, index) => (
 
-                <div className=" text-center text-lg">
-                    <h1>lagos, nigeria</h1>
-                    <p>may, 25 2023</p>
-                </div>
+                                    <div
+                                        className="grid grid-cols-3 font-bold capitalize text-center"
+                                        key={index}>
+                                        {
+                                            (list.list[num].weather[0].main).toLowerCase() === 'clear' ?
+                                                <img src="sunny.png" alt="" className='w-20 h-20' />
+                                                : (list.list[0].weather[0].main).toLowerCase() == 'clouds' ?
+                                                    <img src="cloudy.png" alt="" className='w-20 h-20' /> :
+                                                    <img src="rain.png" alt="" className='w-20 h-20' />
+                                        }
 
-                <div className='grid grid-cols-3 text-center bg-white rounded-2xl py-6 font-bold capitalize space-x-4 sm:text-lg'>
-                    <img src="sunny.png" alt="" className='w-24 h-24' />
-                    <div className="mt-6 ">
-                        <p className='text-lg'>clear</p>
-                        <p>tuesday </p>
-                    </div>
-                    <p className='mt-6 text-2xl'>19&deg;</p>
-                </div>
-                <div className="grid grid-cols-3  font-bold capitalize text-center">
-                    <img src="cloudy.png" alt="" className='w-14 h-14' />
-                    <div>
-                        <p>wednesday</p>
-                        <p className=' font-semibold'>may, 25 2023</p>
-                    </div>
-                    <p className='mt-2 text-2xl'>19&deg;</p>
-                </div>
-            </article>
-        )
-    } else <ThreeDotsWave />
+                                        {
+                                            <div>
+                                                <p>
+                                                    {new Intl.DateTimeFormat('en-us', { weekday: 'long' }
+                                                    ).format(new Date(list.list[num].dt_txt))}
+                                                </p>
+                                                <p className=' font-semibold'>
+                                                    {new Intl.DateTimeFormat('en-us',
+                                                        { day: '2-digit', year: 'numeric', month: 'long' }
+                                                    ).format(new Date(list.list[num].dt_txt))}
+                                                </p>
+                                            </div>
+                                        }
+
+                                        {
+                                            <p className='mt-6 text-2xl'>{Math.round((list.list[num].main.temp_max) - kelvin)}&deg;</p>
+                                        }
+                                    </div>
+                                ))
+                            }
+                        </article>
+
+                    )
+                    :
+                    <ThreeDotsWave />
+            }
+        </article>
+    )
 }
 
 export default Weatherui

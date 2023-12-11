@@ -108,7 +108,7 @@ const Weather = () => {
                                         {errorCountry} please check internet connection and reload.
                                     </div>
                                     :
-                                    <Weatherui list={list} />
+                                    <Weatherui list={list} setOpenState={setOpenState} />
                             }
                         </div>
                         :
