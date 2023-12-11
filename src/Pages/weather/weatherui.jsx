@@ -13,7 +13,7 @@ const Weatherui = ({ list, setOpenState }) => {
 
     return (
         <article
-            className=''
+            className='pb-6'
             onClick={() => setOpenState(false)}
         >
             {
