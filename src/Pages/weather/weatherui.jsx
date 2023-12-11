@@ -37,7 +37,7 @@ const Weatherui = ({ list }) => {
                 </div>
 
                 <div className='grid grid-cols-4 bg-white rounded-2xl py-10 font-bold capitalize space-x-4 sm:text-lg'>
-                    <img src="public/sunny.png" alt="" className='w-24 h-24' />
+                    <img src="sunny.png" alt="" className='w-24 h-24' />
                     <div className="mt-6 col-span-2">
                         <p className='text-lg'>clear</p>
                         <p>tuesday 11:00 <span className='lowercase'>pm</span></p>
@@ -50,7 +50,7 @@ const Weatherui = ({ list }) => {
                         <p>wednesday</p>
                         <p className=' font-semibold'>may, 25 2023</p>
                     </div>
-                    <img src="public/cloudy.png" alt="" className='w-14 h-14' />
+                    <img src="cloudy.png" alt="" className='w-14 h-14' />
                 </div>
             </article>
         )
