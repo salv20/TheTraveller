@@ -8,12 +8,6 @@ const Weatherui = ({ list }) => {
     if (list?.list) {
 
         const detail0 = list?.list[0]
-        // const detail1 = list?.list[1]
-        // const detail2 = list?.list[2]
-        // const detail3 = list?.list[3]
-        // const detail4 = list?.list[4]
-        // const detail5 = list?.list[5]
-        // console.log(list?.list);
         const detail = (list?.list).slice(0, 6)
         console.log(detail);
         const date = new Date(detail0.dt_txt)
@@ -36,21 +30,21 @@ const Weatherui = ({ list }) => {
                     <p>may, 25 2023</p>
                 </div>
 
-                <div className='grid grid-cols-3 bg-white rounded-2xl py-6 font-bold capitalize space-x-4 sm:text-lg'>
+                <div className='grid grid-cols-3 text-center bg-white rounded-2xl py-6 font-bold capitalize space-x-4 sm:text-lg'>
                     <img src="sunny.png" alt="" className='w-24 h-24' />
-                    <div className="mt-6 text-center">
+                    <div className="mt-6 ">
                         <p className='text-lg'>clear</p>
                         <p>tuesday </p>
                     </div>
                     <p className='mt-6 text-2xl'>19&deg;</p>
                 </div>
-                <div className="grid grid-cols-4  font-bold capitalize">
-                    <p className='mt-2 text-2xl'>19&deg;</p>
-                    <div className="col-span-2">
+                <div className="grid grid-cols-3  font-bold capitalize text-center">
+                    <img src="cloudy.png" alt="" className='w-14 h-14' />
+                    <div>
                         <p>wednesday</p>
                         <p className=' font-semibold'>may, 25 2023</p>
                     </div>
-                    <img src="cloudy.png" alt="" className='w-14 h-14' />
+                    <p className='mt-2 text-2xl'>19&deg;</p>
                 </div>
             </article>
         )

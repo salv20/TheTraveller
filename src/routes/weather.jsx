@@ -57,11 +57,11 @@ const Weather = () => {
                     </div>
                     :
                     countryName.length && list ?
-                        <div className="w-11/12 mx-auto">
+                        <div className="w-11/12 md:w-3/4 xl:w-3/5 mx-auto">
                             <article className="">
                                 <div className="flex justify-between space-x-3">
                                     <input
-                                        type="search" name="" id="" placeholder="Search destinations" className="outline-none py-2 rounded-lg text-center w-3/4 border-2"
+                                        type="search" name="" id="" placeholder="Search destinations" className="outline-none py-3 rounded-lg text-center w-3/4 border-2"
                                         value={search}
                                         onChange={
                                             (e) => {
