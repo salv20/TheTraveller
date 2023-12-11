@@ -9,7 +9,7 @@ const Weather = () => {
     const [errorCountry, setErrorCountry] = useState('')
     const [countryName, setCountryName] = useState([])
     const [search, setSearch] = useState('')
-    const [openState, setOpenState] = useState(true)
+    const [openState, setOpenState] = useState(false)
     const [fetchTime, setFetchTime] = useState(false)
 
 
