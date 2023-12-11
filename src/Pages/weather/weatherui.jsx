@@ -29,22 +29,22 @@ const Weatherui = ({ list }) => {
         console.log(hour, month_year, day, country, town);
 
         return (
-            <article className='capitalize font-bold'>
+            <article className='capitalize font-bold space-y-5 mt-6'>
 
-                <div className=" text-center  py-8 text-lg">
+                <div className=" text-center text-lg">
                     <h1>lagos, nigeria</h1>
                     <p>may, 25 2023</p>
                 </div>
 
-                <div className='grid grid-cols-4 bg-white rounded-2xl py-10 font-bold capitalize space-x-4 sm:text-lg'>
+                <div className='grid grid-cols-3 bg-white rounded-2xl py-6 font-bold capitalize space-x-4 sm:text-lg'>
                     <img src="sunny.png" alt="" className='w-24 h-24' />
-                    <div className="mt-6 col-span-2">
+                    <div className="mt-6 text-center">
                         <p className='text-lg'>clear</p>
-                        <p>tuesday 11:00 <span className='lowercase'>pm</span></p>
+                        <p>tuesday </p>
                     </div>
                     <p className='mt-6 text-2xl'>19&deg;</p>
                 </div>
-                <div className="grid grid-cols-4 py-6  font-bold capitalize">
+                <div className="grid grid-cols-4  font-bold capitalize">
                     <p className='mt-2 text-2xl'>19&deg;</p>
                     <div className="col-span-2">
                         <p>wednesday</p>
