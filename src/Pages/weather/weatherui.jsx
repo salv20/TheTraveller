@@ -4,7 +4,7 @@ const Weatherui = ({ list }) => {
     const kelvin = 273
 
 
-    if (list) {
+    if (list?.list) {
 
         const detail0 = list?.list[0]
         // const detail1 = list?.list[1]
