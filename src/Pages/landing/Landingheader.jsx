@@ -1,5 +1,5 @@
 import { FaTimes, FaStream } from "react-icons/fa"
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { appcontext } from "../../routes/landing.route"
 import { useContext } from "react"
 import { landingNav } from "../../../utilities/accesory"
@@ -43,17 +43,17 @@ const Landingheader = () => {
                         <motion.li key={index}
                             variants={item}
                         >
-                            <NavLink
+                            <Link
                                 to={(landingNav.path)[index]}
                                 className='bg-light p-4 ml:bg-transparent ml:p-0 block'
 
                             >{list}
-                            </NavLink>
+                            </Link>
                         </motion.li>
                     ))}
 
                 </motion.ul>
-                <NavLink to='signup' className=' bg-darkpink border-lightgray absolute mt-8 ml:mt-0 px-10 py-3 ml-8 ml:ml-0 ml:bg-transparent ml:static border-2 border-solid  ml:px-4 rounded-lg ml:py-0.5'>signup</NavLink>
+                <Link to='signup' className=' bg-darkpink border-lightgray absolute mt-8 ml:mt-0 px-10 py-3 ml-8 ml:ml-0 ml:bg-transparent ml:static border-2 border-solid  ml:px-4 rounded-lg ml:py-0.5'>signup</Link>
             </nav>
             <button type="button" className="text-xl text-lightgray ml:hidden transition-all duration-500" onClick={() => setOpen(!open)}>
                 {!open ? <FaStream /> : 'close'}

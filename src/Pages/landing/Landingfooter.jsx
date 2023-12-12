@@ -1,5 +1,5 @@
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa"
-import { NavLink, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Landingfooter = () => {
     return (
@@ -11,29 +11,29 @@ const Landingfooter = () => {
             </div>
             <div className="grid w-fit">
                 <h1 className="font-semibold pb-2 ">company</h1>
-                <NavLink to='/'>home</NavLink>
-                <NavLink to='#about'>about</NavLink>
-                <NavLink to='#services'>services</NavLink>
+                <Link to='/'>home</Link>
+                <Link to='#about'>about</Link>
+                <Link to='#services'>services</Link>
             </div>
             <div className="grid w-fit">
                 <h1 className="font-semibold pb-2 ">Access</h1>
-                <NavLink to='login'>login</NavLink>
-                <NavLink to='social'>social</NavLink>
-                <NavLink to='contact' className=' normal-case'>contact</NavLink>
+                <Link to='login'>login</Link>
+                <Link to='social'>social</Link>
+                <Link to='contact' className=' normal-case'>contact</Link>
             </div>
 
             <div className="grid w-fit ">
                 <h1 className="font-semibold pb-2">more</h1>
-                <NavLink to='destination'>destination</NavLink>
-                <NavLink to='flight'>flight</NavLink>
-                <NavLink to='weather'>weather</NavLink>
+                <Link to='destination'>destination</Link>
+                <Link to='flight'>flight</Link>
+                <Link to='weather'>weather</Link>
             </div>
 
             <div className="pt-4 md:pt-0">
                 <div className="gap-x-2.5 text-center flex w-fit text-orange pb-2 text-xl">
-                    <NavLink to='https://github.com/salv20' className='p-2 rounded-full bg-gray-700'><FaGithub /></NavLink>
-                    <NavLink to='https://twitter.com/Salvati75317889' className='p-2 rounded-full bg-gray-700'><FaTwitter /></NavLink>
-                    <NavLink to='https://www.linkedin.com/in/amoke-salvation-6b89a7248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BIXeMSD9iRoqOs%2BYeoySMiw%3D%3D' className='p-2 rounded-full bg-gray-700'><FaLinkedin /></NavLink>
+                    <Link to='https://github.com/salv20' className='p-2 rounded-full bg-gray-700'><FaGithub /></Link>
+                    <Link to='https://twitter.com/Salvati75317889' className='p-2 rounded-full bg-gray-700'><FaTwitter /></Link>
+                    <Link to='https://www.linkedin.com/in/amoke-salvation-6b89a7248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BIXeMSD9iRoqOs%2BYeoySMiw%3D%3D' className='p-2 rounded-full bg-gray-700'><FaLinkedin /></Link>
                 </div>
                 <h1 className="font-semibold">discover our app</h1>
                 <div className="grid grid-cols-2 w-fit">
