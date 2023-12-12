@@ -49,7 +49,7 @@ const Weather = () => {
     }, [fetchTime])
 
     return (
-        <section className='py-8 bg-services h-screen'>
+        <section className='py-8 bg-services'>
             {
                 errorCountry ?
                     <div className=' text-red-800 bg-black font-bold p-5 text-center mt-10 mx-auto w-3/4'>
