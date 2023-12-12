@@ -9,26 +9,59 @@ function App() {
   const navFunc = () => (
     setNav(!nav)
   )
-  const activeUser = JSON.parse(localStorage.getItem('userActiveState'))
   const userDetails = localStorage.userDetails
   return (
-    <main className="">
-      <section className={`${!activeUser ? 'block' : 'hidden'} w-3/5 md:w-1/3 mx-auto mt-48`}>
-        <button>
-          <Link to={`${userDetails ? '/login' : '/signup'}`}
-            className=" bg-orange px-10 uppercase text-white font-bold py-4 rounded-xl"
-          >
-            {userDetails ? 'please login' : 'please sign up'}
-          </Link>
-        </button>
-      </section>
-      <section className={`${activeUser ? 'block md:flex' : 'hidden'}  justify-between`}>
-        <Leftbar nav={nav} navFunc={navFunc} />
-        <Mainarea search={search} setSearch={setSearch} navFunc={navFunc} />
-        <Rightbar />
-      </section>
-    </main>
+    <>
+      {
+        localStorage.userActiveSate && userDetails ?
+          <main className="">
+            <section className={`${!JSON.parse(localStorage.getItem('userActiveState')) ? 'block' : 'hidden'} w-3/5 md:w-1/3 mx-auto mt-48`}>
+              <button>
+                <Link to={`${userDetails ? '/login' : '/signup'}`}
+                  className=" bg-orange px-10 uppercase text-white font-bold py-4 rounded-xl"
+                >
+                  {userDetails ? 'please login' : 'please sign up'}
+                </Link>
+              </button>
+            </section>
+            <section className={`${JSON.parse(localStorage.getItem('userActiveState')) ? 'block md:flex' : 'hidden'}  justify-between`}>
+              <Leftbar nav={nav} navFunc={navFunc} />
+              <Mainarea search={search} setSearch={setSearch} navFunc={navFunc} />
+              <Rightbar />
+            </section>
+
+          </main>
+          :
+          <button className="text-center w-full mt-72">
+            <Link to='/signup'
+              className=" bg-orange px-10 uppercase text-white font-bold py-4 rounded-xl"
+            >
+              please sign up
+            </Link>
+          </button>
+
+      }
+    </>
   )
 }
 
 export default App
+
+// return (
+//   <main className="">
+// <section className={`${!activeUser ? 'block' : 'hidden'} w-3/5 md:w-1/3 mx-auto mt-48`}>
+//   <button>
+//     <Link to={`${userDetails ? '/login' : '/signup'}`}
+//       className=" bg-orange px-10 uppercase text-white font-bold py-4 rounded-xl"
+//     >
+//       {userDetails ? 'please login' : 'please sign up'}
+//     </Link>
+//   </button>
+// </section>
+// <section className={`${activeUser ? 'block md:flex' : 'hidden'}  justify-between`}>
+//   <Leftbar nav={nav} navFunc={navFunc} />
+//   <Mainarea search={search} setSearch={setSearch} navFunc={navFunc} />
+//   <Rightbar />
+// </section>
+//   </main>
+// )
