@@ -1,6 +1,7 @@
 import { FaTrashAlt } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Bookinglist = ({ storageFunc, fetchStorage }) => {
     const [Details, setDetails] = useState([])
 
@@ -18,6 +19,7 @@ const Bookinglist = ({ storageFunc, fetchStorage }) => {
         data.splice(userID, 1)
         localStorage.setItem('bookedFlights', JSON.stringify(data))
         storageFunc()
+        toast.success(`flight cancelled successfully.`)
     }
 
     return (
@@ -37,7 +39,7 @@ const Bookinglist = ({ storageFunc, fetchStorage }) => {
                                 <hr className=" border-dotted bg-lightgray " />
                                 <div className="grid grid-cols-3">
                                     <p>{country.airline}</p>
-                                    <p>${country.fee}</p>
+                                    <p>{`$${Math.round(Number(country.fee) * Number(country.passenger))}.00`}</p>
                                     <p>{country.class}</p>
                                 </div>
                             </div>
@@ -49,6 +51,16 @@ const Bookinglist = ({ storageFunc, fetchStorage }) => {
                                 >
                                     <FaTrashAlt />
                                 </button>
+                                <ToastContainer
+                                    className=' text-base'
+                                    position="top-center"
+                                    hideProgressBar={true}
+                                    closeOnClick
+                                    pauseOnFocusLoss
+                                    draggable
+                                    pauseOnHover
+                                    theme="dark"
+                                />
                             </div>
                         </div>
                     )

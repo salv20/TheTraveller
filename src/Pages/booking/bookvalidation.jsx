@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Bookvalidation = ({ formdata, to, setTo, countryData, storageFunc }) => {
     let bookedFlights = []
@@ -57,11 +59,11 @@ const Bookvalidation = ({ formdata, to, setTo, countryData, storageFunc }) => {
                     if (!formdata.back) {
                         document.querySelector('.errorreturn').classList.remove('hidden')
                     }
-                    if (Number(formdata.passenger) < 1) {
+                    if ((Number(formdata.passenger) < 1) || (Number(formdata.passenger) > 10)) {
                         document.querySelector('.errorpassenger').classList.remove('hidden')
                     }
                     // 
-                    if (takeOff?.length && destination.length && formdata.depart && formdata.back && (Number(formdata.passenger) >= 1)) {
+                    if (takeOff?.length && destination.length && formdata.depart && formdata.back && (Number(formdata.passenger) >= 1) && (Number(formdata.passenger) <= 10)) {
                         setBookings({
                             ...bookings,
                             id: idNum, from: takeOff[0],
@@ -75,12 +77,22 @@ const Bookvalidation = ({ formdata, to, setTo, countryData, storageFunc }) => {
                             departureTime: `${time}:${priceNum}`,
                             passenger: (formdata.passenger)
                         });
+                        toast.success(`flight successfully booked.`)
                         storageFunc()
                         setTo('');
                     }
                 }}
                 className=" mx-auto px-14 py-3 capitalize rounded-3xl bg-orange font-bold text-white">
                 Book flight</button>
+            <ToastContainer
+                position="top-center"
+                hideProgressBar={true}
+                closeOnClick
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </div>
     )
 }

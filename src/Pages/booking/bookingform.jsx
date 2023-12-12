@@ -121,7 +121,7 @@ const Bookingform = ({ countryData, storageFunc }) => {
                         setFormdata({ ...formdata, passenger: e.target.value })
                     )}
                 />
-                <p className="errorpassenger normal-case text-red-600 hidden">Passenger(s) must be atleast 1</p>
+                <p className="errorpassenger normal-case text-red-600 hidden">Passenger(s) must be atleast 1 and atmost 10</p>
 
 
             </div>
