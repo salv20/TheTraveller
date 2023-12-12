@@ -14,7 +14,7 @@ function App() {
     <>
       {
         localStorage.userActiveState && userDetails ?
-          <main className="">
+          <main>
             <section className={`${!JSON.parse(localStorage.getItem('userActiveState')) ? 'block' : 'hidden'} w-3/5 md:w-1/3 mx-auto mt-48`}>
               <button>
                 <Link to={`${userDetails ? '/login' : '/signup'}`}
@@ -24,7 +24,7 @@ function App() {
                 </Link>
               </button>
             </section>
-            <section className={`${JSON.parse(localStorage.getItem('userActiveState')) ? 'block md:flex' : 'hidden'}  justify-between`}>
+            <section className={`${JSON.parse(localStorage.getItem('userActiveState')) ? 'block md:grid grid-cols-3 lg:grid-cols-4' : 'hidden'}  justify-between`}>
               <Leftbar nav={nav} navFunc={navFunc} />
               <Mainarea search={search} setSearch={setSearch} navFunc={navFunc} />
               <Rightbar />

@@ -4,7 +4,7 @@ import Hero from "./hero"
 
 const Mainarea = ({ search, setSearch, navFunc }) => {
     return (
-        <section className="md:w-3/5 lg:w-1/2 px-3 sticky h-screen  overflow-y-scroll">
+        <section className=" px-3 h-screen  overflow-y-scroll col-span-2">
             <Header navFunc={navFunc} />
             <Hero search={search} setSearch={setSearch} />
             <Outlet context={search} />
