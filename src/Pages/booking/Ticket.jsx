@@ -26,7 +26,7 @@ const Ticket = () => {
                                                     flight.departureDate.startDate ?
                                                         (`
                                                     ${new Intl.DateTimeFormat('en-us',
-                                                            { day: '2-digit', year: 'numeric', month: 'long' }
+                                                            { day: '2-digit', year: 'numeric', month: 'short' }
                                                         ).format(new Date(flight.departureDate.startDate))} 
                                                      `
                                                         )
