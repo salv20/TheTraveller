@@ -1,7 +1,7 @@
 import ThreeDotsWave from '../../components/dotwave'
 
 const Weatherui = ({ list, setOpenState }) => {
-    const arrNum = [5, 10, 18, 28, 38]
+    const arrNum = [7, 15, 23, 31, 38]
     const kelvin = 273
     const date = new Date()
     const day = new Intl.DateTimeFormat('en-us', { weekday: 'long' }
