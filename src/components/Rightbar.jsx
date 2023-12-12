@@ -73,7 +73,7 @@ const Rightbar = () => {
 
                         ))
                         :
-                        <div className=' font-bold text-center space-y-3 text-lg mt-14'>
+                        <div className=' font-bold text-center space-y-3  mt-14'>
                             <p>No booked flights yet</p>
                             <button type="button"
                                 className=' bg-orange capitalize rounded-lg px-5 py-2  font-bold text-white text-base'

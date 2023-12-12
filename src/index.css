@@ -20,3 +20,17 @@ section::-webkit-scrollbar,
 .liked {
   color: #f18700;
 }
+
+a.active {
+  background-color: #f18700;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 870px) {
+  a.active {
+    padding: 12px 10px;
+    border-radius: 5px;
+  }
+}
