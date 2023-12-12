@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { FaHeart } from 'react-icons/fa'
 import { useNavigate, useOutletContext } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -10,7 +10,6 @@ const Explore = ({ countryData, fetchCountry }) => {
     const navigate = useNavigate()
     let flags = []
     let names = []
-    const [finalData, setFinalData] = useState()
     const search = useOutletContext()
     const restnames = JSON.parse(localStorage.getItem('restnames'))
     const restflags = JSON.parse(localStorage.getItem('restflags'))
@@ -21,11 +20,7 @@ const Explore = ({ countryData, fetchCountry }) => {
 
     useEffect(() => {
         fetchCountry()
-        if (!countryData.loading) {
-            const data = countryData.country.filter(country => ((country.name.common).toLowerCase()).includes(search.toLowerCase()))
-            setFinalData(data)
-        }
-    }, [search])
+    }, [])
 
     const storage = () => {
         localStorage.setItem('restflags', JSON.stringify(flags))
@@ -48,49 +43,51 @@ const Explore = ({ countryData, fetchCountry }) => {
 
                         <article className='grid grid-cols-2 gap-4 '>
                             {
-                                finalData &&
-                                finalData.map((country, index) => (
-                                    <div key={index} className='shadow-lg bg-services p-1 bg-white '>
-                                        <img src={country.flags.svg} alt="" className='w-full h-36 sm:h-52' />
-                                        <p>{country.name.common}</p>
-                                        <div className='flex justify-between py-2 pr-2'>
-                                            <button className=' bg-visit py-1 px-5 rounded-lg font-bold'
-                                                onClick={(e) => {
-                                                    const parentElement = (e.currentTarget.closest('div').parentElement.children)
-                                                    const name = parentElement[1].textContent
-                                                    console.log(name);
-                                                    navigate('/bookings', { state: name })
-                                                }}
-                                            >Visit</button>
-
-                                            <button type="button"
-                                                aria-label='likebtn'
-                                                className='transition-all duration-500 text-xl h-fit mt-1  text-black'
-                                            ><FaHeart
-                                                    onClick={e => {
-                                                        const target = e.currentTarget
-                                                        target.classList.toggle('liked')
-                                                        const parentElement = (target.closest('div').parentElement.children)
-                                                        const flag = parentElement[0].src
+                                countryData &&
+                                countryData.country
+                                    .filter(country => ((country.name.common).toLowerCase()).includes(search.toLowerCase()))
+                                    .map((country, index) => (
+                                        <div key={index} className='shadow-lg bg-services p-1 bg-white '>
+                                            <img src={country.flags.svg} alt="" className='w-full h-36 sm:h-52' />
+                                            <p>{country.name.common}</p>
+                                            <div className='flex justify-between py-2 pr-2'>
+                                                <button className=' bg-visit py-1 px-5 rounded-lg font-bold'
+                                                    onClick={(e) => {
+                                                        const parentElement = (e.currentTarget.closest('div').parentElement.children)
                                                         const name = parentElement[1].textContent
-
-                                                        // ADDING AND REMOVING FLAG SRC AND COUNTRY NAME
-                                                        if (target.classList.contains('liked')) {
-                                                            flags.push(flag)
-                                                            names.push(name)
-                                                            storage()
-                                                        } else {
-                                                            const index = flags.findIndex((src) => src === flag)
-                                                            flags.splice(index, 1)
-                                                            names.splice(index, 1)
-                                                            storage()
-                                                        }
+                                                        console.log(name);
+                                                        navigate('/bookings', { state: name })
                                                     }}
-                                                />
-                                            </button>
+                                                >Visit</button>
+
+                                                <button type="button"
+                                                    aria-label='likebtn'
+                                                    className='transition-all duration-500 text-xl h-fit mt-1  text-black'
+                                                ><FaHeart
+                                                        onClick={e => {
+                                                            const target = e.currentTarget
+                                                            target.classList.toggle('liked')
+                                                            const parentElement = (target.closest('div').parentElement.children)
+                                                            const flag = parentElement[0].src
+                                                            const name = parentElement[1].textContent
+
+                                                            // ADDING AND REMOVING FLAG SRC AND COUNTRY NAME
+                                                            if (target.classList.contains('liked')) {
+                                                                flags.push(flag)
+                                                                names.push(name)
+                                                                storage()
+                                                            } else {
+                                                                const index = flags.findIndex((src) => src === flag)
+                                                                flags.splice(index, 1)
+                                                                names.splice(index, 1)
+                                                                storage()
+                                                            }
+                                                        }}
+                                                    />
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))
+                                    ))
                             }
                         </article>
                 )
