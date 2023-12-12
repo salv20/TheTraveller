@@ -58,7 +58,10 @@ const Ticket = () => {
                                         <p>number:</p>
                                         <p>{flight.id}</p>
                                     </div>
-                                    <p>seat: {index + 1}</p>
+                                    <div>
+                                        <p>seat:</p>
+                                        <p>{index + 1}</p>
+                                    </div>
                                     <div>
                                         <p>airline:</p>
                                         <p>{flight.airline.split(" ")[0]}</p>
