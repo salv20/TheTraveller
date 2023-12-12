@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 const Ticket = () => {
     return (
         <section className='grid-cols-3 space-y-10 pt-4 pb-8'>

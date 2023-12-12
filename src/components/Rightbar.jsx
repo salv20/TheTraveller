@@ -73,10 +73,10 @@ const Rightbar = () => {
 
                         ))
                         :
-                        <div className=' text-center capitalize space-y-3 text-lg font-semibold mt-10'>
+                        <div className=' font-bold text-center space-y-3 text-lg mt-14'>
                             <p>No booked flights yet</p>
                             <button type="button"
-                                className=' bg-orange rounded-lg px-5 py-2 capitalize font-semibold text-white text-base'
+                                className=' bg-orange capitalize rounded-lg px-5 py-2  font-bold text-white text-base'
                                 aria-label='discoverbtn'
                             >
                                 <Link to='/bookings'>book flight</Link>
