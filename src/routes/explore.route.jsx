@@ -1,7 +1,7 @@
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import { connect } from 'react-redux'
 import asyncFunc from '../redux/countryApi/countryAction'
 import ThreeDotsWave from '../components/dotwave'
@@ -10,6 +10,8 @@ const Explore = ({ countryData, fetchCountry }) => {
     const navigate = useNavigate()
     let flags = []
     let names = []
+    const [finalData, setFinalData] = useState()
+    const search = useOutletContext()
     const restnames = JSON.parse(localStorage.getItem('restnames'))
     const restflags = JSON.parse(localStorage.getItem('restflags'))
     if (localStorage.restflags && localStorage.restnames) {
@@ -19,7 +21,11 @@ const Explore = ({ countryData, fetchCountry }) => {
 
     useEffect(() => {
         fetchCountry()
-    }, [])
+        if (!countryData.loading) {
+            const data = countryData.country.filter(country => ((country.name.common).toLowerCase()).includes(search.toLowerCase()))
+            setFinalData(data)
+        }
+    }, [search])
 
     const storage = () => {
         localStorage.setItem('restflags', JSON.stringify(flags))
@@ -42,7 +48,8 @@ const Explore = ({ countryData, fetchCountry }) => {
 
                         <article className='grid grid-cols-2 gap-4 '>
                             {
-                                countryData.country.map((country, index) => (
+                                finalData &&
+                                finalData.map((country, index) => (
                                     <div key={index} className='shadow-lg bg-services p-1 bg-white '>
                                         <img src={country.flags.svg} alt="" className='w-full h-36 sm:h-52' />
                                         <p>{country.name.common}</p>
