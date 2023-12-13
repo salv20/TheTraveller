@@ -3,6 +3,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Bookvalidation = ({ formdata, to, setTo, countryData, storageFunc }) => {
+
+
     let bookedFlights = []
     const [countryName, setCountryName] = useState()
     const [bookings, setBookings] = useState({
@@ -77,8 +79,8 @@ const Bookvalidation = ({ formdata, to, setTo, countryData, storageFunc }) => {
                             departureTime: `${time}:${priceNum}`,
                             passenger: (formdata.passenger)
                         });
-                        toast.success(`flight successfully booked.`)
-                        storageFunc()
+                        toast.success(`flight successfully booked.`);
+                        storageFunc();
                         setTo('');
                     }
                 }}

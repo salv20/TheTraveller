@@ -1,14 +1,17 @@
 import Mainarea from "./components/mainarea"
 import Leftbar from "./components/Leftbar"
 import Rightbar from "./components/Rightbar"
-import { useState } from "react"
+import { useState, createContext } from "react"
 import { Link } from "react-router-dom"
+export const contextProvider = createContext()
 function App() {
   const [nav, setNav] = useState(false)
+  const [trips, setTrips] = useState(false)
   const [search, setSearch] = useState('')
   const navFunc = () => (
     setNav(!nav)
   )
+
   const userDetails = localStorage.userDetails
   return (
     <>
@@ -26,8 +29,11 @@ function App() {
             </section>
             <section className={`${JSON.parse(localStorage.getItem('userActiveState')) ? 'block md:grid grid-cols-3 lg:grid-cols-4' : 'hidden'}  justify-between`}>
               <Leftbar nav={nav} navFunc={navFunc} />
-              <Mainarea search={search} setSearch={setSearch} navFunc={navFunc} />
-              <Rightbar />
+              <contextProvider.Provider value={[trips, setTrips]}>
+                <Mainarea search={search} setSearch={setSearch} navFunc={navFunc} />
+                <Rightbar />
+              </contextProvider.Provider>
+
             </section>
 
           </main>

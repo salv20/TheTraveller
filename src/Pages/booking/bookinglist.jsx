@@ -2,6 +2,7 @@ import { FaTrashAlt } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const Bookinglist = ({ storageFunc, fetchStorage }) => {
     const [Details, setDetails] = useState([])
 
@@ -15,11 +16,11 @@ const Bookinglist = ({ storageFunc, fetchStorage }) => {
     const onDelete = (e) => {
         const data = JSON.parse(localStorage.getItem('bookedFlights'))
         const ID = Number(e.currentTarget.closest('.bookContainer').id)
-        const userID = data.findIndex(book => book.id === ID)
-        data.splice(userID, 1)
-        localStorage.setItem('bookedFlights', JSON.stringify(data))
-        storageFunc()
-        toast.success(`flight cancelled successfully.`)
+        const userID = data.findIndex(book => book.id === ID);
+        data.splice(userID, 1);
+        storageFunc();
+        localStorage.setItem('bookedFlights', JSON.stringify(data));
+        toast.success(`flight cancelled successfully.`);
     }
 
     return (

@@ -2,9 +2,11 @@ import { Link } from "react-router-dom"
 const Ticket = () => {
     return (
         <section className='grid-cols-3 space-y-10 pt-4 pb-8'>
+
             {
-                localStorage.bookedFlights && localStorage.bookedFlights.length
-                    ? (
+                localStorage.bookedFlights &&
+                (
+                    (JSON.parse(localStorage.getItem('bookedFlights')).length) ?
                         JSON.parse(localStorage.getItem('bookedFlights')).map((flight, index) => (
 
                             <article className=' col-span-2 space-y-4 bg-heading rounded-3xl' key={index}>
@@ -27,14 +29,14 @@ const Ticket = () => {
                                                         (`
                                                     ${new Intl.DateTimeFormat('en-us',
                                                             { day: '2-digit', year: 'numeric', month: 'short' }
-                                                        ).format(new Date(flight.departureDate.startDate))} 
+                                                        ).format(new Date(flight.departureDate.startDate))}
                                                      `
                                                         )
                                                         :
                                                         (`
                                                     ${new Intl.DateTimeFormat('en-us',
                                                             { day: '2-digit', year: 'numeric', month: 'long' }
-                                                        ).format(new Date(flight.departureDate))} 
+                                                        ).format(new Date(flight.departureDate))}
                                                          `
                                                         )
 
@@ -74,14 +76,14 @@ const Ticket = () => {
                                                     (`
                                                     ${new Intl.DateTimeFormat('en-us',
                                                         { hour: 'numeric', minute: 'numeric' }
-                                                    ).format(new Date(flight.departureDate.startDate))} 
+                                                    ).format(new Date(flight.departureDate.startDate))}
                                                      `
                                                     )
                                                     :
                                                     (`
                                                     ${new Intl.DateTimeFormat('en-us',
                                                         { hour: 'numeric', minute: 'numeric' }
-                                                    ).format(new Date(flight.departureDate))} 
+                                                    ).format(new Date(flight.departureDate))}
                                                          `
                                                     )
                                             }
@@ -95,18 +97,21 @@ const Ticket = () => {
                         ))
 
 
-                    )
-                    :
-                    <div className='bg-services text-center capitalize space-y-3 text-lg font-semibold pt-4'>
-                        <p>No booked flights yet</p>
-                        <button type="button"
-                            className=' bg-orange rounded-lg px-5 py-2 capitalize font-semibold text-white text-base'
-                            aria-label='discoverbtn'
-                        >
-                            <Link to='/bookings'>book flight</Link>
-                        </button>
-                    </div>
+                        :
+                        <div className='bg-services text-center capitalize space-y-3 text-lg font-semibold pt-4'>
+                            <p>No booked flights yet</p>
+                            <button type="button"
+                                className=' bg-orange rounded-lg px-5 py-2 capitalize font-semibold text-white text-base'
+                                aria-label='discoverbtn'
+                            >
+                                <Link to='/bookings'>book flight</Link>
+                            </button>
+                        </div>
+
+                )
             }
+
+
         </section>
     )
 }

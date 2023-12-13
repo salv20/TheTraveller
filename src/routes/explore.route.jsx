@@ -55,7 +55,6 @@ const Explore = ({ countryData, fetchCountry }) => {
                                                     onClick={(e) => {
                                                         const parentElement = (e.currentTarget.closest('div').parentElement.children)
                                                         const name = parentElement[1].textContent
-                                                        console.log(name);
                                                         navigate('/bookings', { state: name })
                                                     }}
                                                 >Visit</button>

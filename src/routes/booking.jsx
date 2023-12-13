@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Bookingform from "../Pages/booking/bookingform";
 import Bookinglist from "../Pages/booking/bookinglist";
 import asyncFunc from "../redux/countryApi/countryAction";
 import { connect } from "react-redux";
 import ThreeDotsWave from "../components/dotwave";
+import { contextProvider } from "../App";
+
 const Booking = ({ countryData, fetchCountry }) => {
     const [fetchStorage, setFetchStorage] = useState(false)
 
+    const tripContext = useContext(contextProvider)
+    const trip = tripContext[0]
+    const setTrip = tripContext[1]
     const storageFunc = () => {
         setFetchStorage(!fetchStorage)
+        setTrip(!trip)
     }
     useEffect(() => {
         fetchCountry()
