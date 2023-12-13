@@ -4,9 +4,9 @@ const Ticket = () => {
         <section className='grid-cols-3 space-y-10 pt-4 pb-8'>
 
             {
-                localStorage.bookedFlights &&
                 (
-                    (JSON.parse(localStorage.getItem('bookedFlights')).length) ?
+                    localStorage.bookedFlights &&
+                        (JSON.parse(localStorage.getItem('bookedFlights')).length) ?
                         JSON.parse(localStorage.getItem('bookedFlights')).map((flight, index) => (
 
                             <article className=' col-span-2 space-y-4 bg-heading rounded-3xl' key={index}>
