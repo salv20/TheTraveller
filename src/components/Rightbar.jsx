@@ -61,18 +61,19 @@ const Rightbar = () => {
                                     {/*  */}
                                     <p>
                                         {
+
                                             country.departureDate.startDate ?
                                                 (`
                                        departureTime: ${new Intl.DateTimeFormat('en-us',
                                                     { hour: '2-digit', minute: '2-digit' }
-                                                ).format(new Date(country.departureDate.startDate))} 
+                                                ).format((new Date(country.departureDate.startDate).setHours(new Date(country.departureDate.startDate).getHours() + 5)))} 
                                              `
                                                 )
                                                 :
                                                 (`
                                         departureTime: ${new Intl.DateTimeFormat('en-us',
                                                     { hour: '2-digit', minute: '2-digit' }
-                                                ).format(new Date(country.departureDate))} 
+                                                ).format((new Date(country.departureDate).setHours(new Date(country.departureDate).getHours() + 5)))} 
                                                  `
                                                 )
                                         }
