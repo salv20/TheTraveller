@@ -19,7 +19,7 @@ const Rightbar = () => {
     }, [trip])
 
     return (
-        <section className=' sect overflow-y-scroll h-screen bg-dawhite text-center px-2 capitalize pt-8 font-bold space-y-6 hidden md:block'>
+        <section className=' sect overflow-y-scroll h-screen bg-dawhite text-center px-4 capitalize pt-8 font-bold space-y-6 hidden md:block'>
             <h1 className='text-lg md:text-xl'>my profile</h1>
             <img src="/user.png" alt="" className='w-24 mx-auto border-2 border-orange rounded-full ' />
 
