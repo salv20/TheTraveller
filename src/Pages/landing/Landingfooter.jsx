@@ -11,22 +11,22 @@ const Landingfooter = () => {
             </div>
             <div className="grid w-fit">
                 <h1 className="font-semibold pb-2 ">company</h1>
-                <Link to='/'>home</Link>
-                <Link to='#about'>about</Link>
-                <Link to='#services'>services</Link>
+                <a href="#">home</a>
+                <a href="#about">about</a>
+                <a href="#service">services</a>
             </div>
             <div className="grid w-fit">
                 <h1 className="font-semibold pb-2 ">Access</h1>
-                <Link to='login'>login</Link>
-                <Link to='social'>social</Link>
-                <Link to='contact' className=' normal-case'>contact</Link>
+                <Link to='/signup'><span className="pr-1">sign</span>up</Link>
+                <Link to='/login'>login</Link>
+                <Link to='/contact'>contact</Link>
             </div>
 
             <div className="grid w-fit ">
                 <h1 className="font-semibold pb-2">more</h1>
-                <Link to='destination'>destination</Link>
-                <Link to='flight'>flight</Link>
-                <Link to='weather'>weather</Link>
+                <Link to='/discover'>discover</Link>
+                <Link to='/bookings'>flight</Link>
+                <Link to='/weather'>weather</Link>
             </div>
 
             <div className="pt-4 md:pt-0">

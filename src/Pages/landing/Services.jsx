@@ -29,9 +29,8 @@ const Services = () => {
     const name = service.name
     const symbol = service.symbol
     const text = service.text
-    const path = service.path
     return (
-        <section className="p-5  bg-services gap-y-2 grid text-lightgray text-center" onClick={clickFunc}>
+        <section className="p-5  bg-services gap-y-2 grid text-lightgray text-center" onClick={clickFunc} id="service">
             <h2 className="font-bold text-semibold uppercase text-lg md:text-xl">category</h2>
             <h1 className="text-xl md:text-2xl  font-semibold capitalize text-black ">we offer the best services</h1>
 

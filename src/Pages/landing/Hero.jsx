@@ -31,6 +31,7 @@ const Hero = () => {
     return (
         <section onClick={clickFunc}
             className=' bg-heroone py-5 md:py-14'
+            id='about'
         >
             <article className='md:flex px-6 gap-y-10 text-center md:text-left'>
                 <div className='space-y-5 md:w-1/2'>
